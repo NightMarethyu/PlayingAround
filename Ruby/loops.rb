@@ -2,9 +2,9 @@
 
 loop_loop = 0
 loop do
-    puts "loop loop is #{loop_loop}"
-    loop_loop += 1
-    break if loop_loop == 5
+  puts "loop loop is #{loop_loop}"
+  loop_loop += 1
+  break if loop_loop == 5
 end
 
 puts ""
@@ -12,8 +12,8 @@ puts ""
 
 while_loop = 1
 while while_loop < 5 do
-    puts "while loop is #{while_loop}"
-    while_loop += 1
+  puts "while loop is #{while_loop}"
+  while_loop += 1
 end
 
 puts ""
@@ -22,8 +22,8 @@ puts ""
 
 until_loop = 1
 until until_loop > 5 do
-    puts "until loop is #{until_loop}"
-    until_loop += 1
+  puts "until loop is #{until_loop}"
+  until_loop += 1
 end
 
 puts ""
@@ -34,14 +34,14 @@ puts ""
 # For loops are similar to Python in that it can be a for...in... loop
 
 for i in 0..5
-    puts "#{i} zombies incoming!"
+  puts "#{i} zombies incoming!"
 end
 
 puts ""
 # times loop is a specified number of times
 
 5.times do |number|
-    puts "Alternative fact number #{number}"
+  puts "Alternative fact number #{number}"
 end
 
 puts ""
