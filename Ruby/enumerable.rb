@@ -158,3 +158,10 @@ end
 
 no_lila(friends)
 # this will return the array ['Marinette', 'Adrien', 'Alya', 'Nino']
+
+# collect is another useful loop, take for example you have an array of numbers
+# and you want to get an array of those numbers squared collect will do it pretty easily
+# collect is another way to call the map method
+
+# example
+lilas_lies.collect{ |num| num**2 } #=> [49, 81, 169, 25] (those are more realistic numbers for Lila)
