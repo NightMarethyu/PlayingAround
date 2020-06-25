@@ -24,7 +24,5 @@ def stock_picker(prices)
 end
 
 print "Enter comma separated array of prices: "
-prices = gets.chomp
-prices = prices.split(",")
-prices.map! { |price| price = price.to_i}
+prices = gets.chomp.split(",").map! { |price| price = price.to_i}
 p stock_picker(prices)
