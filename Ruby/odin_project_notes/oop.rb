@@ -287,3 +287,130 @@ class Account
 end
 
 checking_account = Account.new("Bezos", 163_300_000_000)
+
+### Launch School OOP Book
+
+# Exercises
+# 1) How do we create an object in Ruby
+class ThisIsAnObject
+end
+
+# 2) What is a module? What is it's purpose?
+# A module is piece of code we want to use in multiple places, Ruby has several
+# built-in modules such as Math. To "mixin" our modules with ourclases we use
+# include Module in the class
+module PrintName
+  def display_object_name(name)
+    puts name
+  end
+end
+
+# Launch School OOP Classes and Objects 1
+# Exercises
+
+# 1) Create a class called MyCar
+class MyCar
+  attr_accessor :year, :color, :model, :speed
+
+  def initialize(year, color, model)
+    self.year = year
+    self.color = color
+    self.model = model
+    self.speed = 0
+  end
+
+  def speed_up(increase)
+    self.speed += increase
+  end
+
+  def brake(decrease)
+    self.speed -= decrease
+  end
+
+  def car_off
+    self.speed = 0
+    puts "The car color #{self.color}, year #{self.year}, and model #{self.model} is now off"
+  end
+
+  def cur_speed
+    puts "You current speed is #{self.speed}"
+  end
+
+  def spray_paint(color)
+    self.color = color
+    puts "Your car is now #{self.color}"
+  end
+end
+
+# Above I took a note about overwriting inherited methods. Well Ruby allows that
+# for any method including built in methods. Say for instance you wanted
+# to print some information when you use "puts instance_name" you could
+# write a .to_s method in your class that will print specific information
+# as opposed to the inbuilt .to_s method that would print something like
+# this #<MyClassName:0x0000ff>
+
+# keep in mind that overwriting this could cause some unexpected behavior if
+# you forget that you've overwritten an inbuilt method. Like if you overwrote
+# to_s then when you used string interpolation, #{instance_name} it would
+# add the overwritten information from your custom to_s method
+
+## Classes and Objects Part II
+# Exercises
+
+# 1) Add a class method that calculates the gas milage of any car
+# 2) override the to_s method to create a userfriendly printout
+class MyCar
+  attr_accessor :year, :color, :model, :speed
+
+  def initialize(year, color, model)
+    self.year = year
+    self.color = color
+    self.model = model
+    self.speed = 0
+  end
+
+  def speed_up(increase)
+    self.speed += increase
+  end
+
+  def brake(decrease)
+    self.speed -= decrease
+  end
+
+  def car_off
+    self.speed = 0
+    puts "The car is now off"
+  end
+
+  def cur_speed
+    puts "You current speed is #{self.speed}"
+  end
+
+  def spray_paint(color)
+    self.color = color
+    puts "Your car is now #{self.color}"
+  end
+
+  def self.mileage(gal, mile)
+    puts "#{mile/gal} miles per gallon"
+  end
+
+  def to_s
+    "The car with color #{self.color}, year #{self.year}, and model #{self.model}"
+  end
+end
+
+# 3) The code gives an error because the class Person only has an attr_reader
+# to fix it you would need to change attr_reader to attr_accessor or attr_writer
+
+## Launch School Inheritance
+
+# a common naming convetion is to add the "able" suffix on a verb that describes
+# the behavior the module is modeling.
+
+# using the .ancestors method to view the inheritance of a class tells us that
+# the order in which things are implemented is important. We can override
+# methods, just by changing the order in which we add the code.
+
+# we can use modules to contain classes and methods so we can abstract our code
+# and have things contained in separate locations.
