@@ -1,5 +1,7 @@
 import os, pygame
 
-class Background():
-    def __init__(self, img):
-        self.image = pygame.image.load(os.path.join('tempAssets', img)).convert()
+import settings
+
+class Platform:
+    def __init__(self, screen, clock, manager, x, y, rectangle):
+        self.rectangle = pygame.Rect((rectangle), (x, y))

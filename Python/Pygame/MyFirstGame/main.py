@@ -1,48 +1,48 @@
 import os, pygame, pygame_gui
 
+import settings
+
 from spriteClasses import Background
 from gameplayClasses import Level
+from gameStateClasses import Pause_game
 
 def main():
+    settings.init()
+    
     pygame.init()
     
     # Set up the window
     pygame.display.set_caption('My First Game')
     screen = pygame.display.set_mode((800, 600))
     
-    # Add a default gray background
-    background = Background('1-1.png')
-    
-    level = Level(1, '1-1.png', 0, 0, 4)
-    
     # Start the GUI manager
     manager = pygame_gui.UIManager((800, 600))
     clock = pygame.time.Clock()
     
-    is_running = True
+    new_game = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((350, 275), (100, 50)),
+                                            text="New Game",
+                                            manager=manager)
     
-    while is_running:
+    while settings.playing:
         time_delta = clock.tick(60)/1000.0
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                is_running = False
+                settings.playing = False
                 
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RIGHT:
-                    level.x_change = level.speed
+                if event.key == pygame.K_ESCAPE:
+                    pause = Pause_game(screen, clock, manager)
             
-            if event.type == pygame.KEYUP:
-                if event.key == pygame.K_RIGHT:
-                    level.x_change = 0
-            
+            if event.type == pygame.USEREVENT:
+                if event.user_type == pygame_gui.UI_BUTTON_PRESSED:
+                    if event.ui_element == new_game:
+                        new_game.hide()
+                        level = Level(1, '1-1.png', 0, 0, 4, screen, clock, manager)
+                        
             manager.process_events(event)
-
+        
         manager.update(time_delta)
-        
-        level.scroll_background()
-        screen.blit(level.background, (level.x, level.y))
-        
         manager.draw_ui(screen)
         
         pygame.display.update()
