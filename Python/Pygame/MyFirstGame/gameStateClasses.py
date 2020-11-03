@@ -11,12 +11,12 @@ class Pause_game:
         
         paused = True
         
-        while paused:
+        while paused and playing:
             time_delta = clock.tick(60)/1000.0
         
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    paused = False                    
+                    playing = False
 
                 if event.type == pygame.USEREVENT:
                     if event.user_type == pygame_gui.UI_BUTTON_PRESSED:

@@ -3,6 +3,7 @@ import os, pygame, pygame_gui
 import settings
 
 from gameStateClasses import Pause_game
+from spriteClasses import Player
 
 class Level():
     
