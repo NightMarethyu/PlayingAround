@@ -1,0 +1,58 @@
+import React from 'react'
+import ReactDom from 'react-dom'
+
+// CSS
+import './index.css'
+
+// This is a copy of the "Tutorial" folder, I'm using tutorial as a note folder and this will be the first 
+// mini-project that the course covers
+
+// We've got the basics for the book list, Now time to add the CSS
+// CSS is added using an import method, same as adding a JavaScript file, but you need to use
+// the filepath for it to work, a relative filepath will be fine
+
+function BookList() {
+    return ( 
+    <section className="booklist">
+        <Book />
+    </section>
+    );
+}
+
+// At this point the video teacher moved the items in the "Image", "Title", and "Author" components
+// into the Book function. I'm not going to do that because I want the references.
+
+const Book = () => {
+    return (
+        <article className="book" >
+            <Image></Image>
+            <Title />
+            <Author />
+        </article>
+    )
+}
+
+const Image = () => <img src="https://images-na.ssl-images-amazon.com/images/I/9147oFAfHlL._AC_UL200_SR200,200_.jpg" alt="Rhythm of War" />
+
+const Title = () => {
+    const title = 'Rhythm of War'
+    return (<h1>{title}</h1>)
+}
+
+// Here is an example of adding inline CSS in the JavaScript Source. I like how it doesn't do
+// weird stuff with spacing (in the final html on the site) if you do multi-line settings like I did here.
+// personally I think working with CSS or SCSS is better, but this could be useful for inline stuff
+
+const author = 'Brandon Sanderson'
+const Author = () => <h4 style={
+    {color: '#617d98',
+    fontSize: '0.75rem',
+    marginTop: '0.25rem'}
+} >{author.toUpperCase()}</h4>
+
+// Super cool stuff the instructor just went over. Since this is JavaScript we can use methods to 
+// manipulate things. For example, the Author variable above can be made uppercase by using the 
+// toUpperCase method in JavaScript. I really like this because it makes formatting things super
+// easy, barely an inconvenience.
+
+ReactDom.render( <BookList /> , document.getElementById('root'));
