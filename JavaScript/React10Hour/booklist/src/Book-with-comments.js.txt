@@ -1,0 +1,49 @@
+import React from 'react'
+
+const Book = (props) => {
+    const {img, title, author, alt} = props.book
+    const index = props.index + 1
+
+    // To add interactivity we need an attribute and an eventHandler
+    // Events covered by the tutorial are onClick and onMouseOver
+
+    // There are a couple ways to add functionality with buttons, an inline function or an arrow function
+
+    // all events have an included argument so you can access that event by including it in your function declaration
+    const clickHandler = (e) => {
+        console.log(e)
+        console.log(e.target)
+        alert('Life before death. Strength before weakness. Journey before destination.')
+    }
+
+    // adding a function with an argument like this, you need to have it set up as an arrow function in the
+    // jsx code in the return statement, otherwise it will run automatically as the site loads.
+    const complexExample = (alt) => {
+        console.log(alt)
+    }
+
+    return (
+        <article className="book" >
+            <div className="item-number">
+                {index}
+            </div>
+            <img onMouseOver={() => {
+                console.log(author)
+            }} src={img} alt={alt} />
+            <h1 onClick={() => console.log(title)}>{title}</h1>
+            <h4>{author}</h4>
+            <button type="button" onClick={clickHandler}>Speak the Words</button>
+            <button type="button" onClick={() => complexExample(alt)}>Image Alt</button>
+        </article>
+    );
+};
+
+
+// Quick notes on default exports:
+
+// There can only be one default export in a file. This makes logical sense so you don't have conflicts
+// A benefit of using default exports is we can rename them in our linked files, so I can
+// Book here and in the file that references this I can call it BookCard or if that makes more sense for that file
+// If its not the default export than renaming it is not allowed.
+
+export default Book
