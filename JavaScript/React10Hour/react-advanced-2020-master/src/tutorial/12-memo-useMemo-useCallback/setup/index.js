@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { useFetch } from '../../9-custom-hooks/final/2-useFetch';
+import { useFetch } from '../../9-custom-hooks/setup/2-useFetch';
 
 const url = 'https://course-api.netlify.app/api/javascript-store-products';
 // every time props or state changes, component re-renders
+
 const calculateMostExpensive = (data) => {
   console.log('hello ');
   return (
@@ -15,6 +16,7 @@ const calculateMostExpensive = (data) => {
     }, 0) / 100
   );
 };
+
 const Index = () => {
   const { products } = useFetch(url);
   const [count, setCount] = useState(0);
@@ -64,6 +66,7 @@ const SingleProduct = ({ fields, addToCart }) => {
   useEffect(() => {
     console.count('single item called');
   });
+
   let { name, price } = fields;
   price = price / 100;
   const image = fields.image[0].url;
@@ -77,4 +80,5 @@ const SingleProduct = ({ fields, addToCart }) => {
     </article>
   );
 };
+
 export default Index;
