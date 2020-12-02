@@ -1,0 +1,28 @@
+nav {
+  background-color: #a3a4a8;
+  
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    li{
+      background-color: #333;
+
+      :hover {
+        background-color: #fff;
+        color: #7a38ff;
+        text-decoration: underline;
+      }
+    }
+
+    a {
+      font-size: 1.1rem;
+      text-decoration: none;
+      font-weight: bold;
+      color: #fff;
+
+    }
+  }
+}
