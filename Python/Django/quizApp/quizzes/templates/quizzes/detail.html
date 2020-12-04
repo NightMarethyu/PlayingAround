@@ -1,0 +1,23 @@
+{% load static %}
+<h1>{{ simplequiz.quiz_name }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form name="myForm" method="post">
+{% csrf_token %}
+{% for question in simplequiz.simplequestion_set.all %}
+  <h3>{{ question.title }}</h3>
+  <p>{{ question.prompt }}</p>
+  {% if question.choose_one %}
+    {% for choice in question.simpleoptions_set.all %}
+      <label><input type="radio" value={{ choice.points }} name="{{ question.title|lower|cut:" " }}" /> {{ choice.option_text }}</label><br />
+    {% endfor %}
+  {% else %}
+    {% for choice in question.simpleoptions_set.all %}
+      <label><input type="checkbox" value={{ choice.points }} name="{{ question.title }}" class="{{ question.title|lower }}" /> {{ choice.option_text }}</label><br />
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+<button type="button" id="myButton">Submit</button>
+</form>
+<script src="{% static 'quizzes/handleForm.js' %}"></script>

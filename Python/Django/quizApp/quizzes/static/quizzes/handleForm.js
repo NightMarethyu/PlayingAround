@@ -43,9 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     var packClass = document.getElementsByClassName("packingBoxes")
     var travel = parseInt(document.querySelector('input[name="travelling"]:checked').value)
     var actClass = document.getElementsByClassName("activities")
-    var finalNight = parseInt(document.querySelector('input[name="finalNight"]:checked').value)
-
-    console.log(document.querySelector('input[name="finalNight"]:checked').value)
+    var finalNight = parseInt(document.querySelector('input[name="finalnight"]:checked').value)
 
     const getValues = (checks) => {
       let current = 0
