@@ -1,0 +1,134 @@
+{
+  "title": "Test Quiz",
+  "quizName": "testQuiz",
+  "questions": [
+    {
+      "title": "Question One",
+      "prompt": "Single Points per answer",
+      "options": [
+        {
+          "title": "One Gryphondor",
+          "points": "g"
+        },
+        {
+          "title": "One Ravenclaw",
+          "points": "r"
+        },
+        {
+          "title": "One Hufflepuff",
+          "points": "h"
+        },
+        {
+          "title": "One Slytherin",
+          "points": "s"
+        }
+      ]
+    },
+    {
+      "title": "Question Two",
+      "prompt": "Double Points per answer",
+      "options": [
+        {
+          "title": "Two Gryphondor",
+          "points": "gg"
+        },
+        {
+          "title": "Two Ravenclaw",
+          "points": "rr"
+        },
+        {
+          "title": "Two Hufflepuff",
+          "points": "hh"
+        },
+        {
+          "title": "Two Slytherin",
+          "points": "ss"
+        }
+      ]
+    },
+    {
+      "title": "Question Three",
+      "prompt": "Two different vars per answer",
+      "options": [
+        {
+          "title": "One G One S",
+          "points": "gs"
+        },
+        {
+          "title": "One G One R",
+          "points": "gr"
+        },
+        {
+          "title": "One G One H",
+          "points": "gh"
+        },
+        {
+          "title": "One R One S",
+          "points": "rs"
+        }
+      ]
+    },
+    {
+      "title": "Question Four",
+      "prompt": "Big Mix of vars",
+      "options": [
+        {
+          "title": "two G one S one r",
+          "points": "ggsr"
+        },
+        {
+          "title": "two h one s two g",
+          "points": "hhsg"
+        },
+        {
+          "title": "three r two g one s",
+          "points": "rrrggs"
+        },
+        {
+          "title": "two s one h three r",
+          "points": "sshrrr"
+        }
+      ]
+    },
+    {
+      "title": "Question five",
+      "prompt": "Remove a bunch from one of the options",
+      "options": [
+        {
+          "title": "remove 5 g",
+          "points": "-gggg"
+        },
+        {
+          "title": "remove 5 s",
+          "points": "-ssss"
+        },
+        {
+          "title": "remove 5 r",
+          "points": "-rrrr"
+        },
+        {
+          "title": "remove 5 h",
+          "points": "-hhhh"
+        }
+      ]
+    }
+  ],
+  "results": {
+    "g": {
+      "title": "Gryphondor",
+      "text": "You chose g the most"
+    },
+    "r": {
+      "title": "Ravenclaw",
+      "text": "You chose r the most"
+    },
+    "s": {
+      "title": "Slytherin",
+      "text": "You chose s the most"
+    },
+    "h": {
+      "title": "Hufflepuff",
+      "text": "You chose h the most"
+    }
+  }
+}

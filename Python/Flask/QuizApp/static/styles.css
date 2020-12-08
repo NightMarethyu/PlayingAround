@@ -1,0 +1,16 @@
+#regForm {
+  background-color: #fff;
+  margin: 100px auto;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+.answer {
+  display: flex;
+  flex-direction: row;
+}
+
+.tab {
+  display: none;
+}

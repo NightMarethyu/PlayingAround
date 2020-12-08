@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  {{ data["title"] }}
+{% endblock %}
+
+{% block main %}
+  <h1>{{ data["title"] }}</h1>
+  <form id="regForm" method="post" action="/quiz/{{ data["quizName"] }}/results">
+    {% for q in data["questions"] %}
+      <div class="tab">
+        <h3>{{ q["title"] }}</h3>
+        <p>{{ q["prompt"] }}</p>
+        {% for o in q["options"] %}
+          <span class="answer"><input type="radio" value={{ o["points"] }} name="{{ q["title"] }}" />{{ o["title"] }}</span><br />
+        {% endfor %}
+      </div>
+    {% endfor %}
+    <div style="overflow: auto;">
+      <div style="float: right;">
+        <button type="button" id="prevBtn">Previous</button>
+        <button type="button" id="nextBtn">Next</button>
+        <button type="submit" id="subBtn">Submit</button>
+      </div>
+    </div>
+  </form>
+{% endblock %}
