@@ -1,25 +1,26 @@
 {
   "title": "Test Quiz",
   "quizName": "testQuiz",
+  "quizCSS": "/static/css/test.css",
   "questions": [
     {
       "title": "Question One",
       "prompt": "Single Points per answer",
       "options": [
         {
-          "title": "One Gryphondor",
+          "title": "One G",
           "points": "g"
         },
         {
-          "title": "One Ravenclaw",
+          "title": "One R",
           "points": "r"
         },
         {
-          "title": "One Hufflepuff",
+          "title": "One H",
           "points": "h"
         },
         {
-          "title": "One Slytherin",
+          "title": "One S",
           "points": "s"
         }
       ]
@@ -29,19 +30,19 @@
       "prompt": "Double Points per answer",
       "options": [
         {
-          "title": "Two Gryphondor",
+          "title": "Two G",
           "points": "gg"
         },
         {
-          "title": "Two Ravenclaw",
+          "title": "Two R",
           "points": "rr"
         },
         {
-          "title": "Two Hufflepuff",
+          "title": "Two H",
           "points": "hh"
         },
         {
-          "title": "Two Slytherin",
+          "title": "Two S",
           "points": "ss"
         }
       ]
@@ -115,19 +116,19 @@
   ],
   "results": {
     "g": {
-      "title": "Gryphondor",
+      "title": "G",
       "text": "You chose g the most"
     },
     "r": {
-      "title": "Ravenclaw",
+      "title": "R",
       "text": "You chose r the most"
     },
     "s": {
-      "title": "Slytherin",
+      "title": "S",
       "text": "You chose s the most"
     },
     "h": {
-      "title": "Hufflepuff",
+      "title": "H",
       "text": "You chose h the most"
     }
   }

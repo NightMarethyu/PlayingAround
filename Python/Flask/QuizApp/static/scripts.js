@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById("nextBtn").style.display = "inline"
       document.getElementById("subBtn").style.display = "none"
     }
+
+    fixStepIndicator(n)
   }
 
   function nextPrev(n) {
@@ -34,6 +36,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     showTab(currentTab)
+  }
+
+  function fixStepIndicator(n) {
+    var i, x = document.getElementsByClassName("step")
+    for (i = 0, l = x.length; i < l; i++) {
+      x[i].className = x[i].className.replace(" active", "")
+    }
+    x[n].className += " active"
   }
 
   document.getElementById('nextBtn').addEventListener("click", () => nextPrev(1))

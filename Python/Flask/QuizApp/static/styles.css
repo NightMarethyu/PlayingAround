@@ -1,3 +1,147 @@
+:root {
+  font-size: 16px;
+  --text-primary: #808285;
+  --text-secondary: #fcf1cb;
+  --bg-primary: #231f20;
+  --bg-secondary: #141418;
+  --transition-speed: 600ms;
+}
+
+/* This is where the basic setup for the page starts */
+body {
+  color: black;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  font-family: 'Rubik', sans-serif;
+}
+  body::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+  body::-webkit-scrollbar-track {
+    background: #1e1e24;
+  }
+  body::-webkit-scrollbar-thumb {
+    background: #256190;
+  }
+
+main {
+  margin-left: 5rem;
+  padding: 1rem;
+  font-family: 'Roboto';
+}
+
+/* This is the css for the navbar, I'm using the code from here: https://github.com/fireship-io/222-responsive-icon-nav-css */
+/* Hopefully I'll customize it more since this stuff is nice but
+  I want to kind of do something myself */
+
+.navbar {
+  position: fixed;
+  background-color: var(--bg-primary);
+  transition: width 200ms ease;
+}
+
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-item {
+  width: 100%;
+}
+
+.nav-item:last-child {
+  margin-top: auto;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  filter: grayscale(100%) opacity(0.7);
+  transition: var(--transition-speed);
+}
+
+.nav-link:hover {
+  filter: grayscale(0%) opacity(1);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.link-text {
+  display: none;
+  margin-left: 1rem;
+}
+
+.nav-link svg {
+  width: 2rem;
+  min-width: 2rem;
+  margin: 0 1.5rem;
+}
+
+.fa-w-16 {
+  color: #256190;
+  transition: var(--transition-speed);
+}
+
+.logo {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  font-size: 1.5rem;
+  letter-spacing: 0.3ch;
+  width: 100%;
+}
+
+.logo-text {
+  display: inline;
+  position: absolute;
+  left: -999px;
+  transition: var(--transition-speed);
+}
+
+/* here is were I do the styling for the quiz cards */
+.quiz-list {
+  width: 60%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* .quiz-card {
+  width: 90%;
+  margin: auto;
+  border: solid 1px var(--text-primary);
+  border-radius: 5%;
+  padding: 10px;
+} */
+
+.quiz-link-title {
+  text-decoration: none;
+  color: var(--bg-primary);
+  border: solid 1px var(--text-primary);
+  width: 90%;
+  margin: auto;
+  border-radius: 5%;
+  padding: 10px;
+}
+
+.quiz-link-title:hover {
+  border: solid 4px var(--bg-secondary);
+  transition: var(--transition-speed);
+}
+
+/* This is the styling for the form */
 #regForm {
   background-color: #fff;
   margin: 100px auto;
@@ -14,3 +158,77 @@
 .tab {
   display: none;
 }
+
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+  .step .active {
+    opacity: 1;
+  }
+
+  .step .finish {
+    background-color: #4caf50;
+  }
+
+/* This is the media break for mobile */
+@media only screen and (max-width: 600px) {
+
+  .navbar {
+    bottom: 0;
+    width: 100vw;
+    height: 5rem;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+  }
+
+  .nav-link {
+    justify-content: center;
+  }
+
+  main {
+    margin: 0;
+  }
+}
+
+/* This media break ensures that the settings don't
+  do weird stuff between mobile and desktop */
+@media only screen and (min-width: 600px) {
+
+  .navbar {
+    top: 0;
+    width: 5rem;
+    height: 100vh;
+  }
+
+    .navbar:hover {
+      width: 16rem;
+    }
+
+      .navbar:hover .link-text {
+        display: inline;
+      }
+    
+      .navbar:hover .logo svg {
+        margin-left: 11rem;
+      }
+
+      .navbar:hover .logo-text {
+        left: 0px;
+      }
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -4,6 +4,10 @@
   {{ data["title"] }}
 {% endblock %}
 
+{% block head %}
+  {% if data["quizCSS"] %}<link href="{{ data["quizCSS"] }}" rel="stylesheet" />{% endif %}
+{% endblock %}
+
 {% block main %}
   <h1>{{ data["title"] }}</h1>
   <form id="regForm" method="post" action="/quiz/{{ data["quizName"] }}/results">
@@ -22,6 +26,11 @@
         <button type="button" id="nextBtn">Next</button>
         <button type="submit" id="subBtn">Submit</button>
       </div>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+      {% for q in data["questions"] %}
+        <span class="step"></span>
+      {% endfor %}
     </div>
   </form>
 {% endblock %}

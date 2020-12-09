@@ -1,11 +1,10 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-  Hello
+  Welcome
 {% endblock %}
 
 {% block main %}
-  {% for quiz in quizzes %}
-    <a href="/quiz/{{ quiz["quizName"] }}"><h1>{{ quiz["title"] }}</h1></a>
-  {% endfor %}
+  <h1>Welcome</h1>
+  <p>This is my website.</h1>
 {% endblock %}

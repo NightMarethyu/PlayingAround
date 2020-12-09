@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, redirect, render_template, request, url_for
+from flask import Flask, redirect, render_template, request, url_for, abort
 import json
 
 from helpers import rescalc
@@ -9,16 +9,26 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    with open('json/index.json') as f:
-        data = json.load(f)
+    return render_template("index.html")
+
+@app.route("/quizzes")
+def quizzes():
+    try:
+        with open('json/quizzes.json') as f:
+            data = json.load(f)
+    except:
+        abort(404)
     
-    return render_template("index.html", quizzes=data['quizzes'])
+    return render_template("quizzes.html", quizzes=data['quizzes'])
 
 @app.route("/quiz/<quizName>")
 def quiz(quizName):
     quizJson = quizName + '.json'
-    with open('json/' + quizJson) as f:
-        data = json.load(f)
+    try:
+        with open('json/' + quizJson) as f:
+            data = json.load(f)
+    except:
+        abort(404)
 
     return render_template("quiz.html", data=data)
 
@@ -26,8 +36,12 @@ def quiz(quizName):
 def results(quizName):
     answers = []
     quizJson = quizName + '.json'
-    with open('json/' + quizJson) as f:
-        data = json.load(f)
+    
+    try:
+        with open('json/' + quizJson) as f:
+            data = json.load(f)
+    except:
+        abort(404)
     
     for q in data["questions"]:
         t = q["title"]
@@ -39,3 +53,8 @@ def results(quizName):
     temp = rescalc(quizName, answers, results)
     
     return render_template("results.html", res=temp)
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+

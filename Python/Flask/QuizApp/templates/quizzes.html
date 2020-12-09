@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Quizzes
+{% endblock %}
+
+{% block main %}
+  <h1>Cool Quizzes</h1>
+  <div class="quiz-list">
+  {% for quiz in quizzes %}
+    <a href="/quiz/{{ quiz["quizName"] }}" class="quiz-link-title">
+      <div class="quiz-card">
+        <h3>{{ quiz["title"] }}</h3>
+        <p>{{ quiz["description"] }}</p>
+        <img class="quiz-card-img" src="{{ quiz["img"] }}" alt="{{ quiz["imgAlt"] }}" />
+      </div>
+    </a>
+  {% endfor %}
+  </div>
+{% endblock %}
