@@ -15,16 +15,22 @@
       <div class="tab">
         <h3>{{ q["title"] }}</h3>
         <p>{{ q["prompt"] }}</p>
+        <ul class="answers" >
         {% for o in q["options"] %}
-          <span class="answer"><input type="radio" value={{ o["points"] }} name="{{ q["title"] }}" />{{ o["title"] }}</span><br />
+        <li>
+          <input type="radio" value={{ o["points"] }} name="{{ q["title"] }}" />
+          <label>{{ o["title"] }}</label>
+          <div class="bullet"></div>
+        </li>
         {% endfor %}
+        </ul>
       </div>
     {% endfor %}
     <div style="overflow: auto;">
       <div style="float: right;">
-        <button type="button" id="prevBtn">Previous</button>
-        <button type="button" id="nextBtn">Next</button>
-        <button type="submit" id="subBtn">Submit</button>
+        <button class="btn" type="button" id="prevBtn">Previous</button>
+        <button class="btn" type="button" id="nextBtn">Next</button>
+        <button class="btn" type="submit" id="subBtn">Submit</button>
       </div>
     </div>
     <div style="text-align: center; margin-top: 40px;">
@@ -33,4 +39,12 @@
       {% endfor %}
     </div>
   </form>
+  {% if data["background"] %}
+    <div class="background-svg">
+    {{ data["background"]|safe }}
+    </div>
+  {% endif %}
+  {% if data["scripts"] %}
+    <script src="/static/scripts/{{ data["scripts"] }}"></script>
+  {% endif %}
 {% endblock %}
