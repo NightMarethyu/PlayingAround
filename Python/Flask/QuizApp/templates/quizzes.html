@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block main %}
+  <div class="info-page">
   <h1>Cool Quizzes</h1>
   <div class="quiz-list">
   {% for quiz in quizzes %}
@@ -16,5 +17,6 @@
       </div>
     </a>
   {% endfor %}
+  </div>
   </div>
 {% endblock %}

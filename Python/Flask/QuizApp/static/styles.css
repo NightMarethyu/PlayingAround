@@ -9,8 +9,8 @@
 
 /* This is where the basic setup for the page starts */
 body {
-  color: black;
-  background-color: white;
+  color: #2e1c0a;
+  background-color: #f2edda;
   margin: 0;
   padding: 0;
   font-family: 'Rubik', sans-serif;
@@ -27,8 +27,13 @@ body {
 
 main {
   margin-left: 5rem;
-  padding: 1rem;
+  padding: 1rem 0 0 1rem;
   font-family: 'Roboto';
+}
+
+.info-page {
+  width: 70%;
+  margin: auto;
 }
 
 /* This is the css for the navbar, I'm using the code from here: https://github.com/fireship-io/222-responsive-icon-nav-css */
@@ -110,9 +115,13 @@ main {
   transition: var(--transition-speed);
 }
 
+#wel-banner {
+  text-align: center;
+  font-size: 5rem;
+}
+
 /* here is were I do the styling for the quiz cards */
 .quiz-list {
-  width: 60%;
   margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -258,6 +267,28 @@ main {
   input[type="radio"]:checked ~ .bullet {
     position: absolute;
     opacity: 1;
+  }
+
+  .tab-links,
+  .sub-tab-links {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .tab-title,
+  .sub-tab-title {
+    padding: 10px;
+    border: none;
+    box-shadow: none;
+    background: unset;
+  }
+
+  .active-tab {
+    background-color: #a3a3a3;
+  }
+
+  .tab-data {
+    display: none;
   }
 
 /* This is the media break for mobile */
