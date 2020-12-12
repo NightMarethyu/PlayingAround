@@ -4,9 +4,15 @@
   Results
 {% endblock %}
 
+{% block head %}
+  <link href="/static/css/results-hog.css" rel="stylesheet" />
+{% endblock %}
+
 {% block main %}
   <div class="info-page">
     <h1>{{ res["title"] }}</h1>
-    <p>{{ res["text"] }}</p>
+    {% for text in res["text"]}
+      <p>{{ text }}</p>
+    {% endfor %}
   </div>
 {% endblock %}

@@ -1,40 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
   var currentTab = 0
+  var tabs = document.getElementsByClassName("tab")
+  var nextBtn = document.getElementById("nextBtn")
+  var prevBtn = document.getElementById("prevBtn")
+  var subBtn = document.getElementById("subBtn")
+  var radios = document.querySelectorAll('input[type="radio"]')
   showTab(currentTab)
+  subBtn.disabled = true
 
   function showTab(n) {
-    var x = document.getElementsByClassName("tab")
-    x[n].style.display = "block"
+    tabs[n].style.display = "block"
 
     if (n == 0) {
-      document.getElementById("prevBtn").style.display = "none"
+      prevBtn.style.display = "none"
     } else {
-      document.getElementById("prevBtn").style.display = "inline"
+      prevBtn.style.display = "inline"
     }
 
-    if (n == (x.length - 1)) {
-      document.getElementById("nextBtn").style.display = "none"
-      document.getElementById("subBtn").style.display = "inline"
+    if (n == (tabs.length - 1)) {
+      nextBtn.style.display = "none"
+      subBtn.style.display = "inline"
     } else {
-      document.getElementById("nextBtn").style.display = "inline"
-      document.getElementById("subBtn").style.display = "none"
+      nextBtn.style.display = "inline"
+      subBtn.style.display = "none"
     }
-
     fixStepIndicator(n)
   }
 
   function nextPrev(n) {
-    var x = document.getElementsByClassName("tab")
-
-    x[currentTab].style.display = "none"
-
+    tabs[currentTab].style.display = "none"
     currentTab = currentTab + n
-
-    if (currentTab >= x.length) {
+    if (currentTab >= tabs.length) {
       document.getElementById("regForm").submit();
       return false
     }
-
     showTab(currentTab)
   }
 
@@ -46,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     x[n].className += " active"
   }
 
-  document.getElementById('nextBtn').addEventListener("click", () => nextPrev(1))
-  document.getElementById('prevBtn').addEventListener("click", () => nextPrev(-1))
+  nextBtn.addEventListener("click", () => nextPrev(1))
+  prevBtn.addEventListener("click", () => nextPrev(-1))
 
 })

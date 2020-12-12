@@ -39,24 +39,19 @@ def quiz(quizName):
 @app.route("/quiz/<quizName>/results", methods=["POST"])
 def results(quizName):
     answers = []
-    quizJson = quizName + '.json'
-    
+    quizJson = quizName + '.json'    
     try:
         with open('json/' + quizJson) as f:
             data = json.load(f)
     except:
-        abort(404)
-    
+        abort(404)    
     for q in data["questions"]:
         t = q["title"]
         ans = request.form.get(t)
-        answers.append(ans)
-    
-    results = data["results"]
-    
-    temp = rescalc(quizName, answers, results)
-    
-    return render_template("results.html", res=temp)
+        answers.append(ans)    
+    results = data["results"]    
+    res = rescalc(quizName, answers, results) 
+    return render_template("results.html", res=res)
 
 @app.errorhandler(404)
 def page_not_found(e):

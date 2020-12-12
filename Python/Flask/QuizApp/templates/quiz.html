@@ -15,7 +15,7 @@
       <div class="tab">
         <h3>{{ q["title"] }}</h3>
         <p>{{ q["prompt"] }}</p>
-        <ul class="answers" >
+        <ul class="answers">
         {% for o in q["options"] %}
         <li>
           <input type="radio" value={{ o["points"] }} name="{{ q["title"] }}" />
