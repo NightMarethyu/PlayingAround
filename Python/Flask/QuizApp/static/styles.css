@@ -93,6 +93,7 @@ main {
 
 .fa-w-16 {
   color: #256190;
+  fill: #256190;
   transition: var(--transition-speed);
 }
 
@@ -116,6 +117,7 @@ main {
 }
 
 #wel-banner {
+  min-height: 12vh;
   text-align: center;
   font-size: 5rem;
 }
@@ -148,6 +150,11 @@ main {
 .quiz-link-title:hover {
   border: solid 4px var(--bg-secondary);
   transition: var(--transition-speed);
+}
+
+.quiz-card-img {
+  max-width: 10vw;
+  float: right;
 }
 
 /* This is the styling for the form */

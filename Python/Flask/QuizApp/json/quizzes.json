@@ -1,18 +1,18 @@
 {
   "quizzes": [
     {
-      "title": "Vacation",
-      "quizName": "vacation",
-      "description": "This is based on a web comic I found that I thought would work well for testing. It did work well for testing, but now I'm just adding content to it for the sake of having more content on my test site.",
-      "img": "/static/images/quizzes/vacay.jpg",
-      "imgAlt": "Test Vacation Image"
-    },
-    {
       "title": "Hogwarts House Quiz",
       "quizName": "houseQuiz",
       "description": "This is the test quiz where I started really checking the functionality of my quiz app. It was surprisingly easy to build the backend stuff for this.",
-      "img": "/static/images/quizzes/vacay.jpg",
-      "imgAlt": "Test Vacation Image"
+      "img": "/static/images/quizzes/houses.jpg",
+      "imgAlt": "Hogwarts Houses"
+    },
+    {
+      "title": "Bottom Left",
+      "quizName": "bottomLeft",
+      "description": "This quiz will determine where you are on the Pure x Intelligent chart. Based on a stream by the members of HololiveEN.",
+      "img": "/static/images/quizzes/bottomLeft.png",
+      "imgAlt": "Bottom Left Chart"
     }
   ]
 }

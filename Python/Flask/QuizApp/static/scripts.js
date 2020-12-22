@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   var subBtn = document.getElementById("subBtn")
   var radios = document.querySelectorAll('input[type="radio"]')
   showTab(currentTab)
-  subBtn.disabled = true
 
   function showTab(n) {
     tabs[n].style.display = "block"
