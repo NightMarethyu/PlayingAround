@@ -12,10 +12,15 @@ function openTab(e, name) {
 
     if (name == "Recommendations") {
         let subs = document.getElementsByClassName("sub-tab-data")
+        let sublinks = document.getElementsByClassName("sub-tab-title")
         for (var i = 0, x = subs.length; i < x; i++) {
             subs[i].style.display = "none"
         }
+        for (var i = 0, x = sublinks.length; i < x; i++) {
+            sublinks[i].classList.remove("active-tab")
+        }
         subs[0].style.display = "block"
+        sublinks[0].classList.add("active-tab")
     }
 }
 
@@ -31,3 +36,8 @@ function openSubTab(e, name) {
     document.getElementById(name).style.display = "block"
     e.currentTarget.classList.add("active-tab")
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('Professional').style.display = "block"
+    document.getElementsByClassName('tab-title')[0].classList.add("active-tab")
+})

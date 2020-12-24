@@ -280,6 +280,13 @@ main {
   .sub-tab-links {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .tab-links {
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+    margin-top: 5px;
   }
 
   .tab-title,
@@ -290,8 +297,20 @@ main {
     background: unset;
   }
 
+  .tab-title:hover,
+  .sub-tab-title:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .tab-title:focus,
+  .sub-tab-title:focus {
+    outline: none;
+  }
+
   .active-tab {
-    background-color: #a3a3a3;
+    background-color: #afa787;
+    font-weight: bold;
   }
 
   .tab-data {
