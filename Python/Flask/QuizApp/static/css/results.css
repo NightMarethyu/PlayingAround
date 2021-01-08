@@ -1,0 +1,11 @@
+.info-page {
+  width: 50%;
+}
+
+#crestImg {
+  float: right;
+}
+
+#crestImg img {
+  height: 15vw;
+}

@@ -36,6 +36,16 @@ main {
   margin: auto;
 }
 
+.err-page {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+
+.err-img {
+  height: 30vw;
+}
+
 /* This is the css for the navbar, I'm using the code from here: https://github.com/fireship-io/222-responsive-icon-nav-css */
 /* Hopefully I'll customize it more since this stuff is nice but
   I want to kind of do something myself */
@@ -91,7 +101,7 @@ main {
   margin: 0 1.5rem;
 }
 
-.fa-w-16 {
+.svg-logos {
   color: #256190;
   fill: #256190;
   transition: var(--transition-speed);
