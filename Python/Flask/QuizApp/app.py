@@ -15,6 +15,27 @@ def index():
 def about():
     return render_template("about.html")
 
+@app.route("/javascript")
+def javascript():
+    try:
+        with open('json/js-pro.json') as f:
+            data = json.load(f)
+    except:
+        abort(404)
+        
+    return render_template('javascript.html', data=data)
+
+@app.route("/js-pro/<proj>")
+def project(proj):
+    projJson = proj + '.json'
+    try:
+        with open('json/' + projJson) as f:
+            data = json.load(f)
+    except:
+        abort(404)
+    
+    return render_template("projects.html", proj=data)
+
 @app.route("/quizzes")
 def quizzes():
     try:
