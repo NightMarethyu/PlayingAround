@@ -23,18 +23,13 @@ def javascript():
     except:
         abort(404)
         
-    return render_template('javascript.html', data=data)
+    return render_template('javascript.html', data=data['proj'])
 
-@app.route("/js-pro/<proj>")
-def project(proj):
-    projJson = proj + '.json'
-    try:
-        with open('json/' + projJson) as f:
-            data = json.load(f)
-    except:
-        abort(404)
+@app.route("/jspro/<proj>")
+def jspro(proj):
+    projHtml = 'javascript/' + proj + '.html'
     
-    return render_template("projects.html", proj=data)
+    return render_template(projHtml)
 
 @app.route("/quizzes")
 def quizzes():
