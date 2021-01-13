@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid')
     const doodler = document.createElement('div')
+    const replay = document.createElement('button')
     let doodlerLeftSpace = 50
     let startPoint = 150
     let doodlerBottomSpace = startPoint
@@ -23,6 +24,18 @@ document.addEventListener('DOMContentLoaded', () => {
         doodlerLeftSpace = platforms[0].left
         doodler.style.left = doodlerLeftSpace + 'px'
         doodler.style.bottom = doodlerBottomSpace + 'px'
+    }
+
+    function createRestart() {
+        grid.appendChild(replay)
+        replay.innerText = "Replay?"
+        replay.onclick = function() {
+            isGameOver = false
+            grid.innerHTML = ""
+            platforms = []
+            score = 0
+            start()
+        }
     }
 
     class Platform {
@@ -113,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(downTimerId)
         clearInterval(rightTimerId)
         clearInterval(leftTimerId)
+        createRestart()
     }
 
     function control(e) {
@@ -121,6 +135,14 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (e.key === "ArrowRight") {
             moveRight()
         } else if (e.key === "ArrowUp") {
+            moveStraight()
+        }
+    }
+
+    function controlStop(e) {
+        if (e.key === "ArrowLeft") {
+            moveStraight()
+        } else if (e.key === "ArrowRight") {
             moveStraight()
         }
     }
@@ -167,6 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setInterval(movePlatforms, intervalSpeed)
             jump()
             document.addEventListener('keydown', control)
+            document.addEventListener('keyup', controlStop)
         }
     }
 

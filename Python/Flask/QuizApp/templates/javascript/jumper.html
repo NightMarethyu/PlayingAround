@@ -6,6 +6,12 @@
 
 {% block head %}
     <style type="text/css">
+        .js-page {
+            width: 70%;
+            margin: auto;
+            position: relative;
+        }
+
         .grid {
             width: 400px;
             height: 600px;
@@ -32,6 +38,8 @@
 {% endblock %}
 
 {% block main %}
+<div class="js-page">
     <div class="grid"></div>
+</div>
     <script src="/static/scripts/js/jumper.js" charset="utf-8"></script>
 {% endblock %}
