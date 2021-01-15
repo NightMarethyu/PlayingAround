@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bird = document.querySelector('.bird')
     const container = document.querySelector('.game-container')
     const ground = document.querySelector('.ground')
+    const reload = document.createElement('button')
     
     let birdLeft = 220
     let birdBottom = 100
@@ -20,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
             gameOver()
         }
     }
+
+    reload.addEventListener("click", () => window.location.reload())
+    reload.innerText = "Replay?"
 
     let timerId = setInterval(startGame,gameSpeed)
 
@@ -87,5 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
         isGameOver = true
         document.removeEventListener('keydown', control)
         container.innerHTML = score - 1
+        container.appendChild(reload)
     }
 })
