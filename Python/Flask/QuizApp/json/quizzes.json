@@ -8,6 +8,13 @@
       "imgAlt": "Hogwarts Houses"
     },
     {
+      "title": "Knights Radiant",
+      "quizName": "knightsRadiant",
+      "description": "Determine what order of Knights Radiant you would belong to in the personality style quiz based of the Stormlight Archive by Brandon Sanderson. Life before Death, Strength before Weakness, Journey before Destination.",
+      "img": "/static/images/quizzes/knightsRadiant.jpg",
+      "imgAlt": "Knights Radiant"
+    }
+    {
       "title": "Bottom Left",
       "quizName": "bottomLeft",
       "description": "This quiz will determine where you are on the Pure x Intelligent chart. Based on a stream by the members of HololiveEN.",
