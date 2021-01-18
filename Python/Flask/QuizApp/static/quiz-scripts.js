@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
   var nextBtn = document.getElementById("nextBtn")
   var prevBtn = document.getElementById("prevBtn")
   var subBtn = document.getElementById("subBtn")
-  var radios = document.querySelectorAll('input[type="radio"]')
   showTab(currentTab)
 
   function showTab(n) {
@@ -48,3 +47,27 @@ document.addEventListener('DOMContentLoaded', () => {
   prevBtn.addEventListener("click", () => nextPrev(-1))
 
 })
+
+function checkAns() {
+  let radios = document.getElementsByTagName("input")
+  const tabsLen = document.getElementsByClassName("tab").length
+  var checked = 0
+
+  console.log(radios.length)
+
+  for (var i = 0, x = radios.length; i < x; i++) {
+    if (radios[i].checked) {
+      checked++
+      console.log(checked)
+    }
+  }
+
+  console.log(tabsLen)
+  
+  if (checked === tabsLen) {
+    return true
+  } else {
+    alert("Please answer all the questions")
+    return false
+  }
+}
