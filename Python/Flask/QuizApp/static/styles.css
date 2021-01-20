@@ -328,7 +328,7 @@ main {
   }
 
 /* This is the media break for mobile */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
 
   .navbar {
     bottom: 0;
@@ -337,7 +337,7 @@ main {
   }
 
   .logo {
-    display: none;
+    margin-bottom: 0;
   }
 
   .navbar-nav {
@@ -350,12 +350,26 @@ main {
 
   main {
     margin: 0;
+    padding: 0;
+  }
+
+  .info-page {
+    width: 90%;
+  }
+
+  .quiz-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .err-page{
+    width: 90%;
   }
 }
 
 /* This media break ensures that the settings don't
   do weird stuff between mobile and desktop */
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 800px) {
 
   .navbar {
     top: 0;
