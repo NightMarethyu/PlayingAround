@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid')
-    const doodler = document.createElement('div')
+    const doodler = document.createElement('img')
     const replay = document.createElement('button')
     let doodlerLeftSpace = 50
     let startPoint = 150
@@ -18,14 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let intervalSpeed = 20
     let score = 0
 
-    const jumperGuy = document.createElement('img')
-    jumperGuy.src = "/static/images/jsgames/jumperguy.png"
+    doodler.src = "/static/images/jsgames/jumperguy.png"
 
     function createDoodler() {
         grid.appendChild(doodler)
-        doodler.appendChild(jumperGuy)
         doodler.classList.add('doodler')
-        jumperGuy.classList.add('doodler')
         doodlerLeftSpace = platforms[0].left
         doodler.style.left = doodlerLeftSpace + 'px'
         doodler.style.bottom = doodlerBottomSpace + 'px'
@@ -47,18 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
         constructor(newPlatformBottom) {
             this.bottom = newPlatformBottom
             this.left = Math.random() * 315
-            this.visual = document.createElement('div')
-            this.image = document.createElement('img')
-            this.image.src = "/static/images/jsgames/platform.png"
+            this.visual = document.createElement('img')
+            this.visual.src = "/static/images/jsgames/platform.png"
 
             const visual = this.visual
-            const platformImg = this.image
             visual.classList.add('platform')
             visual.style.left = this.left + 'px'
             visual.style.bottom = this.bottom + 'px'
             grid.appendChild(visual)
-            platformImg.classList.add('platformImg')
-            visual.appendChild(platformImg)
         }
     }
 
@@ -81,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (platform.bottom < 10) {
                     let firstPlatform = platforms[0].visual
                     firstPlatform.classList.remove('platform')
+                    firstPlatform.src = ""
                     platforms.shift()
                     score++
                     let newPlatform = new Platform(600)
