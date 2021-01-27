@@ -2,13 +2,13 @@
     "proj": [
         {
             "title": "jumper",
-            "img": "/static/images/jspro/jumper.jpg",
+            "img": "/static/images/jsgames/jumper.jpg",
             "imgAlt": "Jumper Game",
             "desc": "This is a simple game that's basically a clone of Doodle Jump. It's not a complex but it works."
         },
         {
             "title": "flappyBird",
-            "img": "/static/images/jspro/flappy.jpg",
+            "img": "/static/images/jsgames/flappy.jpg",
             "imgAlt": "Flappy Bird Clone",
             "desc": "It's a simple clone of a simple game. Flappy bird is not a very complex game but it's incredably frustrating to play."
         }

@@ -50,10 +50,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const obstacle = document.createElement('div')
         const topObstacle = document.createElement('div')
+        const imgBot = document.createElement('img')
+        const imgTop = document.createElement('img')
+
         if (!isGameOver) {
             score++
             obstacle.classList.add('pipe')
             topObstacle.classList.add('topPipe')
+            
+            imgBot.src = "/static/images/jsgames/pipe.png"
+            imgTop.src = "/static/images/jsgames/pipeTop.png"
+
+            imgBot.classList.add('pipe')
+            imgTop.classList.add('topPipe')
+
+            obstacle.appendChild(imgBot)
+            topObstacle.appendChild(imgTop)
         }
         container.appendChild(obstacle)
         container.appendChild(topObstacle)
@@ -70,6 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (obstacleLeft === -60) {
                 clearInterval(timerId)
+                topObstacle.removeChild(imgTop)
+                obstacle.removeChild(imgBot)
                 container.removeChild(topObstacle)
                 container.removeChild(obstacle)
             }
