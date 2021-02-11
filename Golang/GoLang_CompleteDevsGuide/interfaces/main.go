@@ -31,5 +31,5 @@ func (englishBot) getGreeting() string {
 
 func (spanishBot) getGreeting() string {
 	// VERY custom logic for spanish greeting
-	return "Hola"
+	return "Hola a todos\nKenobi general"
 }
