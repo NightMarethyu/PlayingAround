@@ -25,29 +25,20 @@ def main():
         vals.append(random.randint(1, 5))
 
     cypher = genDict(alpha, nonDest, vals)
-    #cypherNew = newGenDict(al, possibleChars, vals)
-    print(possibleChars)
-    print(nonDest)
+    #print(possibleChars)
+    #print(nonDest)
     
-    f = open("text.txt", "a", encoding='utf-8')
-    #print(cypher, file=f)
-    #print(cypherNew, file=f)
+    print(changeText(cypher))
+    
 
-"""def newGenDict(alpha, chars, count):
-    myDict = {}
-    j = 0
-    for i in count:
-        char = ""
-        for x in range(i):
-            ran = random.choice(chars)
-            char += ran
-            chars.remove(ran)
-        
-        myDict[char] = alpha[j]
-        j += 1
-    
-    return myDict
-    """
+def changeText(cypher):
+    userText = input("Enter your text: ")
+    encode = ""
+    for c in userText:
+        if c == " ":
+            continue
+        encode += cypher[c.lower()]
+    return encode
 
 def genDict(a, c, vals):
     i = 0
