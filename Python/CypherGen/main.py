@@ -51,6 +51,7 @@ def genDict(a, c, vals):
         a[k] = char
         i += 1
     
+    print(a)
     return a
 
 if __name__ == "__main__":
