@@ -1,10 +1,16 @@
-from tkinter import Tk
+from tkinter import *
 
 from classes import cypherInterface
 
+root = Tk()
+
 def main():
-    root = Tk()
+    icon = PhotoImage(file="bill-cipher.png")
+    root.title("CypherGen")
+    root.iconphoto(False, icon)
+    
     userInterface = cypherInterface(root)
+    
     root.mainloop()
     
 if __name__ == "__main__":
