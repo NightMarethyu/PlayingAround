@@ -1,4 +1,6 @@
+from tkinter import filedialog
 from tkinter import *
+import sys, json
 
 from helpers import genKey, runEncrypt
 
@@ -52,6 +54,11 @@ class cypherInterface:
         self.rdAfter.grid(row=6, column=1)
         self.rdBoth = Radiobutton(root, text="Both", variable=self.salting, value="both", command=lambda: self.addSalt("both"), tristatevalue="x")
         self.rdBoth.grid(row=7, column=1)
+        
+        # I'm adding a save function
+        # I'll be putting the button here
+        self.saveAsBut = Button(root, text="Save As", padx=5, pady=5, command=lambda: self.askSave(root))
+        self.saveAsBut.grid(row=11, column=2)
         
     # This method will generate the key for the encryption
     # it gets info from the tkinter input and then passes
@@ -124,4 +131,23 @@ class cypherInterface:
     # encoded message text box
     def saltHelp(self, event):
         self.encodedMessageText.delete(1.0, END)
-        self.encodedMessageText.insert(1.0, "Add Salt: Salting is a common security practice, usually it means to add a string of random characters before a password. This makes common passwords, like 123456 or password, slightly more secure. The usage here is slightly modified but the same principle. This will automatically add a salt (random letters and numbers) to the beginning or ending (or both) of your message. It will add between 12 and 20 characters. This will further obfuscate the message, making it more clear. The default selection is \"None\"")
+        self.encodedMessageText.insert(1.0, "Add Salt: Salting is a common security practice, usually it means to add a string of random characters before a password. This makes common passwords, like 123456 or password, slightly more secure. The usage here is slightly modified but the same principle. This will automatically add a salt (random letters and numbers) to the beginning or ending (or both) of your message. It will add between 12 and 20 characters. This will further obfuscate the message, making it more difficult to crack without the key. The default selection is \"None\"")
+
+    def askSave(self, root):
+        root.filename = filedialog.asksaveasfilename(initialdir="C:/", title="Select file", filetypes=(("text files", "*.txt"), ("all files", "*.*")))
+        userFile = root.filename + ".txt"
+        orgSys = sys.stdout
+        with open(userFile, "w", encoding='utf-8') as f:
+            sys.stdout = f
+            print("User Message:")
+            print(self.userText.get(1.0, END))
+            print("Key:")
+            #ky = json.dumps(self.curKey[0])
+            #ky1 = json.dumps(self.curKey[1])
+            print(self.curKey[0])
+            print(self.curKey[1])
+            print('')
+            print("Encoded Message:")
+            coded = self.encodedMessageText.get(1.0, END)
+            print(coded)
+            sys.stdout = orgSys

@@ -32,7 +32,7 @@ def genKey(maxChars=1):
     nonDestA = []
     # non Destructive Numbers
     nonDestN = []
-    vals = []
+
     for i in possibleChars:
         nonDestA.append(i)
     for n in nums:
@@ -45,33 +45,21 @@ def genKey(maxChars=1):
         number[c] = rand
         nonDestN.remove(rand)
 
-    # I check if the user set a number for the max
-    # characters for each encryption This builds a 
-    # list for that to work with
-    if maxChars > 1:
-        for i in range(len(alpha)):
-            vals.append(random.randint(1, maxChars))
-            
-    # This keeps track of the iterations of the loop
-    loopIter = 0
-    
     # each letter needs a new representation
     for a in alpha:
         
         # If the characters are supposed to have more than one
         # symbol to represent them do this
-        if len(vals) > 0:
+        if maxChars > 1:
             # I start with an empty string to apply it to the 
             # dict value
             char = ""
-            for i in range(vals[loopIter]):
-                
+            for i in range(random.randint(1, maxChars)):
                 # The built-in random.choice is really helpful here
                 ran = random.choice(nonDestA)
                 char += ran
                 nonDestA.remove(ran)
             alpha[a] = char
-            loopIter += 1
         # This is for a one to one alphabet encryption
         else:
             ran = random.choice(nonDestA)
