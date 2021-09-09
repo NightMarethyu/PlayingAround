@@ -4,9 +4,9 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class CastleDrawing extends JPanel {
+public class GraphicsLab extends JPanel {
 	
-	public CastleDrawing() {
+	public GraphicsLab() {
 		//Your custom initialization code here
 	}
 
@@ -14,7 +14,10 @@ public class CastleDrawing extends JPanel {
 	public void paintComponent(Graphics g) {
 		int w = getWidth();
     int h = getHeight();
+    int standY = h - (200 + (h / 6));
+    int standX = w - (200 + (w / 4));
     int sunSize = w / 6;
+    Color brown = new Color(125, 72, 4);
     
     // Draw The Background
     g.setColor(Color.CYAN);
@@ -35,7 +38,13 @@ public class CastleDrawing extends JPanel {
     g.setColor(Color.GREEN);
     g.fillRect(0, (h-(h/6)), w, (h/6));
 
-    
+    // Draw the Fruit Stand
+    g.setColor(brown);
+    g.fillRect(standX, standY, 200, 75);
+    g.fillRect((standX + 15), (standY + 50), 15, 100);
+    g.fillRect((standX + 170), (standY + 50), 15, 100);
+    g.setColor(Color.GRAY);
+    g.fillRect(standX, (standY + 125), 200, 75);
 	}
 
 	public static void main(String[] args) {
@@ -50,7 +59,7 @@ public class CastleDrawing extends JPanel {
     }
 
 		window.setSize(windowSize,windowSize);
-		window.setContentPane(new CastleDrawing());
+		window.setContentPane(new GraphicsLab());
 		window.setVisible(true);
 	}
 }
