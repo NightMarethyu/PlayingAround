@@ -12,7 +12,8 @@ public class GraphicsLab extends JPanel {
 
 	@Override
 	public void paintComponent(Graphics g) {
-		int w = getWidth();
+		// Declar Variables that will be used
+    int w = getWidth();
     int h = getHeight();
     int standY = h - (200 + (h / 6));
     int standX = w - (200 + (w / 4));
@@ -21,7 +22,12 @@ public class GraphicsLab extends JPanel {
     Color purple = new Color(117, 50, 168);
     
     // Draw The Background
-    g.setColor(Color.CYAN);
+    // Check if it is sunset
+    if (sunSize > (h / 4)) {
+      g.setColor(Color.ORANGE);
+    } else {
+      g.setColor(Color.CYAN);
+    }
     g.fillRect(0, 0, w, h);
     g.setColor(Color.YELLOW);
     g.fillOval((w/15), (w/15), sunSize, sunSize);
@@ -52,6 +58,30 @@ public class GraphicsLab extends JPanel {
     drawGrapes(g, standX, standY, 40);
     drawGrapes(g, standX, standY, 80);
     drawGrapes(g, standX, standY, 120);
+
+    // Add my initials
+    g.setColor(Color.BLACK);
+
+    // Letter A
+    g.drawLine((standX + 10), (standY + 10), (standX + 10), (standY + 65));
+    g.drawLine((standX + 60), (standY + 10), (standX + 60), (standY + 65));
+    g.drawLine((standX + 10), (standY + 10), (standX + 60), (standY + 10));
+    g.drawLine((standX + 10), (standY + 35), (standX + 60), (standY + 35));
+
+    // Letter D
+    g.drawLine((standX + 70), (standY + 10), (standX + 70), (standY + 65));
+    g.drawLine((standX + 70), (standY + 10), (standX + 105), (standY + 10));
+    g.drawLine((standX + 70), (standY + 65), (standX + 105), (standY + 65));
+    g.drawLine((standX + 105), (standY + 10), (standX + 120), (standY + 25));
+    g.drawLine((standX + 105), (standY + 65), (standX + 120), (standY + 50));
+    g.drawLine((standX + 120), (standY + 25), (standX + 120), (standY + 50));
+
+    // Letter T
+    g.drawLine((standX + 130), (standY + 10), (standX + 180), (standY + 10));
+    g.drawLine((standX + 155), (standY + 10), (standX + 155), (standY + 65));
+
+    // Grape Price Text
+    g.drawString("GRAPES: $1 A BUNCH", (standX + 40), (standY + 165));
     
 	}
 
@@ -71,6 +101,7 @@ public class GraphicsLab extends JPanel {
 		window.setVisible(true);
 	}
 
+  // This method builds the piles of grapes that sit on the stand
   public static void drawGrapes(Graphics g, int mainX, int mainY, int xPos) {
     g.fillOval((mainX + xPos), (mainY + 115), 10, 10);
     g.fillOval((mainX + xPos + 9), (mainY + 115), 10, 10);
