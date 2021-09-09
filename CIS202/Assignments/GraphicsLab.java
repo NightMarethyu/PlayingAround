@@ -18,6 +18,7 @@ public class GraphicsLab extends JPanel {
     int standX = w - (200 + (w / 4));
     int sunSize = w / 6;
     Color brown = new Color(125, 72, 4);
+    Color purple = new Color(117, 50, 168);
     
     // Draw The Background
     g.setColor(Color.CYAN);
@@ -45,6 +46,13 @@ public class GraphicsLab extends JPanel {
     g.fillRect((standX + 170), (standY + 50), 15, 100);
     g.setColor(Color.GRAY);
     g.fillRect(standX, (standY + 125), 200, 75);
+
+    // Draw the Grapes
+    g.setColor(purple);
+    drawGrapes(g, standX, standY, 40);
+    drawGrapes(g, standX, standY, 80);
+    drawGrapes(g, standX, standY, 120);
+    
 	}
 
 	public static void main(String[] args) {
@@ -62,4 +70,13 @@ public class GraphicsLab extends JPanel {
 		window.setContentPane(new GraphicsLab());
 		window.setVisible(true);
 	}
+
+  public static void drawGrapes(Graphics g, int mainX, int mainY, int xPos) {
+    g.fillOval((mainX + xPos), (mainY + 115), 10, 10);
+    g.fillOval((mainX + xPos + 9), (mainY + 115), 10, 10);
+    g.fillOval((mainX + xPos + 18), (mainY + 115), 10, 10);
+    g.fillOval((mainX + xPos + 4), (mainY + 108), 10, 10);
+    g.fillOval((mainX + xPos + 13), (mainY + 108), 10, 10);
+    g.fillOval((mainX + xPos + 9), (mainY + 101), 10, 10);
+  }
 }
