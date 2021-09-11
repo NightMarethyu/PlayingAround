@@ -35,7 +35,11 @@ public class CastleDrawing extends JPanel {
     g.setColor(Color.GREEN);
     g.fillRect(0, (h-(h/6)), w, (h/6));
 
-    
+    // Draw a plane
+    g.setColor(Color.RED);
+    int[] xCoords = {450, 460, 490, 500, 500, 480, 485, 450};
+    int[] yCoords = {22, 12, 12, 5, 22, 22, 30, 22};
+    g.fillPolygon(xCoords, yCoords, 8);
 	}
 
 	public static void main(String[] args) {
