@@ -18,6 +18,8 @@ public class GraphicsLab extends JPanel {
     int standY = h - (200 + (h / 6));
     int standX = w - (200 + (w / 4));
     int sunSize = w / 6;
+    int[] xCoords = {450, 460, 490, 500, 500, 480, 485, 450};
+    int[] yCoords = {22, 12, 12, 5, 22, 22, 30, 22};
     Color brown = new Color(125, 72, 4);
     Color purple = new Color(117, 50, 168);
     
@@ -82,7 +84,15 @@ public class GraphicsLab extends JPanel {
 
     // Grape Price Text
     g.drawString("GRAPES: $1 A BUNCH", (standX + 40), (standY + 165));
-    
+
+    // Draw the Plane
+    g.setColor(Color.RED);
+    g.fillPolygon(xCoords, yCoords, 8);
+    g.setColor(Color.WHITE);
+    g.fillRect(510, 12, 100, 15);
+    g.setColor(Color.BLACK);
+    g.drawLine(500, 17, 510, 19);
+    g.drawString("GO SEASIDERS!", 512, 24);    
 	}
 
 	public static void main(String[] args) {
