@@ -18,8 +18,8 @@ public class GraphicsLab extends JPanel {
     int standY = h - (200 + (h / 6));
     int standX = w - (200 + (w / 4));
     int sunSize = w / 6;
-    int[] xCoords = {450, 460, 490, 500, 500, 480, 485, 450};
-    int[] yCoords = {22, 12, 12, 5, 22, 22, 30, 22};
+    int[] xCoords = {445, 460, 490, 500, 500, 480, 485, 445};
+    int[] yCoords = {32, 22, 22, 15, 32, 32, 40, 32};
     Color brown = new Color(125, 72, 4);
     Color purple = new Color(117, 50, 168);
     
@@ -89,10 +89,10 @@ public class GraphicsLab extends JPanel {
     g.setColor(Color.RED);
     g.fillPolygon(xCoords, yCoords, 8);
     g.setColor(Color.WHITE);
-    g.fillRect(510, 12, 100, 15);
+    g.fillRect(510, 22, 100, 15);
     g.setColor(Color.BLACK);
-    g.drawLine(500, 17, 510, 19);
-    g.drawString("GO SEASIDERS!", 512, 24);    
+    g.drawLine(500, 27, 510, 29);
+    g.drawString("GO SEASIDERS!", 512, 34);    
 	}
 
 	public static void main(String[] args) {
@@ -103,7 +103,9 @@ public class GraphicsLab extends JPanel {
     if (args.length > 0) {
       if (args[0].chars().allMatch(Character::isDigit)) {
         windowSize = Integer.parseInt(args[0]);
-      } 
+      } else {
+        System.out.println("Usage: GraphicsLab [int WindowSize]");
+      }
     }
 
 		window.setSize(windowSize,windowSize);
