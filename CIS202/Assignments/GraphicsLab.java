@@ -100,12 +100,18 @@ public class GraphicsLab extends JPanel {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     int windowSize = 400;
 
+    // if (args.length > 0) {
+    //   if (args[0].chars().allMatch(Character::isDigit)) {
+    //     windowSize = Integer.parseInt(args[0]);
+    //   } else {
+    //     System.out.println("Usage: GraphicsLab [int WindowSize]");
+    //   }
+    // }
+
+    // I was curious about the ?: comparision operator and thought it might work here
+    // It does work, but it doesn't let me send a usage statement
     if (args.length > 0) {
-      if (args[0].chars().allMatch(Character::isDigit)) {
-        windowSize = Integer.parseInt(args[0]);
-      } else {
-        System.out.println("Usage: GraphicsLab [int WindowSize]");
-      }
+      windowSize = args[0].chars().allMatch(Character::isDigit) ? Integer.parseInt(args[0]) : windowSize;
     }
 
 		window.setSize(windowSize,windowSize);

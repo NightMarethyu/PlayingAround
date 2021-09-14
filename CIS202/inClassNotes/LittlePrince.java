@@ -12,8 +12,8 @@ public class LIttlePrince extends JPanel {
 
 	@Override
 	public void paintComponent(Graphics g) {
-		int w = 400;
-    int h = 400;
+		int w = getWidth();
+    int h = getHeight();
     Color tan = new Color(247, 216, 158);
     Color brown = new Color(115, 78, 8);
 
@@ -26,21 +26,21 @@ public class LIttlePrince extends JPanel {
     //Draw the little prince
     //Draw his head
     g.setColor(tan);
-    g.fillOval(175, 50, 50, 50);
+    g.fillOval((int)(w / 2.286), (h - 350), 50, 50);
     g.setColor(Color.BLACK);
-    g.drawLine(190, 80, 210, 80);
+    g.drawLine((int)((w / 2.286) + 15), (h - 320), (int)((w / 2.286) + 35), (h - 320));
 
     //draw his shirt and pants
     g.setColor(Color.GREEN);
-    g.fillRect(175, 100, 50, 150);
-    g.fillRect(175, 240, 15, 75);
-    g.fillRect(210, 240, 15, 75);
+    g.fillRect((int)(w / 2.286), (h - 300), 50, 150);
+    g.fillRect((int)(w / 2.286), (h - 160), 15, 75);
+    g.fillRect((int)((w / 2.286) + 35), (h - 160), 15, 75);
 
     //draw his scarf
     g.setColor(Color.YELLOW);
-    g.fillRect(185, 95, 150, 15);
+    g.fillRect((int)((w / 2.286) + 15), (h - 305), 150, 15);
     g.setColor(Color.BLACK);
-    g.drawString("Le Petit Prince", 187, 107);
+    g.drawString("Le Petit Prince", (int)((w / 2.139) + 17), (h - 293));
 
 	}
 
