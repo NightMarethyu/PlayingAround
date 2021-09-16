@@ -1,13 +1,20 @@
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class LIttlePrince extends JPanel {
-	
-	public LIttlePrince() {
+public class LittlePrince extends JPanel {
+	int dx;
+  int dy;
+
+	public LittlePrince() {
 		//Your custom initialization code here
+    String input = JOptionPane.showInputDialog("Enter the x offset for the little prince");
+    dx = Integer.parseInt(input);
+    String yInput = JOptionPane.showInputDialog("Enter the y offset for the little prince");
+    dy = Integer.parseInt(yInput);
 	}
 
 	@Override
@@ -26,21 +33,21 @@ public class LIttlePrince extends JPanel {
     //Draw the little prince
     //Draw his head
     g.setColor(tan);
-    g.fillOval((int)(w / 2.286), (h - 350), 50, 50);
+    g.fillOval(dx, dy, 50, 50);
     g.setColor(Color.BLACK);
-    g.drawLine((int)((w / 2.286) + 15), (h - 320), (int)((w / 2.286) + 35), (h - 320));
+    g.drawLine((dx + 15), (dy + 30), (dx + 35), (dy + 30));
 
     //draw his shirt and pants
     g.setColor(Color.GREEN);
-    g.fillRect((int)(w / 2.286), (h - 300), 50, 150);
-    g.fillRect((int)(w / 2.286), (h - 160), 15, 75);
-    g.fillRect((int)((w / 2.286) + 35), (h - 160), 15, 75);
+    g.fillRect(dx, (dy + 50), 50, 150);
+    g.fillRect(dx, (dy + 190), 15, 75);
+    g.fillRect((dx + 35), (dy + 190), 15, 75);
 
     //draw his scarf
     g.setColor(Color.YELLOW);
-    g.fillRect((int)((w / 2.286) + 15), (h - 305), 150, 15);
+    g.fillRect((dx + 15), (dy + 45), 150, 15);
     g.setColor(Color.BLACK);
-    g.drawString("Le Petit Prince", (int)((w / 2.139) + 17), (h - 293));
+    g.drawString("Le Petit Prince", (dx + 17), (dy + 57));
 
 	}
 
@@ -48,7 +55,7 @@ public class LIttlePrince extends JPanel {
 		JFrame window = new JFrame();
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setSize(400,400);
-		window.setContentPane(new LIttlePrince());
+		window.setContentPane(new LittlePrince());
 		window.setVisible(true);
 	}
 }

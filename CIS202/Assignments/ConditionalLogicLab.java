@@ -1,26 +1,45 @@
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
 public class ConditionalLogicLab extends JPanel {
-  int age;
-  String gender;
-  String imgFolder = "ConditionalLogicImages/";
   String classAssign;
   ImageIcon img;
 
   public ConditionalLogicLab() {
-    // Get the user's age and convert it to an integer
-    String input = JOptionPane.showInputDialog("Please enter your age.");
-    age = input.chars().allMatch(Character::isDigit) ? Integer.parseInt(input) : -1;
-
-    // Get the user's gender and assign it to the field
+    String imgFolder = "ConditionalLogicImages/";
     String[] genderChoices = { "Male", "Female" };
-    gender = (String)JOptionPane.showInputDialog(null, "Choose one", "Input", JOptionPane.QUESTION_MESSAGE, null, genderChoices, genderChoices[0]);
+
+    // Get the user's age and convert it to an integer
+    JTextField input = new JTextField(5);
+    JComboBox genders = new JComboBox<>(genderChoices);
+    int age = 0;
+    String gender = "";
+
+    JPanel dialog = new JPanel();
+    dialog.add(new JLabel("Age at the end of the year:"));
+    dialog.add(input);
+    dialog.add(Box.createHorizontalStrut(15));
+    dialog.add(new JLabel("Gender:"));
+    dialog.add(genders);
+    dialog.setLayout(new BoxLayout(dialog, BoxLayout.Y_AXIS));
+
+    var result = JOptionPane.showConfirmDialog(null, dialog, "Enter Age and Gender", JOptionPane.OK_CANCEL_OPTION);
+    
+    if (result == JOptionPane.OK_OPTION) {
+      age = input.getText().chars().allMatch(Character::isDigit) ? Integer.parseInt(input.getText()) : -1;
+      gender = (String)genders.getSelectedItem();
+    } else {
+      System.exit(-1);
+    }
+
+    // This line is the same as above but it doesn't use the :: operator as a shortcut
+    // I want to leave this in as a reference for me
+    // int age = input.chars().allMatch(c-> Character.isDigit(c)) ? Integer.parseInt(input) : -1;
+
+    // Get the user's gender and assign it to the field    
+    // String gender = (String)JOptionPane.showInputDialog(null, "Choose one", "Input", JOptionPane.QUESTION_MESSAGE, null, genderChoices, genderChoices[0]);
 
     // Begin the big if block that checks user's age
 
