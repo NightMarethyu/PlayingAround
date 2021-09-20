@@ -1,5 +1,7 @@
 import javax.swing.*;
 
+import org.w3c.dom.events.MouseEvent;
+
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -103,6 +105,10 @@ public class ConditionalLogicLab extends JPanel {
     if (img != null) {
       img.paintIcon(null, g, 10, 25);
     }
+
+    JButton refresh = new JButton();
+
+    add(refresh);
     
   }
 
@@ -112,5 +118,9 @@ public class ConditionalLogicLab extends JPanel {
     window.setSize(400,400);
     window.setContentPane(new ConditionalLogicLab());
     window.setVisible(true);
+  }
+
+  private class ButtonAction implements MouseEvent {
+    
   }
 }
