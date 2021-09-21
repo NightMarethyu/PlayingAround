@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-import org.w3c.dom.events.MouseEvent;
+// import org.w3c.dom.events.MouseEvent;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -15,7 +15,7 @@ public class ConditionalLogicLab extends JPanel {
 
     // Get the user's age and convert it to an integer
     JTextField input = new JTextField(5);
-    JComboBox genders = new JComboBox<>(genderChoices);
+    JComboBox<String> genders = new JComboBox<>(genderChoices);
     int age = 0;
     String gender = "";
 
@@ -106,9 +106,9 @@ public class ConditionalLogicLab extends JPanel {
       img.paintIcon(null, g, 10, 25);
     }
 
-    JButton refresh = new JButton();
+    // JButton refresh = new JButton();
 
-    add(refresh);
+    // add(refresh);
     
   }
 
@@ -120,7 +120,7 @@ public class ConditionalLogicLab extends JPanel {
     window.setVisible(true);
   }
 
-  private class ButtonAction implements MouseEvent {
+  // private class ButtonAction implements MouseEvent {
     
-  }
+  // }
 }
