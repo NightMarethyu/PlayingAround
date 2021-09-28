@@ -1,0 +1,246 @@
+﻿Kinshasa Democratic Republic of Congo
+Hong Kong China
+Taipei Taiwan
+Monticello Utah
+Buenos Aires Argentina
+Cordoba Argentina
+Columbia South Carolina
+Philadelphia Pennsylvania
+Santo Domingo Dominican Republic
+London England
+Los Angeles California
+St. George Utah
+Draper Utah
+//my kids think this is "their" temple!
+Spokane Washington
+Brasilia Brazil
+San Antonio Texas
+Portland Oregon
+Detroit Michigan
+Stockholm Sweden
+Idaho Falls Idaho
+Barranquilla Colombia
+Oklahoma City Oklahoma
+Saratoga Springs Utah
+Caracas Venezuela
+Fukuoka Japan
+Rio de Janeiro Brazil
+Aba Nigeria
+Cedar City Utah
+Hermosillo Sonora Mexico
+Boise Idaho
+Durban South Africa
+Manila Philippines (another one)
+Ogden Utah
+Lubbock Texas
+Atlanta Georgia
+Mexico City Mexico
+Louisville Kentucky
+Anchorage Alaska
+Chicago Illinois
+Colonia Juarez Chihuahua Mexico
+Kyiv Ukraine
+San Diego California
+Indianapolis Indiana
+Johannesburg South Africa
+Guatemala City Guatemala
+Hartford Connecticut
+Washington D.C.
+Vancouver British Columbia
+Campinas Brazil
+Oakland California
+Sacramento California
+Provo Utah
+Pocatello Idaho
+Lima Peru
+Guadalajara Mexico
+Columbia River Washington
+Porto Alegre Brazil
+Tegucigalpa Honduras
+Fresno California
+Birmingham Alabama
+Villahermosa Mexico
+Brigham City Utah
+Redlands California
+Ciudad Juarez Mexico
+Logan Utah
+Accra Ghana
+Arequipa Peru
+Winnipeg Manitoba
+Mesa Arizona
+Sydney Australia
+Urdaneta Philippines
+Melbourne Australia
+Tijuana Mexico
+Bountiful Utah
+Memphis Tennessee
+Boston Massachusetts
+Perth Australia
+Provo City Center
+Oquirrh Mountain Utah
+Madrid Spain
+Rome Italy
+Tuxtla Gutierrez Mexico
+Bern Switzerland
+Fortaleza Brazil
+Asuncion Paraguay
+Regina Saskatchewan
+Copenhagen Denmark
+Nuku'alofa Tonga
+Montevideo Uruguay
+Baton Rouge Louisiana
+Meridian Idaho
+Seoul Korea
+Raleigh North Carolina
+Manila Philippines
+San Jose Costa Rica
+Freiberg Germany
+Payson Utah
+Bismarck North Dakota
+Preston England
+Santiago Chile
+Helsinki Finland
+Rexburg Idaho
+Fort Lauderdale Florida
+Albuquerque New Mexico
+Montreal Quebec
+Calgary Alberta
+Guayaquil Ecuador
+Manhattan New York
+Kona Hawaii
+The Gila Valley Arizona
+Laie Hawaii
+Manaus Brazil
+Phoenix Arizona
+Twin Falls Idaho
+Quetzaltenango Guatemala
+Vernal Utah
+Veracruz Mexico
+Mount Timpanogos Utah
+Hamilton New Zealand
+Dallas Texas
+Tokyo Japan
+Halifax Nova Scotia
+Star Valley Wyoming
+Toronto Ontario
+Houston Texas
+Las Vegas Nevada
+Nauvoo Illinois
+Apia Samoa
+Snowflake Arizona
+Seattle Washington
+Nairobi Kenya
+Concepcion Chile
+Gilbert Arizona
+Recife Brazil
+Reno Nevada
+San Salvador El Salvador
+Paris France
+//Vive la France!
+St. Paul Minnesota
+Jordan River Utah
+Edmonton Alberta
+Suva Fiji
+Panama City Panama
+Winter Quarters Nebraska
+Bogota Colombia
+Tampico Mexico
+Cardston Alberta
+The Hague Netherlands
+Adelaide Australia
+Oaxaca Mexico
+Denver Colorado
+Tucson Arizona
+Manti Utah
+Kansas City Missouri
+Curitiba Brazil
+Fort Collins Colorado
+Trujillo Peru
+Cochabamba Bolivia
+Salt Lake
+Frankfurt Germany
+Newport Beach California
+Cebu City Philippines
+Columbus Ohio
+Billings Montana
+Nashville Tennessee
+Brisbane Australia
+Palmyra New York
+Sao Paulo Brazil
+Monterrey Mexico
+Merida Mexico
+St. Louis Missouri
+Orlando Florida
+Papeete Tahiti
+Lisbon Portugal
+Sapporo Japan
+Medford Oregon
+Salta, Argentina
+Bengaluru, India
+Managua, Nicaragua
+Cagayan de Oro, Philippines
+Layton, Utah
+Richmond, Virginia
+Russia (city TBD)
+Mendoza, Argentina
+Salvador, Brazil
+Yuba City, California
+Phnom Penh, Cambodia
+Praia, Cape Verde
+Yigo, Guam
+Puebla, Mexico
+Auckland, New Zealand
+Lagos, Nigeria
+Davao, Philippines
+San Juan, Puerto Rico
+Washington County, Utah
+Pago Pago, American Samoa
+Okinawa City, Okinawa
+Neiafu, Tonga
+Tooele Valley, Utah
+Moses Lake, Washington
+San Pedro Sula, Honduras
+Antofagasta, Chile
+Budapest, Hungary
+Freetown, Sierra Leone
+Orem, Utah
+Port Moresby, Papua New Guinea
+Bentonville, Arkansas
+Bacolod, Philippines
+McAllen, Texas
+Cobán, Guatemala
+Taylorsville, Utah
+Bahía Blanca, Argentina
+Tallahassee, Florida
+Lubumbashi, Democratic Republic of the Congo
+Pittsburgh, Pennsylvania
+Benin City, Nigeria
+Syracuse, Utah
+Dubai, United Arab Emirates
+Shanghai, China
+Tarawa, Kiribati
+Port Vila, Vanuatu
+Lindon, Utah
+Greater Guatemala City, Guatemala
+São Paulo East, Brazil
+Santa Cruz, Bolivia
+Oslo, Norway
+Brussels, Belgium
+Vienna, Austria
+Kumasi, Ghana
+Beira, Mozambique
+Cape Town, South Africa
+Singapore, Republic of Singapore
+Belo Horizonte, Brazil
+Cali, Colombia
+Querétaro, Mexico
+Torreón, Mexico
+Helena, Montana
+Casper, Wyoming
+Grand Junction, Colorado
+Farmington, New Mexico
+Burley, Idaho
+Eugene, Oregon
+Elko, Nevada
+Yorba Linda, California
+Smithfield, Utah
