@@ -10,7 +10,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 
 public class LoopLab extends JPanel {
-	int tableSize = 10;
+	int tableSize;
 	char addMul;
 
 	public LoopLab() {
@@ -57,8 +57,8 @@ public class LoopLab extends JPanel {
 		int h = getHeight();
 		int columnSpace = (w - 20) / tableSize;
 		int rowSpace = (h - 20) / tableSize;
-		int inX = 10;
-		int inY = 10;
+		final int inX = 10;
+		final int inY = 10;
 		int startX = inX;
 		int startY = inY;
 		int fontSize = rowSpace / 3;
