@@ -23,12 +23,9 @@ public class ArraysLab extends JPanel {
           continue;
         }
 
-        String[]  = curLine.split(" ");
+        String[] coordinates  = curLine.split(" ");
         for (int i = 0; i < ints.length; i++) {
-          int[] 
-          if (i == 0) {
-
-          }
+          
         }
       }
 
