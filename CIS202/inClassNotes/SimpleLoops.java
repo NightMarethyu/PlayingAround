@@ -63,6 +63,7 @@ public class SimpleLoops {
 
     System.out.println("Thank you. Your final total is: " + sum);
 
+    s.close();
   }
   
 }
