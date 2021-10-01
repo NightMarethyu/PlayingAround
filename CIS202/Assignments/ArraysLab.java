@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class ArraysLab extends JPanel {
 
   static String filename;
-  ArrayList coords;
+  ArrayList<Integer[]> coords;
 
   public ArraysLab() {
     try {
@@ -19,13 +19,26 @@ public class ArraysLab extends JPanel {
       while (s.hasNextLine()) {
         String curLine = s.nextLine();
 
-        if (curLine == "200 200" || curLine == "300 300" || curLine == "400 400") {
+        if (curLine.equals("200 200") || curLine.equals("300 300") || curLine.equals("400 400")) {
           continue;
-        }
+        } else {
+          String[] coordinates  = curLine.split(" ");
+          ArrayList<Integer> xCoords = new ArrayList<>();
+          ArrayList<Integer> yCoords = new ArrayList<>();
+          for (int i = 0; i < coordinates.length; i++) {
+            if (i == 0) {
+              continue;
+            }
 
-        String[] coordinates  = curLine.split(" ");
-        for (int i = 0; i < ints.length; i++) {
-          
+            if (i % 2 == 0) {
+              yCoords.add(Integer.parseInt(coordinates[i]));
+            } else {
+              xCoords.add(Integer.parseInt(coordinates[i]));
+            }
+          }
+
+          System.out.println(xCoords);
+          System.out.println(yCoords);
         }
       }
 
