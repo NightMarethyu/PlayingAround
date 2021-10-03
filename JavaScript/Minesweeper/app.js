@@ -1,7 +1,8 @@
 class Mine {
-  constructor() {
+  constructor(x, y) {
     this.primed = false;
     this.nearbyMines = 0;
+    this.uid = "x" + x + "y" + y;
   }
   setMine() {
     this.primed = !this.primed;
@@ -15,7 +16,7 @@ class Mine {
   getNearCount() {
     return this.nearbyMines;
   }
-  onClick = () => {
+  wasClicked = () => {
     if (this.primed) {
       alert("Mine Clicked");
     } else {
@@ -38,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   for (i = 0; i < fullSize; i++) {
     for (j = 0; j < fullSize; j++) {
-      mines[i][j] = new Mine();
+      mines[i][j] = new Mine(i, j);
     }
   }
 
@@ -112,6 +113,44 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   }
+
+  function doTheClick(id) {
+    let clickedButton = document.getElementById(id);
+    if (clickedButton.classList.contains('mine')) {
+      clickedButton.classList.remove('start');
+      alert("mine clicked");
+    } else if (clickedButton.innerHTML) {
+      clickedButton.classList.remove('start');
+    } else {
+      let x1 = parseInt(id[1]);
+      let y1 = parseInt(id[3]);
+      let x2 = x1+1;
+      let x3 = x1-1;
+      let y2 = y1+1;
+      let y3 = y1-1;
+      let xList = [x1, x2, x3];
+      let yList = [y1, y2, y3];
+
+      for (var x of xList) {
+        for (var y of yList) {
+          let curID = 'x' + x + 'y' + y;
+          let near = document.getElementById(curID);
+          if (near) {
+            if (near.classList.contains('mine')) {
+              continue;
+            } else if (near.innerHTML) {
+              near.classList.remove('start');
+            } else {
+              near.classList.remove('start');
+              near.classList.add('clicked');
+            }
+          }
+        }
+      }
+      clickedButton.classList.add('clicked');
+    }
+    checkSquares();
+  }
   
   // display the grid of squares
   for (var i = 0; i < fullSize; i++) {
@@ -121,13 +160,23 @@ document.addEventListener('DOMContentLoaded', () => {
     for (var j = 0; j < fullSize; j++) {
       let square = document.createElement('button');
       square.classList.add('square');
+      square.classList.add('start');
       square.setAttribute("type", "button");
+      square.id = mines[i][j].uid;
+      square.onclick = () => doTheClick(square.id);
       if (mines[i][j].isSet()) {
         square.classList.add('mine');
       } else if (mines[i][j].getNearCount() > 0) {
         square.innerHTML = mines[i][j].getNearCount();
       }
       row.appendChild(square);
+    }
+  }
+
+  function checkSquares() {
+    let curCount = document.getElementsByClassName('start');
+    if (curCount.length === fullSize) {
+      alert("You Win");
     }
   }
 
