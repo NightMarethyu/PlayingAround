@@ -1,3 +1,29 @@
+class Mine {
+  constructor() {
+    this.primed = false;
+    this.nearbyMines = 0;
+  }
+  setMine() {
+    this.primed = !this.primed;
+  }
+  setNearCount() {
+    this.nearbyMines++;
+  }
+  isSet() {
+    return this.primed;
+  }
+  getNearCount() {
+    return this.nearbyMines;
+  }
+  onClick = () => {
+    if (this.primed) {
+      alert("Mine Clicked");
+    } else {
+      console.log("nothing there");
+    }
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
   const fullSize = 10;
@@ -12,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   for (i = 0; i < fullSize; i++) {
     for (j = 0; j < fullSize; j++) {
-      mines[i][j] = { 'mined': false, 'nearCount': 0 };
+      mines[i][j] = new Mine();
     }
   }
 
@@ -21,62 +47,67 @@ document.addEventListener('DOMContentLoaded', () => {
     let x = Math.trunc(Math.random() * mineCount);
     let y = Math.trunc(Math.random() * mineCount);
 
-    mines[x][y]['mined'] = true;
+    if (!mines[x][y].primed) {
+      mines[x][y].setMine();
+    } else {
+      i--;
+    }
+    
   }
 
   // Calculate the numbers in surrounding squares
   for (var i = 0; i < fullSize; i++) {
-    for (var j = 0; j < fullSize; i++) {
-      if (mines[i][j]['mined']) {
+    for (var j = 0; j < fullSize; j++) {
+      if (mines[i][j].isSet()) {
         if (i > 0 && j > 0 && i != fullSize - 1 && j != fullSize - 1) {
-          mines[i-1][j-1]['nearCount'] += 1;
-          mines[i-1][j]['nearCount'] += 1;
-          mines[i-1][j+1]['nearCount'] += 1;
-          mines[i][j-1]['nearCount'] += 1;
-          mines[i][j+1]['nearCount'] += 1;
-          mines[i+1][j-1]['nearCount'] += 1;
-          mines[i+1][j]['nearCount'] += 1;
-          mines[i+1][j+1]['nearCount'] += 1;
+          mines[i-1][j-1].setNearCount();
+          mines[i-1][j].setNearCount();
+          mines[i-1][j+1].setNearCount();
+          mines[i][j-1].setNearCount();
+          mines[i][j+1].setNearCount();
+          mines[i+1][j-1].setNearCount();
+          mines[i+1][j].setNearCount();
+          mines[i+1][j+1].setNearCount();
         } else if(i === 0 && j > 0 && j != fullSize - 1) {
-          mines[i][j-1]['nearCount'] += 1;
-          mines[i][j+1]['nearCount'] += 1;
-          mines[i+1][j-1]['nearCount'] += 1;
-          mines[i+1][j]['nearCount'] += 1;
-          mines[i+1][j+1]['nearCount'] += 1;
+          mines[i][j-1].setNearCount();
+          mines[i][j+1].setNearCount();
+          mines[i+1][j-1].setNearCount();
+          mines[i+1][j].setNearCount();
+          mines[i+1][j+1].setNearCount();
         } else if (j === 0 && i > 0 && i != fullSize - 1) {
-          mines[i+1][j]['nearCount'] += 1;
-          mines[i+1][j+1]['nearCount'] += 1;
-          mines[i][j+1]['nearCount'] += 1;
-          mines[i-1][j]['nearCount'] += 1;
-          mines[i-1][j+1]['nearCount'] += 1;
+          mines[i+1][j].setNearCount();
+          mines[i+1][j+1].setNearCount();
+          mines[i][j+1].setNearCount();
+          mines[i-1][j].setNearCount();
+          mines[i-1][j+1].setNearCount();
         } else if (i === fullSize - 1 && j > 0 && j != fullSize - 1) {
-          mines[i-1][j-1]['nearCount'] += 1;
-          mines[i-1][j]['nearCount'] += 1;
-          mines[i-1][j+1]['nearCount'] += 1;
-          mines[i][j-1]['nearCount'] += 1;
-          mines[i][j+1]['nearCount'] += 1;
+          mines[i-1][j-1].setNearCount();
+          mines[i-1][j].setNearCount();
+          mines[i-1][j+1].setNearCount();
+          mines[i][j-1].setNearCount();
+          mines[i][j+1].setNearCount();
         } else if (j === fullSize - 1 && i > 0 && i != fullSize - 1) {
-          mines[i-1][j-1]['nearCount'] += 1;
-          mines[i-1][j]['nearCount'] += 1;
-          mines[i][j-1]['nearCount'] += 1;
-          mines[i+1][j-1]['nearCount'] += 1;
-          mines[i+1][j]['nearCount'] += 1;
+          mines[i-1][j-1].setNearCount();
+          mines[i-1][j].setNearCount();
+          mines[i][j-1].setNearCount();
+          mines[i+1][j-1].setNearCount();
+          mines[i+1][j].setNearCount();
         } else if (i === 0 && j === 0) {
-          mines[i+1][j]['nearCount'] += 1;
-          mines[i][j+1]['nearCount'] += 1;
-          mines[i+1][j+1]['nearCount'] += 1;
+          mines[i+1][j].setNearCount();
+          mines[i][j+1].setNearCount();
+          mines[i+1][j+1].setNearCount();
         } else if (i === fullSize - 1 && j === 0) {
-          mines[i-1][j]['nearCount'] += 1;
-          mines[i][j+1]['nearCount'] += 1;
-          mines[i-1][j+1]['nearCount'] += 1;
+          mines[i-1][j].setNearCount();
+          mines[i][j+1].setNearCount();
+          mines[i-1][j+1].setNearCount();
         } else if (i === 0 && j === fullSize - 1) {
-          mines[i+1][j]['nearCount'] += 1;
-          mines[i][j-1]['nearCount'] += 1;
-          mines[i+1][j-1]['nearCount'] += 1;
+          mines[i+1][j].setNearCount();
+          mines[i][j-1].setNearCount();
+          mines[i+1][j-1].setNearCount();
         } else if (i === fullSize - 1 && j === fullSize - 1) {
-          mines[i-1][j]['nearCount'] += 1;
-          mines[i-1][j-1]['nearCount'] += 1;
-          mines[i][j-1]['nearCount'] += 1;
+          mines[i-1][j].setNearCount();
+          mines[i-1][j-1].setNearCount();
+          mines[i][j-1].setNearCount();
         }
       }
     }
@@ -88,12 +119,13 @@ document.addEventListener('DOMContentLoaded', () => {
     row.classList.add('row');
     grid.appendChild(row);
     for (var j = 0; j < fullSize; j++) {
-      let square = document.createElement('div');
+      let square = document.createElement('button');
       square.classList.add('square');
-      if (mines[i][j]['mined']) {
+      square.setAttribute("type", "button");
+      if (mines[i][j].isSet()) {
         square.classList.add('mine');
-      } else {
-        square.innerHTML = mines[i][j]['nearCount'];
+      } else if (mines[i][j].getNearCount() > 0) {
+        square.innerHTML = mines[i][j].getNearCount();
       }
       row.appendChild(square);
     }
