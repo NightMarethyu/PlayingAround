@@ -1,4 +1,4 @@
-class Ball {
+export default class Ball {
   constructor(rad, speed, x, y) {
     this.radius = rad;
     this.speed = speed;
