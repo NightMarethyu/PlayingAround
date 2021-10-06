@@ -1,54 +1,56 @@
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
-import java.awt.Color;
+import javax.swing.ImageIcon;
 import java.awt.Graphics;
+import java.awt.Color;
 
 public class LittlePrince extends JPanel {
-	int dx;
-  int dy;
-
+	ImageIcon sheep;
+	
 	public LittlePrince() {
-		//Your custom initialization code here
-    String input = JOptionPane.showInputDialog("Enter the x offset for the little prince");
-    dx = Integer.parseInt(input);
-    String yInput = JOptionPane.showInputDialog("Enter the y offset for the little prince");
-    dy = Integer.parseInt(yInput);
+		sheep = new ImageIcon("sheep.png");
+		System.out.println(.1 + .2);
+	}
+
+	public void drawLittlePrince(Graphics g) {
+		Color lightGreen = new Color(202,254,131);
+		Color lightBrown = new Color(202,141,60);
+		int dy = 0;
+		int dx = 0;
+
+		//draw his shirt and pants
+		g.setColor(lightGreen);
+		g.fillRect(dx+175, dy+100, 50, 150);
+		g.fillRect(dx+175, dy+250, 15, 75);
+		g.fillRect(dx+210, dy+250, 15, 75);
+
+		//draw his head
+		g.setColor(lightBrown);
+		g.fillOval(dx+175, dy+40, 50, 60);
+		g.setColor(Color.BLACK);
+		g.drawLine(dx+190, dy+80, dx+210, dy+80);
+
+		//draw his scarf
+		g.setColor(Color.YELLOW);
+		g.fillRect(dx+170, dy+90, 150, 20);
 	}
 
 	@Override
 	public void paintComponent(Graphics g) {
 		int w = getWidth();
-    int h = getHeight();
-    Color tan = new Color(247, 216, 158);
-    Color brown = new Color(115, 78, 8);
+		int h = getHeight();
 
-    //draw background
-    g.setColor(Color.BLUE);
-    g.fillRect(0, 0, w, h);
-    g.setColor(brown);
-    g.fillOval(-100, (h-125), (w + 200), h);
+		//draw the black vacuum of space
+		g.setColor(Color.BLACK);
+		g.fillRect(0,0,w,h);
+		
+		//draw asteroid B612
+		g.setColor(Color.LIGHT_GRAY);
+		g.fillOval(-100, 300, 600, 400);
 
-    //Draw the little prince
-    //Draw his head
-    g.setColor(tan);
-    g.fillOval(dx, dy, 50, 50);
-    g.setColor(Color.BLACK);
-    g.drawLine((dx + 15), (dy + 30), (dx + 35), (dy + 30));
+		drawLittlePrince(g);
 
-    //draw his shirt and pants
-    g.setColor(Color.GREEN);
-    g.fillRect(dx, (dy + 50), 50, 150);
-    g.fillRect(dx, (dy + 190), 15, 75);
-    g.fillRect((dx + 35), (dy + 190), 15, 75);
-
-    //draw his scarf
-    g.setColor(Color.YELLOW);
-    g.fillRect((dx + 15), (dy + 45), 150, 15);
-    g.setColor(Color.BLACK);
-    g.drawString("Le Petit Prince", (dx + 17), (dy + 57));
-
+		sheep.paintIcon(null, g, 10, h-150);
 	}
 
 	public static void main(String[] args) {
