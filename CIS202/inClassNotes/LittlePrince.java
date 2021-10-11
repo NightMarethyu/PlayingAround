@@ -9,7 +9,25 @@ public class LittlePrince extends JPanel {
 	
 	public LittlePrince() {
 		sheep = new ImageIcon("sheep.png");
-		System.out.println(.1 + .2);
+		double tithing = getTithing(42.25);
+		System.out.println("Tithing owed is " + tithing);
+		int aCount = countA("a software tester walks into a bar.");
+		System.out.println("The a count is: " + aCount);
+	}
+
+	public double getTithing(double increase) {
+		double tithe = increase * .1;
+		return tithe;
+		// return increase * 0.1;
+	}
+
+	public int countA(String stuff) {
+		int curCount = 0;
+		for (int i = 0; i < stuff.length(); i++) {
+			char cur = stuff.charAt(i);
+			if (cur == 'a') curCount++;
+		}
+		return curCount;
 	}
 
 	public void drawLittlePrince(Graphics g) {
