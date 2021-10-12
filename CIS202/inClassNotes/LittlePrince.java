@@ -6,8 +6,30 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class LittlePrince extends JPanel {
-	int dx;
-  int dy;
+	ImageIcon sheep;
+	
+	public LittlePrince() {
+		sheep = new ImageIcon("sheep.png");
+		double tithing = getTithing(42.25);
+		System.out.println("Tithing owed is " + tithing);
+		int aCount = countA("a software tester walks into a bar.");
+		System.out.println("The a count is: " + aCount);
+	}
+
+	public double getTithing(double increase) {
+		double tithe = increase * .1;
+		return tithe;
+		// return increase * 0.1;
+	}
+
+	public int countA(String stuff) {
+		int curCount = 0;
+		for (int i = 0; i < stuff.length(); i++) {
+			char cur = stuff.charAt(i);
+			if (cur == 'a') curCount++;
+		}
+		return curCount;
+	}
 
 	public LittlePrince() {
 		//Your custom initialization code here
