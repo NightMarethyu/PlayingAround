@@ -1,0 +1,1 @@
+This is the stuff that I tested Django. My plan is to create the quiz app that I was going to do with React, but I'm not loving how React handles my form.

@@ -1,0 +1,395 @@
+:root {
+  font-size: 16px;
+  --text-primary: #808285;
+  --text-secondary: #fcf1cb;
+  --bg-primary: #231f20;
+  --bg-secondary: #141418;
+  --transition-speed: 600ms;
+}
+
+/* This is where the basic setup for the page starts */
+body {
+  color: #2e1c0a;
+  background-color: #f2edda;
+  margin: 0;
+  padding: 0;
+  font-family: 'Rubik', sans-serif;
+}
+  body::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+  body::-webkit-scrollbar-track {
+    background: #1e1e24;
+  }
+  body::-webkit-scrollbar-thumb {
+    background: #256190;
+  }
+
+main {
+  margin-left: 5rem;
+  padding: 1rem 0 0 1rem;
+  font-family: 'Roboto';
+}
+
+.info-page {
+  width: 70%;
+  margin: auto;
+}
+
+.err-page {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+
+.err-img {
+  height: 30vw;
+}
+
+/* This is the css for the navbar, I'm using the code from here: https://github.com/fireship-io/222-responsive-icon-nav-css */
+/* Hopefully I'll customize it more since this stuff is nice but
+  I want to kind of do something myself */
+
+.navbar {
+  position: fixed;
+  background-color: var(--bg-primary);
+  transition: width 200ms ease;
+}
+
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-item {
+  width: 100%;
+}
+
+.nav-item:last-child {
+  margin-top: auto;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  filter: grayscale(100%) opacity(0.7);
+  transition: var(--transition-speed);
+}
+
+.nav-link:hover {
+  filter: grayscale(0%) opacity(1);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.link-text {
+  display: none;
+  margin-left: 1rem;
+}
+
+.nav-link svg {
+  width: 2rem;
+  min-width: 2rem;
+  margin: 0 1.5rem;
+}
+
+.svg-logos {
+  color: #256190;
+  fill: #256190;
+  transition: var(--transition-speed);
+}
+
+.logo {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  font-size: 1.5rem;
+  letter-spacing: 0.3ch;
+  width: 100%;
+}
+
+.logo-text {
+  display: inline;
+  position: absolute;
+  left: -999px;
+  transition: var(--transition-speed);
+}
+
+#wel-banner {
+  min-height: 12vh;
+  text-align: center;
+  font-size: 5rem;
+}
+
+/* here is were I do the styling for the quiz cards */
+.quiz-list {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* .quiz-card {
+  width: 90%;
+  margin: auto;
+  border: solid 1px var(--text-primary);
+  border-radius: 5%;
+  padding: 10px;
+} */
+
+.quiz-link-title {
+  text-decoration: none;
+  color: var(--bg-primary);
+  border: solid 1px var(--text-primary);
+  width: 90%;
+  margin: auto;
+  border-radius: 5%;
+  padding: 10px;
+}
+
+.quiz-link-title:hover {
+  border: solid 4px var(--bg-secondary);
+  transition: var(--transition-speed);
+}
+
+.quiz-card-img {
+  max-width: 10vw;
+  float: right;
+}
+
+/* This is the styling for the form */
+#regForm {
+  background-color: #fff;
+  margin: 100px auto;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+.answer {
+  display: flex;
+  flex-direction: row;
+}
+
+.tab {
+  display: none;
+}
+
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #21313e;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: .5;
+}
+
+  .active {
+    background-color: #af9f6f;
+    opacity: 1;
+  }
+
+  .btn {
+    outline: none;
+    border: none;
+    border-radius: .3em;
+    height: 2.75em;
+    line-height: 2.5em;
+    text-transform: uppercase;
+    padding: 0 1em;
+    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(110,80,20,.4), inset 0 -2px 5px 1px rgba(139,66,8,1), inset 0 -1px 1px 3px rgba(250,227,133,1);
+    background-image: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
+    border: 1px solid #a55d07;
+    color: rgb(120,50,5);
+    text-shadow: 0 2px 2px rgba(250,227,133,1);
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    background-size: 100% 100%;
+    background-position: center;
+  }
+
+    .btn:focus,
+    .btn:hover {
+      background-size: 150% 150%;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23), inset 0 -2px 5px 1px #b17d10, inset 0 -1px 1px 3px rgba(250,227,133,1);
+      border: 1px solid rgba(165,93,7,.6);
+      color: rgba(120,50,5,.8);
+    }
+
+    .btn:active {
+      box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(110,80,20,.4), inset 0 -2px 5px 1px #b17d10, inset 0 -1px 1px 3px rgba(250,227,133,1);
+    }
+
+  .answers {
+    list-style-type: none;
+  }
+
+  .answers li {
+    position: relative;
+    padding: 10px;
+    padding-left: 40px;
+    height: 30px;
+  }
+
+  label:before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: #543978;
+    position: absolute;
+    left: 7px;
+    top: calc(50% - 13px);
+    box-sizing: border-box;
+    border-radius: 50%;
+  }
+
+  input[type="radio"] {
+    opacity: 0;
+    -webkit-appearance: none;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    top: calc(50% - 15px);
+    cursor: pointer;
+  }
+
+  .bullet {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    left: -3px;
+    top: 2px;
+    border: 5px solid #543978;
+    opacity: 0;
+    border-radius: 50%;
+  }
+
+  input[type="radio"]:checked ~ .bullet {
+    position: absolute;
+    opacity: 1;
+  }
+
+  .tab-links,
+  .sub-tab-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .tab-links {
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+    margin-top: 5px;
+  }
+
+  .tab-title,
+  .sub-tab-title {
+    padding: 10px;
+    border: none;
+    box-shadow: none;
+    background: unset;
+  }
+
+  .tab-title:hover,
+  .sub-tab-title:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .tab-title:focus,
+  .sub-tab-title:focus {
+    outline: none;
+  }
+
+  .active-tab {
+    background-color: #afa787;
+    font-weight: bold;
+  }
+
+  .tab-data {
+    display: none;
+  }
+
+/* This is the media break for mobile */
+@media only screen and (max-width: 800px) {
+
+  .navbar {
+    bottom: 0;
+    width: 100vw;
+    height: 5rem;
+  }
+
+  .logo {
+    margin-bottom: 0;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+  }
+
+  .nav-link {
+    justify-content: center;
+  }
+
+  main {
+    margin: 0;
+    padding: 0;
+  }
+
+  .info-page {
+    width: 90%;
+  }
+
+  .quiz-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .err-page{
+    width: 90%;
+  }
+}
+
+/* This media break ensures that the settings don't
+  do weird stuff between mobile and desktop */
+@media only screen and (min-width: 800px) {
+
+  .navbar {
+    top: 0;
+    width: 5rem;
+    height: 100vh;
+  }
+
+    .navbar:hover {
+      width: 16rem;
+    }
+
+      .navbar:hover .link-text {
+        display: inline;
+      }
+    
+      .navbar:hover .logo svg {
+        margin-left: 11rem;
+      }
+
+      .navbar:hover .logo-text {
+        left: 0px;
+      }
+}

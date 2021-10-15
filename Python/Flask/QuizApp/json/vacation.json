@@ -1,0 +1,154 @@
+{
+  "title": "Create Your Own Summer Vacation",
+  "quizName": "vacation",
+  "questions": [
+    {
+      "title": "Companion",
+      "prompt": "Choose Your Travel Buddy",
+      "options": [
+        {
+          "title": "Mascot",
+          "points": "1a"
+        },
+        {
+          "title": "Dog",
+          "points": "1b"
+        },
+        {
+          "title": "Death Cloud",
+          "points": "1c"
+        }
+      ]
+    },
+    {
+      "title": "Destination",
+      "prompt": "Pick a Place to Visit",
+      "options": [
+        {
+          "title": "The Beach",
+          "points": "2a"
+        },
+        {
+          "title": "Grandma's House",
+          "points": "2b"
+        },
+        {
+          "title": "Outer Universe",
+          "points": "2c"
+        }
+      ]
+    },
+    {
+      "title": "Packing",
+      "prompt": "Choose as many as you like!",
+      "options": [
+        {
+          "title": "Pet Snake",
+          "points": "3a"
+        },
+        {
+          "title": "Shorts",
+          "points": "3b"
+        },
+        {
+          "title": "Sword",
+          "points": "3c"
+        },
+        {
+          "title": "Raygun",
+          "points": "3d"
+        },
+        {
+          "title": "Toothbrush",
+          "points": "3e"
+        },
+        {
+          "title": "Suncream",
+          "points": "3f"
+        },
+        {
+          "title": "Snorkle",
+          "points": "3g"
+        },
+        {
+          "title": "DVD",
+          "points": "3h"
+        }
+      ]
+    },
+    {
+      "title": "Travelling",
+      "prompt": "How's the journey?",
+      "options": [
+        {
+          "title": "You watch a movie then have a long nap",
+          "points": "4a"
+        },
+        {
+          "title": "Your seat is too small and you get travel sick",
+          "points": "4b"
+        }
+      ]
+    },
+    {
+      "title": "Activities",
+      "prompt": "You can choose two!",
+      "options": [
+        {
+          "title": "Go Surfing",
+          "points": "5a"
+        },
+        {
+          "title": "Destroy Planets",
+          "points": "5b"
+        },
+        {
+          "title": "Go Sight-Seeing",
+          "points": "5c"
+        },
+        {
+          "title": "Play Scabble",
+          "points": "5d"
+        }
+      ]
+    },
+    {
+      "title": "Final Night",
+      "prompt": "How will your vacation end?",
+      "options": [
+        {
+          "title": "You finish the holiday with an all you can eat buffet",
+          "points": "6a"
+        },
+        {
+          "title": "You finish the holiday with food poisoning",
+          "points": "6b"
+        }
+      ]
+    }
+  ],
+  "results": [
+  {
+    "title": "Holiday Hero",
+    "text": "Dwayne Johnson just called to see if he could come with you next time",
+    "minValue": 20
+  },
+  {
+    "title": "Suitcase Slugger",
+    "text": "Nice Work! Your pictures got thousands of likes on the 'Gram",
+    "maxValue": 20,
+    "minValue": 0
+  },
+  {
+    "title": "Summer Bummer",
+    "text": "Was that the best you could do? Next time, just stay at home",
+    "maxValue": 0,
+    "minValue": -20
+  },
+  {
+    "title": "Astro-Naught",
+    "text": "You wrecked havoc across the univers, enjoy space jail",
+    "maxValue": -20
+  }
+]
+}

@@ -1,0 +1,81 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  About Me
+{% endblock %}
+
+{% block main %}
+<div class="info-page">
+  <script src="/static/scripts/about.js"></script>
+  <h1>I'm Ammon</h1>
+  <p>This is my website.</p>
+  <div class="tab-links">
+    <button class="tab-title" onclick="openTab(event, 'Professional')">Professional</button>
+    <button class="tab-title" onclick="openTab(event, 'Personal')">Personal</button>
+    <button class="tab-title" onclick="openTab(event, 'Recommendations')">Recommendations</button>
+    <button class="tab-title" onclick="openTab(event, 'Resources')">Site Resources</button>
+  </div>
+  <div class="tab-data" id="Professional">
+    <p>I'm Ammon, an aspiring Software Developer. I built this website to show some of my capabilities. I've focused a lot of my time on web development with HTML, CSS, and Javascript, I'm pretty familiar with Python. I'm working on learning C++, C#, Java, and Go and will add more as I progress.</p>
+    <p>I've studied Information Technology at the Ogden Weber Tech College. I graduated from there as a member of the National Technical Honor Society in 2016. In 2016, just before my graduation, I competed in the SkillsUSA competition for Information Technology Support at the college level. I took first place in the state of Utah and second place in the National competition. I've spent about 5 years working as an IT support specialist and Network Admin at a company in Ogden, UT.</p>
+    <p>I recently started attending school at BYU Hawaii, my declared major is Computer Science with minors in Japanese and Marketing. I expect to graduate in 2025.</p>
+    <p>I'm on <a href="https://www.linkedin.com/in/ammondturner/" target="_blank">LinkedIn</a>. You can find my programming porfolio on my <a href="https://github.com/NightMarethyu/PlayingAround" target="_blank">Github</a>.</p>
+  </div>
+  <div class="tab-data" id="Personal">
+    <p>So, you want to know more about me personally do you? Well, strap yourself in because I'm going to tell you about me.</p>
+    <p>I love reading. I'm a big fan of epic high fantasy novels. Some of my favorites include "The Lord of the Rings", "The Wheel of Time", and "The Stormlight Archive". I also enjoy science fiction, I've really enjoyed reading "The Expanse". I also like material from Japan, light novels and manga. My favorites include "Is it Wrong to Try to Pick Up Girls in a Dungeon?" and "Nisekoi".</p>
+    <p>I'm a big anime watcher. I'm usually following the seasonal releases as well as working on watching the backlog of shows I missed or shows that premiered before I started watching anime. I like Western animation as well, I'm a big fan of "Phineas and Ferb" and, silly as it may seem, "My Little Pony Friendship is Magic".</p>
+    <p>Movies are another medium that I enjoy, I rarely watch live action TV shows, but I'll watch a movie. I love "Star Wars" with the exception of the "sequal trilogy". Other favorites include "The Princess Bride", "Napoleon Dynamite", and most every Christopher Nolan film. I like to analyze the shot composition, editing, and the story-telling</p>
+    <p>I love learning languages. I studied French in High School. I spent two years in the Philippines where I learned Tagalog, Hiligaynon, and Kinaray-a. And lately, I've been studing Japanese.</p>
+  </div>
+  <div class="tab-data" id="Recommendations">
+    <div class="tab-links">
+      <button class="sub-tab-title" onclick="openSubTab(event, 'Books')">Books</button>
+      <button class="sub-tab-title" onclick="openSubTab(event, 'Movies')">Movies</button>
+      <button class="sub-tab-title" onclick="openSubTab(event, 'Anime')">Anime</button>
+      <button class="sub-tab-title" onclick="openSubTab(event, 'Games')">Games</button>
+    </div>
+    <div class="sub-tab-data" id="Books">
+      <p>Here are some book recommendations in case you want them.</p>
+      <ul class="recommend">
+        <li><strong>Lord of the Rings</strong> &middot; LotR is the quintessential High Fantasy series. If you are interested in High Fantasy, you should read this. Tolkien can be slow at times, but his influence can be seen all over in the fantasy genre.</li>
+        <li><strong>The Wheel of Time</strong> &middot; The Wheel of Time is one of the longest high fantasy book series in English and it is so very good. Robert Jordan, the author of WoT, described how he came up with the idea for the series as asking how some backwoods sheperd would really react when forced to go on an adventure. Through the whole series most of the characters want to go have a simple life, but they are forced to carry the fate of the world.</li>
+        <li><strong>Mistborn</strong> &middot; The Mistborn series by Brandon Sanderson is a great into to both Brandon Sanderson's Cosmere and hard magic systems. Sanderson describes the series as a heist story in a world where a thousand years ago the chosen hero failed.</li>
+        <li><strong>The Stormlight Archive</strong> &middot; The Stormlight Archive is another high fantasy series by Brandon Sanderson. This is not a series for the faint of heart, with each book coming in at a thousand pages and over 380,000 words. My first time through I found "The Way of Kings" to be hard to get into at first, but I really loved the book by the end.</li>
+        <li><strong>Fablehaven and Dragonwatch</strong> &middot; These are more typically for a younger audience but they are some of my favorite series still. Dragonwatch is the sequel series to Fablehaven and I recommend Fablehaven as a way to get to read Dragonwatch. These are low fantasy, that means that they take place on Earth with real world countries and places mentioned.</li>
+      </ul>
+    </div>
+    <div class="sub-tab-data" id="Movies">
+      <p>These are some movies that recommend watching.</p>
+      <ul class="recommend">
+        <li><strong>Interstellar</strong> &middot; This Christopher Nolan film is probably what cemented him as one of my favorite directors. I love how he plays with time in this movie using the physics of gravity.</li>
+        <li><strong>The Dark Knight Trilogy</strong> &middot; Another Christopher Nolan feature. This is my favorite depiction of "The World's Greatest Detective" &ndash; Batman. The Dark Knight is the high point of the trilogy, but all the films are excelent.</li>
+        <li><strong>The Princess Bride</strong> &middot; A story within a story, "The Princess Bride" is a storybook being read by a grandfather to his sick grandson. It's one of the most quotable films and has such a fun story and adventure. This is one that should be in everyone's home movie collection</li>
+        <li><strong>Muppet Treasure Island</strong> &middot; This is one of my favorite movies from when I was a little kid but it remains one of my favorites to this day. The story is a classic, the music is fantastic, and who doesn't love The Muppets.</li>
+        <li><strong>Star Wars</strong> &middot; The original Star Wars trilogy is probably my favorite set of movies of all time. I love the struggle of overcoming the odds, the mystery of the Jedi and the force, and the adventure of exploring a galaxy far, far, away.</li>
+      </ul>
+    </div>
+    <div class="sub-tab-data" id="Anime">
+      <p>For those interested in trying out Japanese Animation here are some recommendations.</p>
+      <ul class="recommend">
+        <li><strong>Sword Art Online</strong> &middot; SAO is about a "full-dive" VR game. Basically a game that hijacks your brain signals and lets you live through a the video game. Upon the games release the players quickly learn that they can't logout and the game's creator tells everyone that dying in the game means you will die in real life. This series gets a lot of hate, but I think it is an excellent introduction into anime. Yes, there are other series that do most of what SAO does, but most of them are what I like to call "deep anime" or anime that you pick up once you are familiar with the tropes and styles of anime storytelling.</li>
+        <li><strong>Is it Wrong to Try to Pick Up Girls in a Dungeon?</strong> &middot; This story follows Bell Cranel an aspiring adventure who moves to the city over the world's only dungeon (a cave system where monsters literally come out of the walls). He joins with the Goddess Hestia and begins exploring the dungeon looking for adventure, money, and hopefully to find a girl. I love this series, I know it's silly but the world and characters are so much fun. I recommend it for anyone looking for a series that doesn't take itself too seriously, has lovable characters, and tells a fun adventure tale.</li>
+        <li><strong>Konosuba</strong> &middot; An isekai (isekai is a Japanese word that means "another world") about a pretty boring guy getting transported to a fantasy world with the task to kill the demon lord. He is given the choice of a power or item to bring with him, and he choses the goddess who is offering to reincarnate him. It's basically an animated fantasy sitcom.</li>
+        <li><strong>Nisekoi</strong> &middot; The story is about the son of a Yakuza boss and the Daughter of an American gang leader being forced into a fake relationship to keep their two gangs from fighting after the American gang moves to Japan to expand their territory. The title literally means "Fake Love" in Japanese and it is such a fun time. This one is somewhat harder to recommend due to the fact that the only way to get the whole story is to read the manga. The anime is great, but they finished publishing the manga and decided that they weren't going to continue the anime. Hopefully, one day it will be revisited like Full Metal Alchemist or Fruits Basket.</li>
+      </ul>
+    </div>
+    <div class="sub-tab-data" id="Games">
+      <p>Here are some of my favorite Table Top games</p>
+      <ul>
+        <li><strong>Five Crowns</strong> &middot; A very simple game, very similar to games like Canasta and Rummy. You try to collect runs and sets and be the first person who can put their whole hand into a combination of different runs and sets. This is great as a game for after Sunday dinner with the family.</li>
+        <li><strong>Cash'n'Guns</strong> &middot; This game is great, it's got a pretty simple mechanic, be the guy with the most money and fewest bullet holes at the end of the game. It's a game of chicken with cards. Really fun for family game night.</li>
+        <li><strong>Telestrations</strong> &middot; This is probably the funniest game I've played. It's telephone, but with drawings. You start with a word/phrase and then you draw it. You'll pass your card to the next person who will make a guess based on your drawing, they will then pass the card to the next person who will draw their guess. You will end up with a bunch of hilarious guesses and drawings.</li>
+        <li><strong>Tokaido</strong> &middot; This is more relaxing game. The point is to have the most experiences while on a journey. Historically the Tokaido was the road between Kyoto and Tokyo in Japan. In this game you are a traveller on the road. It's a very laid back game</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tab-data" id="Resources">
+    <p>Here are some of the resources I used when creating this site.</p>
+  </div>
+</div>
+{% endblock %}

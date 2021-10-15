@@ -1,0 +1,11 @@
+{
+  "quizzes": [
+    {
+      "title": "Hogwarts House Quiz",
+      "quizName": "houseQuiz",
+      "description": "This is the test quiz where I started really checking the functionality of my quiz app. It was surprisingly easy to build the backend stuff for this.",
+      "img": "/static/images/quizzes/houses.jpg",
+      "imgAlt": "Hogwarts Houses"
+    }
+  ]
+}

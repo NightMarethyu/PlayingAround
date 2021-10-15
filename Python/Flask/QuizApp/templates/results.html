@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Results
+{% endblock %}
+
+{% block head %}
+  <link href="/static/css/results.css" rel="stylesheet" />
+{% endblock %}
+
+{% block main %}
+  <div class="info-page">
+    <div id="crestImg"></div>
+    <h1 id="quizTitle">{{ res["title"] }}</h1>
+    {% for text in res["text"] %}
+      <p>{{ text }}</p>
+    {% endfor %}
+  </div>
+  {% if res["scripts"] %}
+    <script src="/static/scripts/{{ res["scripts"] }}"></script>
+  {% endif %}
+{% endblock %}

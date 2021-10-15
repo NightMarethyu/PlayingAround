@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  {{ data["title"] }}
+{% endblock %}
+
+{% block head %}
+  {% if data["quizCSS"] %}<link href="{{ data["quizCSS"] }}" rel="stylesheet" />{% endif %}
+{% endblock %}
+
+{% block main %}
+  <h1>{{ data["title"] }}</h1>
+  <form id="regForm" onsubmit="return checkAns()" method="post" action="/quiz/{{ data["quizName"] }}/results">
+    {% for q in data["questions"] %}
+      <div class="tab">
+        <h3>{{ q["title"] }}</h3>
+        <p>{{ q["prompt"] }}</p>
+        <ul class="answers">
+        {% for o in q["options"] %}
+        <li>
+          <input type="radio" value={{ o["points"] }} name="{{ q["title"] }}" />
+          <label>{{ o["title"] }}</label>
+          <div class="bullet"></div>
+        </li>
+        {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+    <div style="overflow: auto;">
+      <div style="float: right;">
+        <button class="btn" type="button" id="prevBtn">Previous</button>
+        <button class="btn" type="button" id="nextBtn">Next</button>
+        <button class="btn" type="submit" id="subBtn">Submit</button>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+      {% for q in data["questions"] %}
+        <span class="step"></span>
+      {% endfor %}
+    </div>
+  </form>
+  {% if data["background"] %}
+    <div class="background-svg">
+    {{ data["background"]|safe }}
+    </div>
+  {% endif %}
+  {% if data["scripts"] %}
+    <script src="/static/scripts/{{ data["scripts"] }}"></script>
+  {% endif %}
+  <script src="/static/quiz-scripts.js"></script>
+{% endblock %}

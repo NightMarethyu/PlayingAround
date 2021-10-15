@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <title>Quiz</title>
+  <meta charset="UTF-8" />
+</head>
+<body>
+  <form name="myForm">
+    <div>
+      <h3>Companion</h3>
+      <p>Choose your travel buddy</p>
+      <label><input type="radio" value=2 name="companion" /> Mascot</label><br />
+      <label><input type="radio" value=5 name="companion" /> Dog</label><br />
+      <label><input type="radio" value=-1 name="companion" /> Death Cloud</label><br />
+    </div>
+    <div>
+      <h3>Destination</h3>
+      <p>Pick a Place to Visit</p>
+      <label><input type="radio" value=5 name="destination" /> The Beach</label><br />
+      <label><input type="radio" value=1 name="destination" /> Grandma's House</label><br />
+      <label><input type="radio" value=2 name="destination" /> Outer Universe</label><br />
+    </div>
+    <div>
+      <h3>Packing</h3>
+      <p>Choose as many as you like!</p>
+      <label><input type="checkbox" value=-1 name="packing" class="packingBoxes" /> Pet Snake</label><br />
+      <label><input type="checkbox" value=3 name="packing" class="packingBoxes" /> Shorts</label><br />
+      <label><input type="checkbox" value=-2 name="packing" class="packingBoxes" /> Sword</label><br />
+      <label><input type="checkbox" value=-5 name="packing" class="packingBoxes" /> Ray Gun</label><br />
+      <label><input type="checkbox" value=1 name="packing" class="packingBoxes" /> Toothbrush</label><br />
+      <label><input type="checkbox" value=-2 name="packing" class="packingBoxes" /> Sun Screen</label><br />
+      <label><input type="checkbox" value=2 name="packing" class="packingBoxes" /> Snorkle</label><br />
+      <label><input type="checkbox" value=-1 name="packing" class="packingBoxes" /> DVD</label><br />
+    </div>
+    <div>
+      <h3>Travelling</h3>
+      <p>How's the Journey?</p>
+      <label><input type="radio" value=4 name="travelling" /> You watch a movie then have a long nap</label><br />
+      <label><input type="radio" value=-2 name="travelling" /> Your seat is too small and you get travel sick</label><br />
+    </div>
+    <div>
+      <h3>Activities</h3>
+      <p>You can choose two!</p>
+      <label><input type="checkbox" value=5 name="activities" class="activities" /> Go Surfing</label><br />
+      <label><input type="checkbox" value=-50 name="activities" class="activities" /> Destroy Planets</label><br />
+      <label><input type="checkbox" value=3 name="activities" class="activities" /> Go Sight-seeing</label><br />
+      <label><input type="checkbox" value=-1 name="activities" class="activities" /> Play Scrabble</label><br />
+    </div>
+    <div>
+      <h3>Final Night</h3>
+      <p>How will your vacation end?</p>
+      <label><input type="radio" value=4 name="finalNight" /> You finish the holiday with an all you can eat buffet</label><br />
+      <label><input type="radio" value=-2 name="finalNight" /> You finish the holiday with food poisoning</label><br />
+    </div>
+    <button type="button" id="myButton">Submit</button>
+  </form>
+  <script src="handleForm.js"></script>
+</body>
+</html>

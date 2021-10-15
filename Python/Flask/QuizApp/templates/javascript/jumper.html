@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Jumper
+{% endblock %}
+
+{% block head %}
+    <style type="text/css">
+        .js-page {
+            width: 70%;
+            margin: auto;
+            position: relative;
+        }
+
+        .grid {
+            width: 400px;
+            height: 600px;
+            background-color: yellow;
+            position: relative;
+            font-size: 200px;
+            text-align: center;
+        }
+
+        .doodler {
+            width: 60px;
+            height: 85px;
+            background-color: red;
+            position: absolute;
+        }
+
+        .platform {
+            width: 85px;
+            height: 15px;
+            background-color: green;
+            position: absolute;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+<div class="js-page">
+    <div class="grid"></div>
+</div>
+    <script src="/static/scripts/js/jumper.js" charset="utf-8"></script>
+{% endblock %}
