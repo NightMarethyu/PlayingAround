@@ -11,10 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
   var ball = new Ball(ballSize, ballSpeed, ballX, ballY);
 
   // add a new paddle
-  var paddle = new Paddle(canvas);
   var paddleSpeedChange = 7;
+  var paddleHeight = 10;
+  var paddleWidth = 75;
+  var paddleX = (canvas.width - paddleWidth) / 2;
+  var paddleColor = "#0095DD";
   var rightPressed = false;
   var leftPressed = false;
+  var paddle = new Paddle(paddleHeight, paddleWidth, paddleX, paddleColor);
 
   // Begin drawing the game
   draw();
@@ -22,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ball.draw(ctx);
-    paddle.draw(ctx, canvas);
+    paddle.draw(ctx, canvas.height);
 
     ball.checkEdge(canvas);
 
@@ -44,6 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(draw);
   }
 
+  // this event listener will check if the user is currently pressing a key
+  // it will then move the paddle by changing the appropriate key pressed var
   document.addEventListener("keydown", (e) => {
     if (e.key == "Right" || e.key == "ArrowRight" || e.key == "d") {
       rightPressed = true;
@@ -52,6 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }, false);
 
+  // this listener is similar to the one above but will stop movement when
+  // the key is released
   document.addEventListener("keyup", (e) => {
     if (e.key == "Right" || e.key == "ArrowRight" || e.key == "d") {
       rightPressed = false;
@@ -97,17 +105,17 @@ class Ball {
 }
 
 class Paddle {
-  constructor(canvas) {
-    this.height = 10;
-    this.width = 75;
-    this.x = (canvas.width - this.width) / 2;
+  constructor(height, width, x, color) {
+    this.height = height;
+    this.width = width;
+    this.x = x;
     this.speed = 0;
-    this.color = "#0095DD";
+    this.color = color;
   }
 
-  draw(ctx, canvas) {
+  draw(ctx, h) {
     ctx.beginPath();
-    ctx.rect(this.x, canvas.height - this.height, this.width, this.height);
+    ctx.rect(this.x, h - this.height, this.width, this.height);
     ctx.fillStyle = this.color;
     ctx.fill();
     ctx.closePath();
@@ -119,6 +127,8 @@ class Paddle {
       
       if (this.x + this.width > canvas.width) {
         this.x = canvas.width - this.width;
+      } else if (this.x < 0) {
+        this.x = 0;
       }
     }
   }
