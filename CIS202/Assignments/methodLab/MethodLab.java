@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,28 +10,26 @@ public class MethodLab extends JPanel {
   ArrayList<String> instructions;
 
   public MethodLab() {
-    // I'm using the same file picker method from the ArraysLab assignment
-    // This will display a dialog box to let the user choose a .txt file
-    // it will then put each line of that txt file into the instructions field
+
     try {
-      JFileChooser choose = new JFileChooser();
-      FileNameExtensionFilter filter = new FileNameExtensionFilter("Text", "txt");
-      choose.setFileFilter(filter);
-      File file;
-      Scanner s;
-      int returnVal = choose.showOpenDialog(null);
+      // We create a text field to capture user input
+      JTextField filename = new JTextField(20);
 
-      // This if statement ensures that the user selected a file and clicked okay
-      if (returnVal == JFileChooser.APPROVE_OPTION) {
+      // then we create the panel that will be shown
+      JPanel input = new JPanel();
 
-        // These first few lines will start the scanner
-        file = choose.getSelectedFile();
-        s = new Scanner(file);
+      // add to the panel to display what we want the user to see
+      input.add(new JLabel("Enter Filename:"));
+      input.add(filename);
 
-        // Initialize the instructions field
+      // display the okay choices
+      var res = JOptionPane.showConfirmDialog(null, input, "Filename", JOptionPane.OK_CANCEL_OPTION);
+
+      if (res == JOptionPane.OK_OPTION) {
+        File f = new File(filename.getText());
+        Scanner s = new Scanner(f);
         instructions = new ArrayList<>();
 
-        // Loop through the file and put all non-null lines into the instructions field
         while (s.hasNextLine()) {
           String line = s.nextLine();
           if (line.equals("")) {
