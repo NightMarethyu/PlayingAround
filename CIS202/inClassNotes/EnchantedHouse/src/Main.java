@@ -1,3 +1,5 @@
+import java.util.Locale;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Main {
@@ -6,39 +8,48 @@ public class Main {
 
     Room currentRoom;
 
-    Room[] rooms = new Room[9];
-    for (int i = 0; i < 9; i++) {
-      rooms[i] = new Room(i);
-    }
+    var room0 = new MagicRoom(0);
+    var room1 = new Room(1);
+    var room2 = new Room(2);
+    var room3 = new Room(3);
+    var room4 = new Room(4);
+    var room5 = new Room(5);
+    var room6 = new Room(6);
+    var room7 = new MagicRoom(7);
+    var room8 = new Room(8);
 
-    rooms[0].setSouthExit(rooms[3]);
-    rooms[1].setEastExit(rooms[2]);
-    rooms[1].setSouthExit(rooms[4]);
-    rooms[3].setWestExit(rooms[4]);
-    rooms[3].setSouthExit(rooms[6]);
-    rooms[4].setEastExit(rooms[5]);
-    rooms[5].setSouthExit(rooms[8]);
-    rooms[7].setEastExit(rooms[8]);
+    room0.setSouthExit(room3);
+    room1.setEastExit(room2);
+    room1.setSouthExit(room4);
+    room3.setEastExit(room4);
+    room3.setSouthExit(room6);
+    room4.setEastExit(room5);
+    room5.setSouthExit(room8);
+    room7.setEastExit(room8);
 
-    currentRoom = rooms[6];
+    room0.setTeleport(room7);
+    room7.setTeleport(room0);
+
+    currentRoom = room6;
     Scanner s = new Scanner(System.in);
 
     while (true) {
-      // describe the current room to the player
+      //1. tell user which room we're in, and the available doorways
       currentRoom.describe();
-
-      // ask user where they want to go
+      //2. Let user choose which direction to go
       System.out.print("Which doorway will you take? ");
       String input = s.nextLine();
 
-      switch (input) {
-        case "n" -> currentRoom = currentRoom.getNorthExit();
-        case "s" -> currentRoom = currentRoom.getSouthExit();
-        case "e" -> currentRoom = currentRoom.getEastExit();
-        case "w" -> currentRoom = currentRoom.getWestExit();
-        default -> System.out.println("Please choose a valid room.");
-      }
-    }
+      Optional<Room> r = currentRoom.getNextRoom(input.toLowerCase());
 
+      //3. update which room the user is in
+      if (r.isEmpty()) {
+        System.out.println("There is a wall there");
+      } else {
+        currentRoom = r.get();
+      }
+
+      //4. goto 1.
+    }
   }
 }
