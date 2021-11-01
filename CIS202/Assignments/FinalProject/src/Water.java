@@ -7,6 +7,8 @@ public class Water extends Sprite {
     setLocation(x, y);
   }
 
+  // the water doesn't have a separate sprite, instead it's just blue
+  // this will add a blue square to the window in the sprite's location
   @Override
   public void draw(Graphics g) {
     if (absolutePosition != null) {

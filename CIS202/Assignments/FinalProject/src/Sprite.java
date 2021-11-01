@@ -8,12 +8,14 @@ public class Sprite {
   protected Point relativePosition;
   protected ImageIcon image;
 
+  // default constructor
   public Sprite() {
     absolutePosition = new Point(0, 0);
     relativePosition = new Point(0, 0);
     image = null;
   }
 
+  // change the sprites location
   public void setLocation(int x, int y) {
     relativePosition.x = x;
     relativePosition.y = y;
@@ -22,6 +24,7 @@ public class Sprite {
     absolutePosition.y = (y * 60) + 10;
   }
 
+  // This will change the sprite's location to a new point
   public void setLocation(Point p) {
     if (p == null) {
       relativePosition = null;
@@ -31,6 +34,7 @@ public class Sprite {
     }
   }
 
+  // add the sprite to the window
   public void draw(Graphics g) {
     if (absolutePosition != null) {
       image.paintIcon(null, g, absolutePosition.x, absolutePosition.y);
