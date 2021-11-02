@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Sprite {
+public abstract class Sprite {
 
   // These are the necessary fields
   protected Point absolutePosition;
@@ -32,6 +32,11 @@ public class Sprite {
     } else {
       setLocation(p.x, p.y);
     }
+  }
+
+  // Get relative position of sprite
+  public Point getRelativePosition() {
+    return relativePosition;
   }
 
   // add the sprite to the window

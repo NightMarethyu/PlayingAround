@@ -1,8 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
-public class Main extends JPanel {
+public class Main extends JPanel implements KeyListener {
 
   public int rows;
   public int columns;
@@ -105,5 +107,20 @@ public class Main extends JPanel {
     window.setSize(640, 660);
     window.setContentPane(new Main());
     window.setVisible(true);
+  }
+
+  @Override
+  public void keyTyped(KeyEvent e) {
+    // TODO
+  }
+
+  @Override
+  public void keyPressed(KeyEvent e) {
+    // TODO
+  }
+
+  @Override
+  public void keyReleased(KeyEvent e) {
+    // TODO
   }
 }
