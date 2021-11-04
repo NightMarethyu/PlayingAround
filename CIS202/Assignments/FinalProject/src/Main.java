@@ -10,7 +10,7 @@ public class Main extends JPanel implements KeyListener {
   public int columns;
   public Ammon ammon;
   public ArrayList<Robber> robbers;
-  public ArrayList<Sheep> sheeps;
+  public ArrayList<Sheep> flock;
   public ArrayList<Tree> trees;
   public ArrayList<Water> waters;
 
@@ -18,6 +18,9 @@ public class Main extends JPanel implements KeyListener {
     rows = 10;
     columns = 10;
     ammon = new Ammon(0,0);
+
+    // We need a keyListener
+    addKeyListener(this);
 
     // Add the robbers to the screen
     robbers = new ArrayList<>();
@@ -29,16 +32,16 @@ public class Main extends JPanel implements KeyListener {
     robbers.add(new Robber(9, 9));
 
     // Add the Sheep
-    sheeps = new ArrayList<>();
-    sheeps.add(new Sheep(4, 3));
-    sheeps.add(new Sheep(3, 5));
-    sheeps.add(new Sheep(3, 6));
-    sheeps.add(new Sheep(3, 7));
-    sheeps.add(new Sheep(3, 8));
-    sheeps.add(new Sheep(6, 5));
-    sheeps.add(new Sheep(6, 6));
-    sheeps.add(new Sheep(6, 7));
-    sheeps.add(new Sheep(6, 8));
+    flock = new ArrayList<>();
+    flock.add(new Sheep(4, 3));
+    flock.add(new Sheep(3, 5));
+    flock.add(new Sheep(3, 6));
+    flock.add(new Sheep(3, 7));
+    flock.add(new Sheep(3, 8));
+    flock.add(new Sheep(6, 5));
+    flock.add(new Sheep(6, 6));
+    flock.add(new Sheep(6, 7));
+    flock.add(new Sheep(6, 8));
 
     // Add the trees
     trees = new ArrayList<>();
@@ -67,6 +70,7 @@ public class Main extends JPanel implements KeyListener {
   public void paintComponent(Graphics g) {
     int w = getWidth();
     int h = getHeight();
+    requestFocusInWindow();
 
     // Draw the background
     g.setColor(Color.LIGHT_GRAY);
@@ -76,11 +80,8 @@ public class Main extends JPanel implements KeyListener {
     g.setColor(new Color(152, 229, 126));
     g.fillRect(10, 10, rows * 60, columns * 60);
 
-    // draw Ammon
-    ammon.draw(g);
-
     // Draw the sheep
-    for (Sheep sheep : sheeps) {
+    for (Sheep sheep : flock) {
       sheep.draw(g);
     }
 
@@ -99,6 +100,9 @@ public class Main extends JPanel implements KeyListener {
       tree.draw(g);
     }
 
+    // draw Ammon
+    ammon.draw(g);
+
   }
 
   public static void main(String[] args) {
@@ -109,18 +113,57 @@ public class Main extends JPanel implements KeyListener {
     window.setVisible(true);
   }
 
-  @Override
-  public void keyTyped(KeyEvent e) {
-    // TODO
-  }
-
+  // The key pressed method checks if Ammon can move
+  // and then move him to the new location
+  // This will also call noTree to check for trees
+  // before moving Ammon.
   @Override
   public void keyPressed(KeyEvent e) {
-    // TODO
+    int key = e.getKeyCode();
+    Point curPos = ammon.getRelativePosition();
+    Point nextPos = new Point(curPos);
+    if (key == KeyEvent.VK_UP) {
+      if (curPos.y != 0) {
+        nextPos.y = curPos.y - 1;
+      }
+    } else if (key == KeyEvent.VK_DOWN) {
+      if (curPos.y < 9) {
+        nextPos.y = curPos.y + 1;
+      }
+    } else if (key == KeyEvent.VK_LEFT) {
+      if (curPos.x != 0) {
+        nextPos.x = curPos.x - 1;
+      }
+    } else if (key == KeyEvent.VK_RIGHT) {
+      if (curPos.x < 9) {
+        nextPos.x = curPos.x + 1;
+      }
+    }
+    if (noTree(nextPos)) {
+      ammon.setLocation(nextPos);
+      repaint();
+    }
   }
 
-  @Override
-  public void keyReleased(KeyEvent e) {
-    // TODO
+  // This method will check if there is a tree in the
+  // position that Ammon will move to. It will return
+  // true if there is not a tree there.
+  public boolean noTree(Point p) {
+    boolean value = true;
+    for (Tree tree : trees) {
+      Point treePos = tree.getRelativePosition();
+      if (p.x == treePos.x && p.y == treePos.y) {
+        value = false;
+        break;
+      }
+    }
+    return value;
   }
+
+  // I don't need the keyTyped method for this project
+  @Override
+  public void keyTyped(KeyEvent e) {}
+  // I don't need the keyReleased method for this project
+  @Override
+  public void keyReleased(KeyEvent e) {}
 }
