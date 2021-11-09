@@ -29,7 +29,7 @@ public class Main extends JPanel implements KeyListener {
     robbers.add(new Robber(3, 0));
     robbers.add(new Robber(5, 8));
     robbers.add(new Robber(7, 1));
-    robbers.add(new Robber(9, 9));
+    robbers.add(new Robber(7, 5));
 
     // Add the Sheep
     flock = new ArrayList<>();
@@ -70,7 +70,7 @@ public class Main extends JPanel implements KeyListener {
   public void paintComponent(Graphics g) {
     int w = getWidth();
     int h = getHeight();
-    requestFocusInWindow();
+    this.requestFocusInWindow();
 
     // Draw the background
     g.setColor(Color.LIGHT_GRAY);
@@ -120,23 +120,22 @@ public class Main extends JPanel implements KeyListener {
   @Override
   public void keyPressed(KeyEvent e) {
     int key = e.getKeyCode();
-    Point curPos = ammon.getRelativePosition();
-    Point nextPos = new Point(curPos);
+    Point nextPos = new Point(ammon.getRelativePosition());
     if (key == KeyEvent.VK_UP) {
-      if (curPos.y != 0) {
-        nextPos.y = curPos.y - 1;
+      if (nextPos.y != 0) {
+        nextPos.y = nextPos.y - 1;
       }
     } else if (key == KeyEvent.VK_DOWN) {
-      if (curPos.y < 9) {
-        nextPos.y = curPos.y + 1;
+      if (nextPos.y < 9) {
+        nextPos.y = nextPos.y + 1;
       }
     } else if (key == KeyEvent.VK_LEFT) {
-      if (curPos.x != 0) {
-        nextPos.x = curPos.x - 1;
+      if (nextPos.x != 0) {
+        nextPos.x = nextPos.x - 1;
       }
     } else if (key == KeyEvent.VK_RIGHT) {
-      if (curPos.x < 9) {
-        nextPos.x = curPos.x + 1;
+      if (nextPos.x < 9) {
+        nextPos.x = nextPos.x + 1;
       }
     }
     if (noTree(nextPos)) {
