@@ -45,4 +45,25 @@ public abstract class Sprite {
       image.paintIcon(null, g, absolutePosition.x, absolutePosition.y);
     }
   }
+
+  public boolean isTouching(Point p) {
+    if (this.relativePosition == null) {
+      return false;
+    }
+    return p.x == this.relativePosition.x && p.y == this.relativePosition.y;
+  }
+
+  public boolean isTouching(Sprite other) {
+    Point rel = other.getRelativePosition();
+    return this.isTouching(rel);
+  }
+
+  public boolean isNear(Sprite other) {
+    Point rel = other.getRelativePosition();
+    if (relativePosition.x == rel.x + 1 || relativePosition.x == rel.x - 1 || relativePosition.x == rel.x) {
+      return relativePosition.y == rel.y + 1 || relativePosition.y == rel.y - 1 || relativePosition.y == rel.y;
+    } else {
+      return false;
+    }
+  }
 }

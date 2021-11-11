@@ -140,6 +140,25 @@ public class Main extends JPanel implements KeyListener {
     }
     if (noTree(nextPos)) {
       ammon.setLocation(nextPos);
+
+      for (Robber rob : robbers) {
+        if (rob.isNear(ammon)){
+          JOptionPane.showMessageDialog(this, "Oh no, Ammon was killed by a robber");
+        }
+      }
+
+      for (Sheep sheep : flock) {
+        if (sheep.isTouching(ammon)) {
+          sheep.setLocation(null);
+        }
+      }
+
+      for (Water water : waters) {
+        if (water.isTouching(ammon)) {
+          JOptionPane.showMessageDialog(this, "Oh no, Ammon drowned");
+        }
+      }
+
       repaint();
     }
   }
@@ -150,8 +169,7 @@ public class Main extends JPanel implements KeyListener {
   public boolean noTree(Point p) {
     boolean value = true;
     for (Tree tree : trees) {
-      Point treePos = tree.getRelativePosition();
-      if (p.x == treePos.x && p.y == treePos.y) {
+      if (tree.isTouching(p)) {
         value = false;
         break;
       }
