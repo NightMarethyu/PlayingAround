@@ -13,35 +13,15 @@ public class Main extends JPanel implements KeyListener {
   public ArrayList<Sheep> flock;
   public ArrayList<Tree> trees;
   public ArrayList<Water> waters;
+  public ArrayList<Sprite> sprites;
+  private int sheepCount;
 
   public Main() {
     rows = 10;
     columns = 10;
-    ammon = new Ammon(0,0);
 
     // We need a keyListener
     addKeyListener(this);
-
-    // Add the robbers to the screen
-    robbers = new ArrayList<>();
-    robbers.add(new Robber(0, 7));
-    robbers.add(new Robber(1, 4));
-    robbers.add(new Robber(3, 0));
-    robbers.add(new Robber(5, 8));
-    robbers.add(new Robber(7, 1));
-    robbers.add(new Robber(7, 5));
-
-    // Add the Sheep
-    flock = new ArrayList<>();
-    flock.add(new Sheep(4, 3));
-    flock.add(new Sheep(3, 5));
-    flock.add(new Sheep(3, 6));
-    flock.add(new Sheep(3, 7));
-    flock.add(new Sheep(3, 8));
-    flock.add(new Sheep(6, 5));
-    flock.add(new Sheep(6, 6));
-    flock.add(new Sheep(6, 7));
-    flock.add(new Sheep(6, 8));
 
     // Add the trees
     trees = new ArrayList<>();
@@ -64,6 +44,9 @@ public class Main extends JPanel implements KeyListener {
     waters.add(new Water(5, 6));
     waters.add(new Water(4, 7));
     waters.add(new Water(5, 7));
+
+    // add the sheep and robbers
+    reset();
   }
 
   @Override
@@ -81,27 +64,9 @@ public class Main extends JPanel implements KeyListener {
     g.fillRect(10, 10, rows * 60, columns * 60);
 
     // Draw the sheep
-    for (Sheep sheep : flock) {
-      sheep.draw(g);
+    for (Sprite sprite : sprites) {
+      sprite.draw(g);
     }
-
-    // draw the robbers
-    for (Robber robber : robbers) {
-      robber.draw(g);
-    }
-
-    // draw the water
-    for (Water water : waters) {
-      water.draw(g);
-    }
-
-    // draw the trees
-    for (Tree tree : trees) {
-      tree.draw(g);
-    }
-
-    // draw Ammon
-    ammon.draw(g);
 
   }
 
@@ -121,6 +86,7 @@ public class Main extends JPanel implements KeyListener {
   public void keyPressed(KeyEvent e) {
     int key = e.getKeyCode();
     Point nextPos = new Point(ammon.getRelativePosition());
+
     if (key == KeyEvent.VK_UP) {
       if (nextPos.y != 0) {
         nextPos.y = nextPos.y - 1;
@@ -139,27 +105,7 @@ public class Main extends JPanel implements KeyListener {
       }
     }
     if (noTree(nextPos)) {
-      ammon.setLocation(nextPos);
-
-      for (Robber rob : robbers) {
-        if (rob.isNear(ammon)){
-          JOptionPane.showMessageDialog(this, "Oh no, Ammon was killed by a robber");
-        }
-      }
-
-      for (Sheep sheep : flock) {
-        if (sheep.isTouching(ammon)) {
-          sheep.setLocation(null);
-        }
-      }
-
-      for (Water water : waters) {
-        if (water.isTouching(ammon)) {
-          JOptionPane.showMessageDialog(this, "Oh no, Ammon drowned");
-        }
-      }
-
-      repaint();
+      checkSprites(nextPos);
     }
   }
 
@@ -175,6 +121,86 @@ public class Main extends JPanel implements KeyListener {
       }
     }
     return value;
+  }
+
+  private void checkSprites(Point nextPos) {
+    ammon.setLocation(nextPos);
+
+    for (Robber rob : robbers) {
+      if (rob.isNear(ammon)){
+//        var choice = JOptionPane.showConfirmDialog(this, "Oh no, Ammon was killed by a robber");
+//        if (choice == JOptionPane.YES_OPTION) {
+//          reset();
+//        } else {
+//          System.exit(0);
+//        }
+      }
+    }
+
+    for (Sheep sheep : flock) {
+      if (sheep.isTouching(ammon)) {
+        sheep.setLocation(null);
+        sheepCount--;
+      }
+    }
+
+    for (Water water : waters) {
+      if (water.isTouching(ammon)) {
+        var choice = JOptionPane.showConfirmDialog(this, "Oh no, Ammon drowned! Play again?");
+        if (choice == JOptionPane.YES_OPTION) {
+          reset();
+        } else {
+          System.exit(0);
+        }
+      }
+    }
+
+    if (sheepCount == 0) {
+      var choice = JOptionPane.showConfirmDialog(this, "You Win! Play Again?");
+      if (choice == JOptionPane.YES_OPTION) {
+        reset();
+      } else {
+        System.exit(0);
+      }
+    }
+
+    repaint();
+  }
+
+  private void reset() {
+    ammon = new Ammon(0, 0);
+    sprites = new ArrayList<>();
+
+    // Add the robbers to the screen
+    robbers = new ArrayList<>();
+    robbers.add(new Robber(0, 7));
+    robbers.add(new Robber(1, 4));
+    robbers.add(new Robber(3, 0));
+    robbers.add(new Robber(5, 8));
+    robbers.add(new Robber(7, 1));
+    robbers.add(new Robber(7, 5));
+
+    sprites.addAll(robbers);
+    sprites.addAll(trees);
+    sprites.addAll(waters);
+
+    sheepCount = 9;
+
+    // Add the Sheep
+    flock = new ArrayList<>();
+    flock.add(new Sheep(4, 3));
+    flock.add(new Sheep(3, 5));
+    flock.add(new Sheep(3, 6));
+    flock.add(new Sheep(3, 7));
+    flock.add(new Sheep(3, 8));
+    flock.add(new Sheep(6, 5));
+    flock.add(new Sheep(6, 6));
+    flock.add(new Sheep(6, 7));
+    flock.add(new Sheep(6, 8));
+
+    sprites.addAll(flock);
+    sprites.add(ammon);
+
   }
 
   // I don't need the keyTyped method for this project
