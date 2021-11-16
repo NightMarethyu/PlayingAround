@@ -1,0 +1,32 @@
+body {
+  display: flex;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.square {
+  width: 30px;
+  height: 30px;
+  border: solid 1px rgb(0, 0, 0);
+}
+
+.start {
+  text-indent: -1000em;
+  background-color: grey;
+}
+
+.mine {
+  background-color: red;
+}
+
+.mine.start {
+  background-color: grey;
+}
+
+.clicked {
+  background-color: blue;
+  text-indent: unset;
+}
