@@ -70,14 +70,6 @@ public class Main extends JPanel implements KeyListener {
 
   }
 
-  public static void main(String[] args) {
-    JFrame window = new JFrame();
-    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    window.setSize(640, 660);
-    window.setContentPane(new Main());
-    window.setVisible(true);
-  }
-
   // The key pressed method checks if Ammon can move
   // and then move him to the new location
   // This will also call noTree to check for trees
@@ -89,9 +81,9 @@ public class Main extends JPanel implements KeyListener {
 
     switch (key) {
       case KeyEvent.VK_UP -> nextPos.y = nextPos.y != 0 ? nextPos.y - 1 : nextPos.y;
-      case KeyEvent.VK_DOWN -> nextPos.y = nextPos.y < 9 ? nextPos.y + 1 : nextPos.y;
+      case KeyEvent.VK_DOWN -> nextPos.y = nextPos.y < this.rows ? nextPos.y + 1 : nextPos.y;
       case KeyEvent.VK_LEFT -> nextPos.x = nextPos.x != 0 ? nextPos.x - 1 : nextPos.x;
-      case KeyEvent.VK_RIGHT -> nextPos.x = nextPos.x < 9 ? nextPos.x + 1 : nextPos.x;
+      case KeyEvent.VK_RIGHT -> nextPos.x = nextPos.x < this.columns ? nextPos.x + 1 : nextPos.x;
     }
 //    if (key == KeyEvent.VK_UP) {
 //      if (nextPos.y != 0) {
@@ -132,16 +124,16 @@ public class Main extends JPanel implements KeyListener {
   private void checkSprites(Point nextPos) {
     ammon.setLocation(nextPos);
 
-    for (Robber rob : robbers) {
-      if (rob.isNear(ammon)){
+//    for (Robber rob : robbers) {
+//      if (rob.isNear(ammon)){
 //        var choice = JOptionPane.showConfirmDialog(this, "Oh no, Ammon was killed by a robber");
 //        if (choice == JOptionPane.YES_OPTION) {
 //          reset();
 //        } else {
 //          System.exit(0);
 //        }
-      }
-    }
+//      }
+//    }
 
     for (Sheep sheep : flock) {
       if (sheep.isTouching(ammon)) {
@@ -207,6 +199,14 @@ public class Main extends JPanel implements KeyListener {
     sprites.addAll(flock);
     sprites.add(ammon);
 
+  }
+
+  public static void main(String[] args) {
+    JFrame window = new JFrame();
+    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    window.setSize(640, 660);
+    window.setContentPane(new Main());
+    window.setVisible(true);
   }
 
   // I don't need the keyTyped method for this project
