@@ -87,23 +87,29 @@ public class Main extends JPanel implements KeyListener {
     int key = e.getKeyCode();
     Point nextPos = new Point(ammon.getRelativePosition());
 
-    if (key == KeyEvent.VK_UP) {
-      if (nextPos.y != 0) {
-        nextPos.y = nextPos.y - 1;
-      }
-    } else if (key == KeyEvent.VK_DOWN) {
-      if (nextPos.y < 9) {
-        nextPos.y = nextPos.y + 1;
-      }
-    } else if (key == KeyEvent.VK_LEFT) {
-      if (nextPos.x != 0) {
-        nextPos.x = nextPos.x - 1;
-      }
-    } else if (key == KeyEvent.VK_RIGHT) {
-      if (nextPos.x < 9) {
-        nextPos.x = nextPos.x + 1;
-      }
+    switch (key) {
+      case KeyEvent.VK_UP -> nextPos.y = nextPos.y != 0 ? nextPos.y - 1 : nextPos.y;
+      case KeyEvent.VK_DOWN -> nextPos.y = nextPos.y < 9 ? nextPos.y + 1 : nextPos.y;
+      case KeyEvent.VK_LEFT -> nextPos.x = nextPos.x != 0 ? nextPos.x - 1 : nextPos.x;
+      case KeyEvent.VK_RIGHT -> nextPos.x = nextPos.x < 9 ? nextPos.x + 1 : nextPos.x;
     }
+//    if (key == KeyEvent.VK_UP) {
+//      if (nextPos.y != 0) {
+//        nextPos.y = nextPos.y - 1;
+//      }
+//    } else if (key == KeyEvent.VK_DOWN) {
+//      if (nextPos.y < 9) {
+//        nextPos.y = nextPos.y + 1;
+//      }
+//    } else if (key == KeyEvent.VK_LEFT) {
+//      if (nextPos.x != 0) {
+//        nextPos.x = nextPos.x - 1;
+//      }
+//    } else if (key == KeyEvent.VK_RIGHT) {
+//      if (nextPos.x < 9) {
+//        nextPos.x = nextPos.x + 1;
+//      }
+//    }
     if (noTree(nextPos)) {
       checkSprites(nextPos);
     }
