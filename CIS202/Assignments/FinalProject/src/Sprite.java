@@ -46,18 +46,25 @@ public abstract class Sprite {
     }
   }
 
+  // This will check if the point provided is the same as the
+  // relative position of this object
   public boolean isTouching(Point p) {
-    if (this.relativePosition == null) {
+    if (this.relativePosition == null || p == null) {
       return false;
     }
     return p.x == this.relativePosition.x && p.y == this.relativePosition.y;
   }
 
+  // I've overloaded this method to allow both sprites and
+  // points to be checked, I did this for the trees method
   public boolean isTouching(Sprite other) {
-    Point rel = other.getRelativePosition();
-    return this.isTouching(rel);
+    return this.isTouching(other.getRelativePosition());
   }
 
+  // This is included primarily for the Robbers, this will check
+  // if a provided sprite is near this sprite. I could probably overload
+  // this like I did the isTouching method, but I don't believe that is
+  // necessary for this project.
   public boolean isNear(Sprite other) {
     Point rel = other.getRelativePosition();
     if (relativePosition.x == rel.x + 1 || relativePosition.x == rel.x - 1 || relativePosition.x == rel.x) {

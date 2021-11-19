@@ -63,7 +63,7 @@ public class Main extends JPanel implements KeyListener {
     g.setColor(new Color(152, 229, 126));
     g.fillRect(10, 10, rows * 60, columns * 60);
 
-    // Draw the sheep
+    // Draw the sprites
     for (Sprite sprite : sprites) {
       sprite.draw(g);
     }
@@ -81,9 +81,9 @@ public class Main extends JPanel implements KeyListener {
 
     switch (key) {
       case KeyEvent.VK_UP -> nextPos.y = nextPos.y != 0 ? nextPos.y - 1 : nextPos.y;
-      case KeyEvent.VK_DOWN -> nextPos.y = nextPos.y < this.rows ? nextPos.y + 1 : nextPos.y;
+      case KeyEvent.VK_DOWN -> nextPos.y = nextPos.y < this.rows - 1 ? nextPos.y + 1 : nextPos.y;
       case KeyEvent.VK_LEFT -> nextPos.x = nextPos.x != 0 ? nextPos.x - 1 : nextPos.x;
-      case KeyEvent.VK_RIGHT -> nextPos.x = nextPos.x < this.columns ? nextPos.x + 1 : nextPos.x;
+      case KeyEvent.VK_RIGHT -> nextPos.x = nextPos.x < this.columns - 1 ? nextPos.x + 1 : nextPos.x;
     }
 //    if (key == KeyEvent.VK_UP) {
 //      if (nextPos.y != 0) {
@@ -124,16 +124,16 @@ public class Main extends JPanel implements KeyListener {
   private void checkSprites(Point nextPos) {
     ammon.setLocation(nextPos);
 
-//    for (Robber rob : robbers) {
-//      if (rob.isNear(ammon)){
-//        var choice = JOptionPane.showConfirmDialog(this, "Oh no, Ammon was killed by a robber");
-//        if (choice == JOptionPane.YES_OPTION) {
-//          reset();
-//        } else {
-//          System.exit(0);
-//        }
-//      }
-//    }
+    for (Robber rob : robbers) {
+      if (rob.isNear(ammon)){
+        var choice = JOptionPane.showConfirmDialog(this, "Oh no, Ammon was killed by a robber");
+        if (choice == JOptionPane.YES_OPTION) {
+          reset();
+        } else {
+          System.exit(0);
+        }
+      }
+    }
 
     for (Sheep sheep : flock) {
       if (sheep.isTouching(ammon)) {
