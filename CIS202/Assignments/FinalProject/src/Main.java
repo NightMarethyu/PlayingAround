@@ -96,6 +96,10 @@ public class Main extends JPanel implements KeyListener {
       case KeyEvent.VK_DOWN -> nextPos.y = nextPos.y < this.rows - 1 ? nextPos.y + 1 : nextPos.y;
       case KeyEvent.VK_LEFT -> nextPos.x = nextPos.x != 0 ? nextPos.x - 1 : nextPos.x;
       case KeyEvent.VK_RIGHT -> nextPos.x = nextPos.x < this.columns - 1 ? nextPos.x + 1 : nextPos.x;
+      case KeyEvent.VK_W -> shoot('n');
+      case KeyEvent.VK_A -> shoot('w');
+      case KeyEvent.VK_S -> shoot('s');
+      case KeyEvent.VK_D -> shoot('e');
     }
 //    if (key == KeyEvent.VK_UP) {
 //      if (nextPos.y != 0) {
@@ -148,14 +152,14 @@ public class Main extends JPanel implements KeyListener {
     }
 
     for (Sheep sheep : flock) {
-      if (sheep.isTouching(ammon)) {
+      if (sheep.equals(ammon)) {
         sheep.setLocation(null);
         sheepCount--;
       }
     }
 
     for (Water water : waters) {
-      if (water.isTouching(ammon)) {
+      if (water.equals(ammon)) {
         var choice = JOptionPane.showConfirmDialog(this, "Oh no, Ammon drowned! Play again?");
         if (choice == JOptionPane.YES_OPTION) {
           reset();
@@ -213,6 +217,59 @@ public class Main extends JPanel implements KeyListener {
     sprites.addAll(flock);
     sprites.add(ammon);
 
+  }
+
+  public void shoot(char direction) {
+    switch (direction) {
+      case 'n':
+        for (Robber rob : robbers) {
+          if (rob.getRelativePosition() == null) {
+            continue;
+          }
+          if (rob.getRelativePosition().x == ammon.getRelativePosition().x) {
+            if (rob.getRelativePosition().y < ammon.getRelativePosition().y) {
+              rob.setLocation(null);
+              robberCount = robberCount - 1;
+            }
+          }
+        }
+      case 's':
+        for (Robber rob : robbers) {
+          if (rob.getRelativePosition() == null) {
+            continue;
+          }
+          if (rob.getRelativePosition().x == ammon.getRelativePosition().x) {
+            if (rob.getRelativePosition().y > ammon.getRelativePosition().y) {
+              rob.setLocation(null);
+              robberCount = robberCount - 1;
+            }
+          }
+        }
+      case 'e':
+        for (Robber rob : robbers) {
+          if (rob.getRelativePosition() == null) {
+            continue;
+          }
+          if (rob.getRelativePosition().y == ammon.getRelativePosition().y) {
+            if (rob.getRelativePosition().x < ammon.getRelativePosition().x) {
+              rob.setLocation(null);
+              robberCount = robberCount - 1;
+            }
+          }
+        }
+      case 'w':
+        for (Robber rob : robbers) {
+          if (rob.getRelativePosition() == null) {
+            continue;
+          }
+          if (rob.getRelativePosition().y == ammon.getRelativePosition().y) {
+            if (rob.getRelativePosition().x > ammon.getRelativePosition().x) {
+              rob.setLocation(null);
+              robberCount = robberCount - 1;
+            }
+          }
+        }
+    }
   }
 
   public static void main(String[] args) {

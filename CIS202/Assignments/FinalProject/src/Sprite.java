@@ -57,8 +57,13 @@ public abstract class Sprite {
 
   // I've overloaded this method to allow both sprites and
   // points to be checked, I did this for the trees method
-  public boolean isTouching(Sprite other) {
-    return this.isTouching(other.getRelativePosition());
+  @Override
+  public boolean equals(Object other) {
+    if (other instanceof Sprite o) {
+      return this.isTouching(o.getRelativePosition());
+    } else {
+      return false;
+    }
   }
 
   // This is included primarily for the Robbers, this will check
@@ -66,6 +71,9 @@ public abstract class Sprite {
   // this like I did the isTouching method, but I don't believe that is
   // necessary for this project.
   public boolean isNear(Sprite other) {
+    if (this.relativePosition == null || other.getRelativePosition() == null) {
+      return false;
+    }
     Point rel = other.getRelativePosition();
     if (relativePosition.x == rel.x + 1 || relativePosition.x == rel.x - 1 || relativePosition.x == rel.x) {
       return relativePosition.y == rel.y + 1 || relativePosition.y == rel.y - 1 || relativePosition.y == rel.y;
