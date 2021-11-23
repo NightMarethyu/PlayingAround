@@ -20,8 +20,8 @@ public abstract class Sprite {
     relativePosition.x = x;
     relativePosition.y = y;
 
-    absolutePosition.x = (x * 60) + 10;
-    absolutePosition.y = (y * 60) + 10;
+    absolutePosition.x = (x * Main.CELL_SIZE) + 10;
+    absolutePosition.y = (y * Main.CELL_SIZE) + 10;
   }
 
   // This will change the sprite's location to a new point

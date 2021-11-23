@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 public class Main extends JPanel implements KeyListener {
 
+  public static final int CELL_SIZE = 60;
+
   public int rows;
   public int columns;
   public Ammon ammon;
@@ -15,6 +17,7 @@ public class Main extends JPanel implements KeyListener {
   public ArrayList<Water> waters;
   public ArrayList<Sprite> sprites;
   private int sheepCount;
+  private int robberCount;
 
   public Main() {
     rows = 10;
@@ -55,13 +58,22 @@ public class Main extends JPanel implements KeyListener {
     int h = getHeight();
     this.requestFocusInWindow();
 
+    int gameHeight = rows * CELL_SIZE;
+    int gameWidth = columns * CELL_SIZE;
+
     // Draw the background
     g.setColor(Color.LIGHT_GRAY);
     g.fillRect(0, 0, w, h);
     g.setColor(Color.BLACK);
-    g.drawRect(9, 9, (rows * 60) + 2, (columns * 60) + 2);
+    g.drawRect(9, 9, gameWidth + 2, gameHeight + 2);
     g.setColor(new Color(152, 229, 126));
-    g.fillRect(10, 10, rows * 60, columns * 60);
+    g.fillRect(10, 10, gameWidth, gameHeight);
+
+    g.setColor(Color.BLACK);
+    String sheepInfo = "Sheep remaining: " + sheepCount;
+    g.drawString(sheepInfo, 10, gameHeight + 25);
+    String robberInfo = "Robbers remaining: " + robberCount;
+    g.drawString(robberInfo, gameWidth - 120, gameHeight + 25);
 
     // Draw the sheep
     for (Sprite sprite : sprites) {
@@ -169,6 +181,8 @@ public class Main extends JPanel implements KeyListener {
     ammon = new Ammon(0, 0);
     sprites = new ArrayList<>();
 
+    robberCount = 6;
+
     // Add the robbers to the screen
     robbers = new ArrayList<>();
     robbers.add(new Robber(0, 7));
@@ -204,7 +218,7 @@ public class Main extends JPanel implements KeyListener {
   public static void main(String[] args) {
     JFrame window = new JFrame();
     window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    window.setSize(640, 660);
+    window.setSize(640, 680);
     window.setContentPane(new Main());
     window.setVisible(true);
   }
