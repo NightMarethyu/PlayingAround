@@ -220,55 +220,162 @@ public class Main extends JPanel implements KeyListener {
   }
 
   public void shoot(char direction) {
+    int x = ammon.getRelativePosition().x;
+    int y = ammon.getRelativePosition().y;
     switch (direction) {
       case 'n':
-        for (Robber rob : robbers) {
-          if (rob.getRelativePosition() == null) {
-            continue;
-          }
-          if (rob.getRelativePosition().x == ammon.getRelativePosition().x) {
-            if (rob.getRelativePosition().y < ammon.getRelativePosition().y) {
+        for (int i = y; i > 0; i--) {
+          Point p = new Point(x, i);
+
+          for (Robber rob : robbers) {
+            if (rob.isTouching(p)) {
               rob.setLocation(null);
               robberCount = robberCount - 1;
+              return;
+            }
+          }
+
+          for (Sheep lamb : flock) {
+            if (lamb.isTouching(p)) {
+              JOptionPane.showMessageDialog(this, "Don't kill the sheep!");
+              ammon.setLocation(0, 0);
+              reset();
+              return;
+            }
+          }
+
+          for (Tree tree : trees) {
+            if (tree.isTouching(p)) {
+              return;
             }
           }
         }
+        break;
+//        for (Robber rob : robbers) {
+//          if (rob.getRelativePosition() == null) {
+//            continue;
+//          }
+//          if (rob.getRelativePosition().x == ammon.getRelativePosition().x) {
+//            if (rob.getRelativePosition().y < ammon.getRelativePosition().y) {
+//              rob.setLocation(null);
+//              robberCount = robberCount - 1;
+//            }
+//          }
+//        }
       case 's':
-        for (Robber rob : robbers) {
-          if (rob.getRelativePosition() == null) {
-            continue;
-          }
-          if (rob.getRelativePosition().x == ammon.getRelativePosition().x) {
-            if (rob.getRelativePosition().y > ammon.getRelativePosition().y) {
+        for (int i = y; i < rows; i++) {
+          Point p = new Point(x, i);
+
+          for (Robber rob : robbers) {
+            if (rob.isTouching(p)) {
               rob.setLocation(null);
               robberCount = robberCount - 1;
+              return;
+            }
+          }
+
+          for (Sheep lamb : flock) {
+            if (lamb.isTouching(p)) {
+              JOptionPane.showMessageDialog(this, "Don't kill the sheep!");
+              reset();
+              return;
+            }
+          }
+
+          for (Tree tree : trees) {
+            if (tree.isTouching(p)) {
+              return;
             }
           }
         }
+        break;
+//        for (Robber rob : robbers) {
+//          if (rob.getRelativePosition() == null) {
+//            continue;
+//          }
+//          if (rob.getRelativePosition().x == ammon.getRelativePosition().x) {
+//            if (rob.getRelativePosition().y > ammon.getRelativePosition().y) {
+//              rob.setLocation(null);
+//              robberCount = robberCount - 1;
+//            }
+//          }
+//        }
       case 'e':
-        for (Robber rob : robbers) {
-          if (rob.getRelativePosition() == null) {
-            continue;
-          }
-          if (rob.getRelativePosition().y == ammon.getRelativePosition().y) {
-            if (rob.getRelativePosition().x < ammon.getRelativePosition().x) {
+        for (int i = x; i < columns; i++) {
+          Point p = new Point(i, y);
+
+          for (Robber rob : robbers) {
+            if (rob.isTouching(p)) {
               rob.setLocation(null);
               robberCount = robberCount - 1;
+              return;
+            }
+          }
+
+          for (Sheep lamb : flock) {
+            if (lamb.isTouching(p)) {
+              JOptionPane.showMessageDialog(this, "Don't kill the sheep!");
+              reset();
+              return;
+            }
+          }
+
+          for (Tree tree : trees) {
+            if (tree.isTouching(p)) {
+              return;
             }
           }
         }
+        break;
+//        for (Robber rob : robbers) {
+//          if (rob.getRelativePosition() == null) {
+//            continue;
+//          }
+//          if (rob.getRelativePosition().y == ammon.getRelativePosition().y) {
+//            if (rob.getRelativePosition().x < ammon.getRelativePosition().x) {
+//              rob.setLocation(null);
+//              robberCount = robberCount - 1;
+//            }
+//          }
+//        }
       case 'w':
-        for (Robber rob : robbers) {
-          if (rob.getRelativePosition() == null) {
-            continue;
-          }
-          if (rob.getRelativePosition().y == ammon.getRelativePosition().y) {
-            if (rob.getRelativePosition().x > ammon.getRelativePosition().x) {
+        for (int i = x; i > 0; i--) {
+          Point p = new Point(i, y);
+
+          for (Robber rob : robbers) {
+            if (rob.isTouching(p)) {
               rob.setLocation(null);
               robberCount = robberCount - 1;
+              return;
+            }
+          }
+
+          for (Sheep lamb : flock) {
+            if (lamb.isTouching(p)) {
+              JOptionPane.showMessageDialog(this, "Don't kill the sheep!");
+              reset();
+              return;
+            }
+          }
+
+          for (Tree tree : trees) {
+            if (tree.isTouching(p)) {
+              return;
             }
           }
         }
+        break;
+//        for (Robber rob : robbers) {
+//          if (rob.getRelativePosition() == null) {
+//            continue;
+//          }
+//          if (rob.getRelativePosition().y == ammon.getRelativePosition().y) {
+//            if (rob.getRelativePosition().x > ammon.getRelativePosition().x) {
+//              rob.setLocation(null);
+//              robberCount = robberCount - 1;
+//            }
+//          }
+//        }
     }
   }
 
