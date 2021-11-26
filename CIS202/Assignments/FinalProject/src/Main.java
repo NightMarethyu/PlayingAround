@@ -19,9 +19,14 @@ public class Main extends JPanel implements KeyListener {
   private int sheepCount;
   private int robberCount;
 
+  // The constructor sets up the basic scene for
+  // the game by assigning locations to all the
+  // sprites that will be used. It calls the
+  // reset method to instantiate the movable sprites.
   public Main() {
     rows = 10;
     columns = 10;
+    sprites = new ArrayList<>();
 
     // We need a keyListener
     addKeyListener(this);
@@ -48,10 +53,14 @@ public class Main extends JPanel implements KeyListener {
     waters.add(new Water(4, 7));
     waters.add(new Water(5, 7));
 
+    sprites.addAll(trees);
+    sprites.addAll(waters);
+
     // add the sheep and robbers
     reset();
   }
 
+  // We need to draw the sprites and background
   @Override
   public void paintComponent(Graphics g) {
     int w = getWidth();
@@ -101,23 +110,6 @@ public class Main extends JPanel implements KeyListener {
       case KeyEvent.VK_S -> shoot('s');
       case KeyEvent.VK_D -> shoot('e');
     }
-//    if (key == KeyEvent.VK_UP) {
-//      if (nextPos.y != 0) {
-//        nextPos.y = nextPos.y - 1;
-//      }
-//    } else if (key == KeyEvent.VK_DOWN) {
-//      if (nextPos.y < 9) {
-//        nextPos.y = nextPos.y + 1;
-//      }
-//    } else if (key == KeyEvent.VK_LEFT) {
-//      if (nextPos.x != 0) {
-//        nextPos.x = nextPos.x - 1;
-//      }
-//    } else if (key == KeyEvent.VK_RIGHT) {
-//      if (nextPos.x < 9) {
-//        nextPos.x = nextPos.x + 1;
-//      }
-//    }
     if (noTree(nextPos)) {
       checkSprites(nextPos);
     }
@@ -137,6 +129,12 @@ public class Main extends JPanel implements KeyListener {
     return value;
   }
 
+  // This method checks if Ammon is near a robber,
+  // if he picks up a sheep or if he has fallen in
+  // the water it will take the appropriate action
+  // if any of those action happen. It will check
+  // to make sure that there are still sheep left and
+  // end the game if all sheep have been rescued.
   private void checkSprites(Point nextPos) {
     ammon.setLocation(nextPos);
 
@@ -181,9 +179,10 @@ public class Main extends JPanel implements KeyListener {
     repaint();
   }
 
+  // This method resets all the removable sprites and puts Ammon
+  // back in the starting position.
   private void reset() {
     ammon = new Ammon(0, 0);
-    sprites = new ArrayList<>();
 
     robberCount = 6;
 
@@ -197,8 +196,6 @@ public class Main extends JPanel implements KeyListener {
     robbers.add(new Robber(7, 5));
 
     sprites.addAll(robbers);
-    sprites.addAll(trees);
-    sprites.addAll(waters);
 
     sheepCount = 9;
 
@@ -215,10 +212,18 @@ public class Main extends JPanel implements KeyListener {
     flock.add(new Sheep(6, 8));
 
     sprites.addAll(flock);
+
+    // I add ammon to the sprites array last so that he will
+    // be the last thing drawn. This will put him on top of
+    // other sprites. I found this looked better during my initial testing
     sprites.add(ammon);
 
   }
 
+  // This method will check if Ammon hits anything
+  // with his sling. It feeds into the spriteHit
+  // method to check for hits. This will loop through
+  // points to check if they are clear or not.
   public void shoot(char direction) {
     int x = ammon.getRelativePosition().x;
     int y = ammon.getRelativePosition().y;
@@ -226,157 +231,66 @@ public class Main extends JPanel implements KeyListener {
       case 'n':
         for (int i = y; i > 0; i--) {
           Point p = new Point(x, i);
-
-          for (Robber rob : robbers) {
-            if (rob.isTouching(p)) {
-              rob.setLocation(null);
-              robberCount = robberCount - 1;
-              return;
-            }
-          }
-
-          for (Sheep lamb : flock) {
-            if (lamb.isTouching(p)) {
-              JOptionPane.showMessageDialog(this, "Don't kill the sheep!");
-              ammon.setLocation(0, 0);
-              reset();
-              return;
-            }
-          }
-
-          for (Tree tree : trees) {
-            if (tree.isTouching(p)) {
-              return;
-            }
+          if (spriteHit(p)) {
+            return;
           }
         }
         break;
-//        for (Robber rob : robbers) {
-//          if (rob.getRelativePosition() == null) {
-//            continue;
-//          }
-//          if (rob.getRelativePosition().x == ammon.getRelativePosition().x) {
-//            if (rob.getRelativePosition().y < ammon.getRelativePosition().y) {
-//              rob.setLocation(null);
-//              robberCount = robberCount - 1;
-//            }
-//          }
-//        }
       case 's':
         for (int i = y; i < rows; i++) {
           Point p = new Point(x, i);
-
-          for (Robber rob : robbers) {
-            if (rob.isTouching(p)) {
-              rob.setLocation(null);
-              robberCount = robberCount - 1;
-              return;
-            }
-          }
-
-          for (Sheep lamb : flock) {
-            if (lamb.isTouching(p)) {
-              JOptionPane.showMessageDialog(this, "Don't kill the sheep!");
-              reset();
-              return;
-            }
-          }
-
-          for (Tree tree : trees) {
-            if (tree.isTouching(p)) {
-              return;
-            }
+          if (spriteHit(p)) {
+            return;
           }
         }
         break;
-//        for (Robber rob : robbers) {
-//          if (rob.getRelativePosition() == null) {
-//            continue;
-//          }
-//          if (rob.getRelativePosition().x == ammon.getRelativePosition().x) {
-//            if (rob.getRelativePosition().y > ammon.getRelativePosition().y) {
-//              rob.setLocation(null);
-//              robberCount = robberCount - 1;
-//            }
-//          }
-//        }
       case 'e':
         for (int i = x; i < columns; i++) {
           Point p = new Point(i, y);
 
-          for (Robber rob : robbers) {
-            if (rob.isTouching(p)) {
-              rob.setLocation(null);
-              robberCount = robberCount - 1;
-              return;
-            }
-          }
-
-          for (Sheep lamb : flock) {
-            if (lamb.isTouching(p)) {
-              JOptionPane.showMessageDialog(this, "Don't kill the sheep!");
-              reset();
-              return;
-            }
-          }
-
-          for (Tree tree : trees) {
-            if (tree.isTouching(p)) {
-              return;
-            }
+          if (spriteHit(p)) {
+            return;
           }
         }
         break;
-//        for (Robber rob : robbers) {
-//          if (rob.getRelativePosition() == null) {
-//            continue;
-//          }
-//          if (rob.getRelativePosition().y == ammon.getRelativePosition().y) {
-//            if (rob.getRelativePosition().x < ammon.getRelativePosition().x) {
-//              rob.setLocation(null);
-//              robberCount = robberCount - 1;
-//            }
-//          }
-//        }
       case 'w':
         for (int i = x; i > 0; i--) {
           Point p = new Point(i, y);
-
-          for (Robber rob : robbers) {
-            if (rob.isTouching(p)) {
-              rob.setLocation(null);
-              robberCount = robberCount - 1;
-              return;
-            }
-          }
-
-          for (Sheep lamb : flock) {
-            if (lamb.isTouching(p)) {
-              JOptionPane.showMessageDialog(this, "Don't kill the sheep!");
-              reset();
-              return;
-            }
-          }
-
-          for (Tree tree : trees) {
-            if (tree.isTouching(p)) {
-              return;
-            }
+          if (spriteHit(p)) {
+            return;
           }
         }
         break;
-//        for (Robber rob : robbers) {
-//          if (rob.getRelativePosition() == null) {
-//            continue;
-//          }
-//          if (rob.getRelativePosition().y == ammon.getRelativePosition().y) {
-//            if (rob.getRelativePosition().x > ammon.getRelativePosition().x) {
-//              rob.setLocation(null);
-//              robberCount = robberCount - 1;
-//            }
-//          }
-//        }
     }
+  }
+
+  // this method works with the shoot method to
+  // check if there is a sprite at the provided
+  // point. It will take action based on if the
+  // point is occupied.
+  private boolean spriteHit(Point p) {
+    for (Robber rob : robbers) {
+      if (rob.isTouching(p)) {
+        rob.setLocation(null);
+        robberCount = robberCount - 1;
+        return true;
+      }
+    }
+
+    for (Sheep lamb : flock) {
+      if (lamb.isTouching(p)) {
+        JOptionPane.showMessageDialog(this, "Don't kill the sheep!");
+        reset();
+        return true;
+      }
+    }
+
+    for (Tree tree : trees) {
+      if (tree.isTouching(p)) {
+        return true;
+      }
+    }
+    return false;
   }
 
   public static void main(String[] args) {
