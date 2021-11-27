@@ -46,21 +46,21 @@ public abstract class Sprite {
     }
   }
 
-  // This will check if the point provided is the same as the
-  // relative position of this object
-  public boolean isTouching(Point p) {
-    if (this.relativePosition == null || p == null) {
-      return false;
-    }
-    return p.x == this.relativePosition.x && p.y == this.relativePosition.y;
-  }
-
   // I've overloaded this method to allow both sprites and
   // points to be checked, I did this for the trees method
   @Override
   public boolean equals(Object other) {
+    if (this.relativePosition == null) {
+      return false;
+    }
     if (other instanceof Sprite o) {
-      return this.isTouching(o.getRelativePosition());
+      Point p = o.getRelativePosition();
+      if (p == null) {
+        return false;
+      }
+      return p.x == this.relativePosition.x && p.y == this.relativePosition.y;
+    } else if (other instanceof Point p) {
+      return p.x == this.relativePosition.x && p.y == this.relativePosition.y;
     } else {
       return false;
     }

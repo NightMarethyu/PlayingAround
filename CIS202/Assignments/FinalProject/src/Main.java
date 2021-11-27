@@ -26,7 +26,6 @@ public class Main extends JPanel implements KeyListener {
   public Main() {
     rows = 10;
     columns = 10;
-    sprites = new ArrayList<>();
 
     // We need a keyListener
     addKeyListener(this);
@@ -52,9 +51,6 @@ public class Main extends JPanel implements KeyListener {
     waters.add(new Water(5, 6));
     waters.add(new Water(4, 7));
     waters.add(new Water(5, 7));
-
-    sprites.addAll(trees);
-    sprites.addAll(waters);
 
     // add the sheep and robbers
     reset();
@@ -105,14 +101,17 @@ public class Main extends JPanel implements KeyListener {
       case KeyEvent.VK_DOWN -> nextPos.y = nextPos.y < this.rows - 1 ? nextPos.y + 1 : nextPos.y;
       case KeyEvent.VK_LEFT -> nextPos.x = nextPos.x != 0 ? nextPos.x - 1 : nextPos.x;
       case KeyEvent.VK_RIGHT -> nextPos.x = nextPos.x < this.columns - 1 ? nextPos.x + 1 : nextPos.x;
+    }
+    if (noTree(nextPos)) {
+      checkSprites(nextPos);
+    }
+    switch (key) {
       case KeyEvent.VK_W -> shoot('n');
       case KeyEvent.VK_A -> shoot('w');
       case KeyEvent.VK_S -> shoot('s');
       case KeyEvent.VK_D -> shoot('e');
     }
-    if (noTree(nextPos)) {
-      checkSprites(nextPos);
-    }
+    repaint();
   }
 
   // This method will check if there is a tree in the
@@ -121,7 +120,7 @@ public class Main extends JPanel implements KeyListener {
   public boolean noTree(Point p) {
     boolean value = true;
     for (Tree tree : trees) {
-      if (tree.isTouching(p)) {
+      if (tree.equals(p)) {
         value = false;
         break;
       }
@@ -176,12 +175,13 @@ public class Main extends JPanel implements KeyListener {
       }
     }
 
-    repaint();
+    //repaint();
   }
 
   // This method resets all the removable sprites and puts Ammon
   // back in the starting position.
   private void reset() {
+    sprites = new ArrayList<>();
     ammon = new Ammon(0, 0);
 
     robberCount = 6;
@@ -211,13 +211,10 @@ public class Main extends JPanel implements KeyListener {
     flock.add(new Sheep(6, 7));
     flock.add(new Sheep(6, 8));
 
+    sprites.addAll(trees);
+    sprites.addAll(waters);
     sprites.addAll(flock);
-
-    // I add ammon to the sprites array last so that he will
-    // be the last thing drawn. This will put him on top of
-    // other sprites. I found this looked better during my initial testing
     sprites.add(ammon);
-
   }
 
   // This method will check if Ammon hits anything
@@ -247,7 +244,6 @@ public class Main extends JPanel implements KeyListener {
       case 'e':
         for (int i = x; i < columns; i++) {
           Point p = new Point(i, y);
-
           if (spriteHit(p)) {
             return;
           }
@@ -270,7 +266,7 @@ public class Main extends JPanel implements KeyListener {
   // point is occupied.
   private boolean spriteHit(Point p) {
     for (Robber rob : robbers) {
-      if (rob.isTouching(p)) {
+      if (rob.equals(p)) {
         rob.setLocation(null);
         robberCount = robberCount - 1;
         return true;
@@ -278,15 +274,19 @@ public class Main extends JPanel implements KeyListener {
     }
 
     for (Sheep lamb : flock) {
-      if (lamb.isTouching(p)) {
-        JOptionPane.showMessageDialog(this, "Don't kill the sheep!");
-        reset();
+      if (lamb.equals(p)) {
+        var choice = JOptionPane.showConfirmDialog(this, "Don't kill the sheep");
+        if (choice == JOptionPane.YES_OPTION) {
+          reset();
+        } else {
+          System.exit(0);
+        }
         return true;
       }
     }
 
     for (Tree tree : trees) {
-      if (tree.isTouching(p)) {
+      if (tree.equals(p)) {
         return true;
       }
     }
