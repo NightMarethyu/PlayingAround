@@ -19,7 +19,7 @@ def main():
 # aspect that will make a line not a statement
 def checkStatement(file):
     ns = " NOT A STATEMENT"
-    pronouns = ["he", "she", "it", "they", "his", "her", "him", "them", "hers", "theirs", "their", "herself", "himself", "themselves", "itself", ""]
+    pronouns = ["he", "she", "it", "they", "his", "her", "him", "them", "hers", "theirs", "their", "herself", "himself", "themselves", "itself"]
     interrogatives = ["who", "what", "when", "where", "why", "how"]
     for line in file:
         line = line.strip()
