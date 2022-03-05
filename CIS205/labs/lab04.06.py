@@ -1,8 +1,8 @@
 from random import randint
 
-def main():
+def main(cash):
     print("You may bid on up to 5 valuable paintings.")
-    print("You start with $5000.")
+    print("You start with ${0}.".format(cash))
     print("You will then try to sell them all for a profit.")
     
     # Game variables
@@ -15,27 +15,33 @@ def main():
     offerHigh = 2500
     
     # setup variables
-    inCash = 5000
     paintings = 0
     
     # user variables
-    cash = inCash
+    gameCash = cash
     ownedPaintings = paintings
     bids = []
     
     # Time to buy paintings
     for i in range(numPaintings):
-        print("You have: {0}".format(cash))
+        print("You have: {0}".format(gameCash))
         print("You are bidding on painting {0}".format(i+1))
-        bid = int(input("What will you bid? "))
-        while (bid > cash):
-            print("Sorry, you don't have the money for that, bid again")
-            bid = int(input("New bid: "))
+        bid = 0
+        while True:
+            rawBid = input("What will you bid? ")
+            if (rawBid.isdecimal()):
+                bid = int(rawBid)
+                if (bid > gameCash):
+                    print("Sorry, you don't have the money for that, bid again.")
+                    continue
+                break
+            else:
+                print("Your bid must be numeric")
         oBid = randint(oBidLow, oBidHigh)
         if (bid >= oBid):
             print("You won the bid!")
             ownedPaintings += 1
-            cash -= bid
+            gameCash -= bid
             bids.append(bid)
         else:
             print("Sorry, your opponent bid {0}, you lost this one".format(oBid))
@@ -51,7 +57,7 @@ def main():
             print("You originally paid {0}".format(bids[i]))
             accept = input("Do you accept (y/n): ").lower()
             if (accept == "y" or accept == "yes"):
-                cash += offer
+                gameCash += offer
                 break
             else:
                 if((j + 1) < offCount):
@@ -60,10 +66,10 @@ def main():
                     print("Sorry that was your last offer. You will have to keep that painting.")
     
     # Endgame, time to report how much the player made
-    print("You started with ${0}. You finished with ${1}".format(inCash, cash))
+    print("You started with ${0}. You finished with ${1}".format(cash, gameCash))
     again = input("Play again? (y/n): ").lower()
     if(again == "y" or again == "yes"):
-        main()
+        main(gameCash)
 
 if __name__ == "__main__":
-    main()
+    main(5000)
