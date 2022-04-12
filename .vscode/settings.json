@@ -1,4 +1,5 @@
 {
   "restructuredtext.confPath": "",
-  "python.pythonPath": "C:\\Users\\Ammon\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
+  "python.pythonPath": "C:\\Users\\Ammon\\AppData\\Local\\Programs\\Python\\Python39\\python.exe",
+  "esbonio.server.enabled": true
 }
