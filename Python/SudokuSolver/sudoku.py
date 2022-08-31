@@ -13,9 +13,9 @@ class Sudoku:
         # print("## Columns ##")
         # for c in self.columns:
         #     print(c)
-        print('## Boxes ##')
-        for b in self.boxes:
-            print(b)
+        # print('## Boxes ##')
+        # for b in self.boxes:
+        #     print(b)
         
     def parseRows(self):
         for i in self.puzzle:
