@@ -1,4 +1,4 @@
-package com.example.laborientation;
+package edu.byuh.cis.cis203.ammon.laborientation;
 
 import org.junit.Test;
 
