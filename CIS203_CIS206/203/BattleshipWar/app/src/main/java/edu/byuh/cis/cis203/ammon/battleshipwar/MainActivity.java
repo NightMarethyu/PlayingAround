@@ -1,18 +1,16 @@
-package edu.byuh.cis.cis203.ammon.laborientation;
+package edu.byuh.cis.cis203.ammon.battleshipwar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        TextView name = new TextView(this);
-        name.setText("Ammon Turner");
-        setContentView(name);
+        var gameDraw = new GameView(this);
+        setContentView(gameDraw);
+        //setContentView(R.layout.activity_main);
     }
 }

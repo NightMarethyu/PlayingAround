@@ -22,10 +22,10 @@ public class Main {
       sum += nums[i];
     }
     // Print out the sum in a formatted number
-    System.out.printf("Sum: %.2f", sum);
+    System.out.printf("Sum: %.2f\n", sum);
     // calculate the average and print it
     double avg = sum / count;
-    System.out.printf("Mean: %.2f", avg);
+    System.out.printf("Mean: %.2f\n", avg);
 
     // I use Java's built-in sort function on the array, calculate the midpoint, then if the count is even I calculate
     // the average of the two and display that as the median, or just display the median if the count is odd
@@ -33,9 +33,9 @@ public class Main {
     int mid = count / 2;
     if (count % 2 == 0) {
       double median = (nums[mid] + nums[mid - 1])/2;
-      System.out.printf("Median: %.2f", median);
+      System.out.printf("Median: %.2f\n", median);
     } else {
-      System.out.printf("Median: %.2f", nums[mid]);
+      System.out.printf("Median: %.2f\n", nums[mid]);
     }
   }
 }
