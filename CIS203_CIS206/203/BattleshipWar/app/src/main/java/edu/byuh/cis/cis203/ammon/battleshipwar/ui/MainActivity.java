@@ -1,4 +1,4 @@
-package edu.byuh.cis.cis203.ammon.battleshipwar;
+package edu.byuh.cis.cis203.ammon.battleshipwar.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,5 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         var gameDraw = new GameView(this);
         setContentView(gameDraw);
-        //setContentView(R.layout.activity_main);
     }
 }
