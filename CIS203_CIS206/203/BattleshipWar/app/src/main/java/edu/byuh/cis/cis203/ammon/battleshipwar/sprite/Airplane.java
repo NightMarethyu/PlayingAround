@@ -25,7 +25,7 @@ public class Airplane extends Enemy {
         this.screenWidth = screenWidth;
         this.res = res;
         changeBig();
-        setVelocity((int)-(Math.random()*10)+1, 0);
+        setVelocity((int)-(Math.random()*20)-10, 0);
         float y = setY();
         bounds = new RectF(screenWidth, y, planeSize, planeSize);
     }
@@ -39,7 +39,7 @@ public class Airplane extends Enemy {
     public void move() {
         super.move();
         if (Math.random() < .05) {
-            setVelocity((int)-(Math.random()*10)-1, 0);
+            setVelocity((int)-(Math.random()*20)-10, 0);
         }
         if (bounds.left + planeSize < 0) {
             bigness = Size.getRandomSize();

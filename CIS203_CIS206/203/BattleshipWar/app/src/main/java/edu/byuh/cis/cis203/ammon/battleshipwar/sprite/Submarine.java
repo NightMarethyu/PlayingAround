@@ -24,7 +24,7 @@ public class Submarine extends Enemy {
         this.screenHeight = screenHeight;
         this.screenWidth = screenWidth;
         changeBig();
-        setVelocity((int)(Math.random()*10)+1, 0);
+        setVelocity((int)(Math.random()*15)+10, 0);
         var x = -subSize;
         float y = setY();
         bounds = new RectF(x, y, subSize, subSize);
@@ -39,7 +39,7 @@ public class Submarine extends Enemy {
     public void move() {
         super.move();
         if (Math.random() < .05) {
-            setVelocity((int)(Math.random()*10)+1, 0);
+            setVelocity((int)(Math.random()*15)+10, 0);
         }
         if (bounds.left > screenWidth) {
             bigness = Size.getRandomSize();
