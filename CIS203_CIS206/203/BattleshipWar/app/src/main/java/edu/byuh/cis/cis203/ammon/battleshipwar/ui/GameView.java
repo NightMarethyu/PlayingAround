@@ -21,6 +21,7 @@ import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.DepthCharge;
 import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.Direction;
 import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.Enemy;
 import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.Missile;
+import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.Sprite;
 import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.Submarine;
 
 /**

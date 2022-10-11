@@ -30,16 +30,18 @@ public class Missile extends Sprite{
         direction = d;
         paint = new Paint(p);
         paint.setColor(Color.BLACK);
-        bounds = new RectF(0, 0, 10, 50);
+        int scaleW = (int)width/45;
+        int scaleH = (int)height/20;
+        bounds = new RectF(0, 0, scaleW, scaleH);
         this.fireMissile = fireMissile;
         fired = true;
         switch (d) {
             case LEFT_FACING:
-                setVelocity(-10, -50);
+                setVelocity(-scaleW, -scaleH);
                 setPosition((int)width*3/8, (int)height/2);
                 break;
             case RIGHT_FACING:
-                setVelocity(10, -50);
+                setVelocity(scaleW, -scaleH);
                 setPosition((int)width*5/8, (int)height/2);
                 break;
         }
@@ -64,10 +66,13 @@ public class Missile extends Sprite{
      */
     @Override
     public void draw(Canvas c) {
-        if (direction == Direction.LEFT_FACING) {
-            c.drawLine(bounds.left, bounds.top, bounds.right, bounds.bottom, paint);
-        } else {
-            c.drawLine(bounds.right, bounds.top, bounds.left, bounds.bottom, paint);
+        switch (direction) {
+            case LEFT_FACING:
+                c.drawLine(bounds.left, bounds.top, bounds.right, bounds.bottom, paint);
+                break;
+            case RIGHT_FACING:
+                c.drawLine(bounds.right, bounds.top, bounds.left, bounds.bottom, paint);
+                break;
         }
         if (fired) {
             c.drawBitmap(fireMissile, fireBallBounds.left, fireBallBounds.top, paint);

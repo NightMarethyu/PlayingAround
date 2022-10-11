@@ -20,7 +20,7 @@ public class DepthCharge extends Sprite {
      */
     public DepthCharge(Resources res, float w, float h) {
         super();
-        int scale = (int)(w*.05);
+        int scale = (int)(w*.04);
         height = h;
         velocity.set(0, 10);
         img = BitmapFactory.decodeResource(res, R.drawable.depth_charge);
