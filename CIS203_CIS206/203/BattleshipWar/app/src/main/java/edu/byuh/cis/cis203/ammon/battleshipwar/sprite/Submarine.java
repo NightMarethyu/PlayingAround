@@ -18,7 +18,7 @@ public class Submarine extends Enemy {
     private final float screenWidth;
     private final Resources res;
 
-    public Submarine(Resources res, float screenWidth, float screenHeight) {
+    public Submarine(Resources res, float screenWidth, float screenHeight, Timer timer) {
         super();
         this.res = res;
         this.screenHeight = screenHeight;
@@ -28,6 +28,7 @@ public class Submarine extends Enemy {
         var x = -subSize;
         float y = setY();
         bounds = new RectF(x, y, subSize, subSize);
+        timer.addListener(this);
     }
 
     /**

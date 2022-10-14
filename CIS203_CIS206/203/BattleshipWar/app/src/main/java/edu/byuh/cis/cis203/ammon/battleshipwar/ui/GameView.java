@@ -23,6 +23,8 @@ import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.Enemy;
 import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.Missile;
 import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.Sprite;
 import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.Submarine;
+import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.TickListener;
+import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.Timer;
 
 /**
  * GameView extends the Android View class to render the elements of the Battleship War clone made
@@ -32,7 +34,7 @@ import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.Submarine;
  * @version %I%, %G%
  * @since 0.1
  */
-public class GameView extends View {
+public class GameView extends View implements TickListener {
 
     private final Paint paint;
     private Battleship ship;
@@ -81,15 +83,16 @@ public class GameView extends View {
         var screenWidth = getWidth();
         var screenHeight = getHeight();
         if (!initialized) {
+            timer = new Timer();
+            timer.addListener(this);
             water = Bitmap.createScaledBitmap(water, (screenWidth/20), (screenWidth/20), true);
             fireMissile = Bitmap.createScaledBitmap(fireMissile, (screenWidth/20), (screenWidth/20), true);
             var res = getResources();
             ship = new Battleship(res, screenWidth, screenHeight);
             for (int i = 0; i < 3; i++) {
-                enemies.add(new Airplane(res, screenWidth, screenHeight));
-                enemies.add(new Submarine(res, screenWidth, screenHeight));
+                enemies.add(new Airplane(res, screenWidth, screenHeight, timer));
+                enemies.add(new Submarine(res, screenWidth, screenHeight, timer));
             }
-            timer = new Timer();
             initialized = true;
         }
         drawWater(c, screenWidth, screenHeight);
@@ -123,11 +126,11 @@ public class GameView extends View {
 
         if (m.getAction() == MotionEvent.ACTION_DOWN) {
             if (y > (height/2)) {
-                charges.add(new DepthCharge(getResources(), width, height));
+                charges.add(new DepthCharge(getResources(), width, height, timer));
             } else if (x > width/2) {
-                missiles.add(new Missile(Direction.RIGHT_FACING, width, height, paint, fireMissile));
+                missiles.add(new Missile(Direction.RIGHT_FACING, width, height, paint, fireMissile, timer));
             } else {
-                missiles.add(new Missile(Direction.LEFT_FACING, width, height, paint, fireMissile));
+                missiles.add(new Missile(Direction.LEFT_FACING, width, height, paint, fireMissile, timer));
             }
         }
         return true;
@@ -154,42 +157,8 @@ public class GameView extends View {
         }
     }
 
-    /**
-     * The Timer class uses the Android System's Handler class to call a function every 50 milliseconds.
-     * This is used for the drawing of the game.
-     */
-    class Timer extends Handler {
-        public Timer() {
-            sendMessageDelayed(obtainMessage(), 50);
-        }
-
-        @Override
-        public void handleMessage(Message m) {
-            ArrayList<DepthCharge> remove = new ArrayList<DepthCharge>();
-            ArrayList<Missile> noMissiles = new ArrayList<>();
-            for (Enemy e : enemies) {
-                e.move();
-            }
-            for (DepthCharge d : charges) {
-                d.move();
-                if (d.isOutside()) {
-                    remove.add(d);
-                }
-            }
-            for (Missile miss : missiles) {
-                miss.move();
-                if (miss.isOutside()) {
-                    noMissiles.add(miss);
-                }
-            }
-            for (Missile miss : noMissiles) {
-                missiles.remove(miss);
-            }
-            for (DepthCharge d : remove) {
-                charges.remove(d);
-            }
-            invalidate();
-            sendMessageDelayed(obtainMessage(), 50);
-        }
+    @Override
+    public void tick() {
+        invalidate();
     }
 }

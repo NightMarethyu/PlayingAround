@@ -18,7 +18,7 @@ public class Airplane extends Enemy {
     private final float screenWidth;
     private final Resources res;
 
-    public Airplane(Resources res, float screenWidth, float screenHeight) {
+    public Airplane(Resources res, float screenWidth, float screenHeight, Timer timer) {
         super();
         planeSize = 0;
         this.screenHeight = screenHeight;
@@ -28,6 +28,7 @@ public class Airplane extends Enemy {
         setVelocity((int)-(Math.random()*20)-10, 0);
         float y = setY();
         bounds = new RectF(screenWidth, y, planeSize, planeSize);
+        timer.addListener(this);
     }
 
     /**

@@ -8,7 +8,7 @@ import android.graphics.RectF;
 /**
  * Sprite sets up the basic necessary fields and methods to render and work with the images in the game.
  */
-public abstract class Sprite {
+public abstract class Sprite implements TickListener {
     protected Bitmap img;
     protected RectF bounds;
     protected PointF velocity;
@@ -53,4 +53,8 @@ public abstract class Sprite {
         c.drawBitmap(img, bounds.left, bounds.top, null);
     }
 
+    @Override
+    public void tick() {
+        this.move();
+    }
 }

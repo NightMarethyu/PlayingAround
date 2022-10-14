@@ -10,12 +10,13 @@ import android.graphics.RectF;
  * The Missile class creates a drawing on the screen representing a missile. The class will draw
  * a small explosion for one frame of animation where the missile starts.
  */
-public class Missile extends Sprite{
+public class Missile extends Sprite {
     protected Direction direction;
     protected boolean fired;
     protected RectF fireBallBounds;
     protected Bitmap fireMissile;
     protected Paint paint;
+    protected Timer timer;
 
     /**
      * Missile creates a new missile object.
@@ -26,7 +27,7 @@ public class Missile extends Sprite{
      * @param p             The paint object it will be drawn with
      * @param fireMissile   The image of the missile firing
      */
-    public Missile(Direction d, float width, float height, Paint p, Bitmap fireMissile) {
+    public Missile(Direction d, float width, float height, Paint p, Bitmap fireMissile, Timer t) {
         direction = d;
         paint = new Paint(p);
         paint.setColor(Color.BLACK);
@@ -47,6 +48,8 @@ public class Missile extends Sprite{
         }
         fireBallBounds = new RectF(bounds);
         fireBallBounds.offset(-fireMissile.getWidth()/2f, -fireMissile.getWidth()/2f);
+        timer = t;
+        timer.addListener(this);
     }
 
     /**
@@ -56,6 +59,14 @@ public class Missile extends Sprite{
      */
     public boolean isOutside() {
         return bounds.bottom < 0;
+    }
+
+    @Override
+    public void move() {
+        super.move();
+        if (bounds.bottom < 0) {
+            timer.removeListener(this);
+        }
     }
 
     /**
