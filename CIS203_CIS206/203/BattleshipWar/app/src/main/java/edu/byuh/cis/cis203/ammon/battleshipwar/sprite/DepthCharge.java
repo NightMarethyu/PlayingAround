@@ -33,14 +33,9 @@ public class DepthCharge extends Sprite {
     }
 
     /**
-     * isOutside checks if the depth charge is being rendered below the bottom of the screen.
-     *
-     * @return  true if the top of the bounding box is below the screen
+     * Calls the superclass move method. If it is outside the screen it will remove itself from the
+     * Timer's listener list.
      */
-    public boolean isOutside() {
-        return bounds.top > height;
-    }
-
     @Override
     public void move() {
         super.move();

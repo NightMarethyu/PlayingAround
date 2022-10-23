@@ -53,14 +53,9 @@ public class Missile extends Sprite {
     }
 
     /**
-     * isOutside checks the missiles location, if it is outside the screen bounds.
-     *
-     * @return  true if outside the screen bounds, false if still inside
+     * Calls the superclass move method. If it is outside the screen it will remove itself from the
+     * Timer's listener list.
      */
-    public boolean isOutside() {
-        return bounds.bottom < 0;
-    }
-
     @Override
     public void move() {
         super.move();
