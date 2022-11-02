@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.RectF;
 
 import edu.byuh.cis.cis203.ammon.battleshipwar.R;
+import edu.byuh.cis.cis203.ammon.battleshipwar.constants.Constants;
 
 public class DepthCharge extends Sprite {
     protected float height;
@@ -21,7 +22,7 @@ public class DepthCharge extends Sprite {
      */
     public DepthCharge(Resources res, float w, float h, Timer t) {
         super();
-        int scale = (int)(w*.04);
+        int scale = (int)(w * Constants.SML_SCALE);
         height = h;
         velocity.set(0, 10);
         img = BitmapFactory.decodeResource(res, R.drawable.depth_charge);

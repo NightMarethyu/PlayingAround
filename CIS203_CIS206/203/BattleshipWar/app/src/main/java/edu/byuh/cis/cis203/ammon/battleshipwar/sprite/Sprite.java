@@ -53,8 +53,22 @@ public abstract class Sprite implements TickListener {
         c.drawBitmap(img, bounds.left, bounds.top, null);
     }
 
+    /**
+     * Called each tick, moves the sprite.
+     */
     @Override
     public void tick() {
         this.move();
+    }
+
+    /**
+     * Checks if the sprite overlaps with another sprite. Uses the RectF.intersects function to check
+     * for overlap between this sprite and the sprite passed through the parameter.
+     *
+     * @param s     Another sprite to check for the overlap between their bounding box
+     * @return      A boolean answering the question of "Do these sprites overlap?"
+     */
+    public boolean overlaps(Sprite s) {
+        return RectF.intersects(s.bounds, this.bounds);
     }
 }

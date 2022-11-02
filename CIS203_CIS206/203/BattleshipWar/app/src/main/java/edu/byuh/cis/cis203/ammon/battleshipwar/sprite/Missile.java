@@ -30,7 +30,7 @@ public class Missile extends Sprite {
     public Missile(Direction d, float width, float height, Paint p, Bitmap fireMissile, Timer t) {
         direction = d;
         paint = new Paint(p);
-        paint.setColor(Color.BLACK);
+        paint.setColor(Color.DKGRAY);
         int scaleW = (int)width/45;
         int scaleH = (int)height/20;
         bounds = new RectF(0, 0, scaleW, scaleH);

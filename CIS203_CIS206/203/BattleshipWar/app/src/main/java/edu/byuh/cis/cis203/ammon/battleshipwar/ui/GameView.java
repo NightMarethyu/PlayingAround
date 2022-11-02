@@ -1,14 +1,12 @@
 package edu.byuh.cis.cis203.ammon.battleshipwar.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -19,9 +17,7 @@ import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.Airplane;
 import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.Battleship;
 import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.DepthCharge;
 import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.Direction;
-import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.Enemy;
 import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.Missile;
-import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.Sprite;
 import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.Submarine;
 import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.TickListener;
 import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.Timer;
@@ -38,13 +34,15 @@ public class GameView extends View implements TickListener {
 
     private final Paint paint;
     private Battleship ship;
-    private ArrayList<Enemy> enemies;
-    private ArrayList<DepthCharge> charges;
-    private ArrayList<Missile> missiles;
+    private final ArrayList<Airplane>  planes;
+    private final ArrayList<Submarine> subs;
+    private final ArrayList<DepthCharge> charges;
+    private final ArrayList<Missile> missiles;
     private Bitmap water;
     private Bitmap fireMissile;
     private boolean initialized;
     private Timer timer;
+    private int score = 0;
 
     /**
      * The Constructor of the GameView class.
@@ -63,7 +61,8 @@ public class GameView extends View implements TickListener {
         water = BitmapFactory.decodeResource(getResources(), R.drawable.water);
         fireMissile = BitmapFactory.decodeResource(getResources(), R.drawable.star);
         paint.setColor(Color.WHITE);
-        enemies = new ArrayList<>();
+        planes = new ArrayList<>();
+        subs = new ArrayList<>();
         charges = new ArrayList<>();
         missiles = new ArrayList<>();
         initialized = false;
@@ -79,6 +78,7 @@ public class GameView extends View implements TickListener {
      */
     @Override
     public void onDraw(Canvas c) {
+        paint.setColor(Color.WHITE);
         c.drawPaint(paint);
         var screenWidth = getWidth();
         var screenHeight = getHeight();
@@ -89,15 +89,18 @@ public class GameView extends View implements TickListener {
             fireMissile = Bitmap.createScaledBitmap(fireMissile, (screenWidth/20), (screenWidth/20), true);
             var res = getResources();
             ship = new Battleship(res, screenWidth, screenHeight);
-            for (int i = 0; i < 3; i++) {
-                enemies.add(new Airplane(res, screenWidth, screenHeight, timer));
-                enemies.add(new Submarine(res, screenWidth, screenHeight, timer));
+            for (int i=0; i<3; i++) {
+                planes.add(new Airplane(res, screenWidth, screenHeight, timer));
+                subs.add(new Submarine(res, screenWidth, screenHeight, timer));
             }
             initialized = true;
         }
         drawWater(c, screenWidth, screenHeight);
-        for (Enemy e : enemies) {
-            e.draw(c);
+        for (Submarine s : subs) {
+            s.draw(c);
+        }
+        for (Airplane a : planes) {
+            a.draw(c);
         }
         for (DepthCharge d : charges) {
             d.draw(c);
@@ -106,6 +109,10 @@ public class GameView extends View implements TickListener {
         for (Missile m : missiles) {
             m.draw(c);
         }
+        paint.setTextSize(screenHeight/20f);
+        paint.setColor(Color.BLACK);
+        String printScore = "Score " + score;
+        c.drawText(printScore, 10, (screenHeight/20f) + 5, paint);
     }
 
     /**
@@ -157,8 +164,46 @@ public class GameView extends View implements TickListener {
         }
     }
 
+    /**
+     * Called each game tick by the Timer, checks for collisions between player attacks and enemies,
+     * then redraws the screen.
+     */
     @Override
     public void tick() {
+        detectCollisions();
         invalidate();
+    }
+
+    /**
+     * Loops through the planes and subs and checks if there are any collisions between the attacks
+     * the player triggered. Will remove missiles and depth charges on collision, sets the enemy's
+     * explosion, and increments the player's score.
+     */
+    @SuppressLint("NewApi")
+    private void detectCollisions() {
+        for (Airplane a : planes) {
+            missiles.removeIf((m) -> {
+                if (m.overlaps(a)) {
+                    a.explode();
+                    return true;
+                }
+                return false;
+            });
+            if (a.getIsExploding()) {
+                score += a.getPointValue();
+            }
+        }
+        for (Submarine s : subs) {
+            charges.removeIf((c) -> {
+                if (c.overlaps(s)) {
+                    s.explode();
+                    return true;
+                }
+                return false;
+            });
+            if (s.getIsExploding()) {
+                score += s.getPointValue();
+            }
+        }
     }
 }

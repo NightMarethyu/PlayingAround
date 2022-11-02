@@ -5,6 +5,8 @@ import android.os.Message;
 
 import java.util.ArrayList;
 
+import edu.byuh.cis.cis203.ammon.battleshipwar.constants.Constants;
+
 /**
  * The Timer class will run a delayed loop to allow the sprites to be drawn. It notifies the sprites
  * that they are to draw themselves every 50 milliseconds.
@@ -18,7 +20,7 @@ public class Timer extends Handler {
      */
     public Timer() {
         subscribed = new ArrayList<>();
-        sendMessageDelayed(obtainMessage(), 50);
+        sendMessageDelayed(obtainMessage(), Constants.TICK_SPEED);
     }
 
     /**
@@ -51,6 +53,6 @@ public class Timer extends Handler {
         for (TickListener t : tempList) {
             t.tick();
         }
-        sendMessageDelayed(obtainMessage(), 50);
+        sendMessageDelayed(obtainMessage(), Constants.TICK_SPEED);
     }
 }

@@ -1,7 +1,10 @@
 package edu.byuh.cis.cis203.ammon.battleshipwar.sprite;
 
 import android.content.res.Resources;
-import android.graphics.RectF;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+
+import edu.byuh.cis.cis203.ammon.battleshipwar.constants.Constants;
 
 /**
  * Enemy is an extension of Sprite and adds functionality necessary for the enemies in the game.
@@ -13,6 +16,8 @@ public abstract class Enemy extends Sprite {
     protected float screenHeight;
     protected Resources res;
     protected int scaleSize;
+    protected Bitmap explosion;
+    private boolean isExploded;
 
     /**
      * The constructor of the Enemy class calls the default constructor and uses the Size.getRandomSize()
@@ -23,11 +28,19 @@ public abstract class Enemy extends Sprite {
         this.screenHeight = screenHeight;
         this.screenWidth = screenWidth;
         this.res = res;
+        isExploded = false;
+        reset();
+        timer.addListener(this);
+    }
+
+    /**
+     * Reset will reset the sprite, easier then creating a new instance of the sprite.
+     */
+    private void reset() {
         changeDir();
         changeBig();
+        bounds.offsetTo(setX(),setY());
         setVelocity();
-        bounds = new RectF(setX(), setY(), scaleSize, scaleSize);
-        timer.addListener(this);
     }
 
     /**
@@ -38,15 +51,47 @@ public abstract class Enemy extends Sprite {
     @Override
     public void move() {
         super.move();
-        if (Math.random() < .05) {
+        if (Math.random() < Constants.MOVE_SPEED_CHANGE_CHANCE) {
             setVelocity();
         }
         if (isOutside()) {
-            changeDir();
-            changeBig();
-            bounds.offsetTo(setX(),setY());
-            setVelocity();
+            reset();
         }
+    }
+
+    /**
+     * The override adds a check to let the explosion show on screen for one tick, then resets the
+     * sprite to a new random setting.
+     *
+     * @param c the Canvas to draw the sprite on
+     */
+    @Override
+    public void draw(Canvas c) {
+        super.draw(c);
+        if (isExploded) {
+            isExploded = false;
+            reset();
+        }
+    }
+
+    /**
+     * sets the sprite's image to the explosion, stops it on screen, and preps it for drawing the
+     * explosion.
+     */
+    public void explode() {
+        img = explosion;
+        velocity.set(0, 0);
+        isExploded = true;
+    }
+
+    /**
+     * Allows read access to whether the sprite has exploded this tick or not. Used for incrementing
+     * the player's score.
+     *
+     * @return      Whether the enemy has exploded this tick or not
+     */
+    public boolean getIsExploding() {
+        return isExploded;
     }
 
     /**
@@ -91,14 +136,15 @@ public abstract class Enemy extends Sprite {
     protected void setVelocity() {
         switch (direction) {
             case RIGHT_FACING:
-                super.setVelocity((int)(Math.random()*10)+10, 0);
+                super.setVelocity((int)(Math.random()*Constants.BASE_VELOCITY)+Constants.BASE_VELOCITY, 0);
                 break;
             case LEFT_FACING:
-                super.setVelocity((int)-(Math.random()*10)-10, 0);
+                super.setVelocity((int)-(Math.random()*Constants.BASE_VELOCITY)-Constants.BASE_VELOCITY, 0);
                 break;
         }
     }
 
     protected abstract void changeBig();
     protected abstract float setY();
+    public abstract int getPointValue();
 }

@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import edu.byuh.cis.cis203.ammon.battleshipwar.R;
+import edu.byuh.cis.cis203.ammon.battleshipwar.constants.Constants;
 
 /**
  * Submarine uses the Enemy class to add functionality for the game purposes. The constructor will
@@ -33,6 +34,20 @@ public class Submarine extends Enemy {
     }
 
     /**
+     * Shares the point value of the sprite for player scoring.
+     * @return      The value of the sub destroyed.
+     */
+    @Override
+    public int getPointValue() {
+        switch (bigness) {
+            case SML: return Constants.SML_SUB_SCORE;
+            case MED: return Constants.MED_SUB_SCORE;
+            case BIG: return Constants.BIG_SUB_SCORE;
+            default: return 0;
+        }
+    }
+
+    /**
      * This method is called with the constructor and whenever the size changes. The logic uses the
      * Size enum to determine the scale of the sprite to be drawn.
      */
@@ -41,23 +56,26 @@ public class Submarine extends Enemy {
         bigness = Size.getRandomSize();
         int imgFile;
         scaleSize = 0;
+        explosion = BitmapFactory.decodeResource(res, R.drawable.submarine_explosion);
         switch (bigness) {
             case BIG:
                 imgFile = (direction == Direction.RIGHT_FACING) ? R.drawable.big_submarine : R.drawable.big_submarine_flip;
-                scaleSize = (int)(screenWidth * .12);
+                scaleSize = (int)(screenWidth * Constants.BIG_SCALE);
                 break;
             case MED:
                 imgFile = (direction == Direction.RIGHT_FACING) ? R.drawable.medium_submarine : R.drawable.medium_submarine_flip;
-                scaleSize = (int)(screenWidth * .07);
+                scaleSize = (int)(screenWidth * Constants.MED_SCALE);
                 break;
             case SML:
                 imgFile = (direction == Direction.RIGHT_FACING) ? R.drawable.little_submarine : R.drawable.little_submarine_flip;
-                scaleSize = (int)(screenWidth * .05);
+                scaleSize = (int)(screenWidth * Constants.SML_SCALE);
                 break;
             default:
                 imgFile = 0;
         }
         img = BitmapFactory.decodeResource(res, imgFile);
         img = Bitmap.createScaledBitmap(img, scaleSize, scaleSize, true);
+        explosion = Bitmap.createScaledBitmap(explosion, scaleSize, scaleSize, true);
+        bounds.set(0, 0, scaleSize, scaleSize);
     }
 }

@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import edu.byuh.cis.cis203.ammon.battleshipwar.R;
+import edu.byuh.cis.cis203.ammon.battleshipwar.constants.Constants;
 
 /**
  * Airplane uses the Enemy class to add functionality for the game purposes. The constructor will
@@ -35,6 +36,20 @@ public class Airplane extends Enemy {
     }
 
     /**
+     * Shares the point value of the sprite for player scoring.
+     * @return      The value of the plane destroyed.
+     */
+    @Override
+    public int getPointValue() {
+        switch (bigness) {
+            case SML: return Constants.SML_PLANE_SCORE;
+            case MED: return Constants.MED_PLANE_SCORE;
+            case BIG: return Constants.BIG_PLANE_SCORE;
+            default: return 0;
+        }
+    }
+
+    /**
      * This method is called with the constructor and whenever the size changes. The logic uses the
      * Size enum to determine the scale of the sprite to be drawn.
      */
@@ -42,23 +57,26 @@ public class Airplane extends Enemy {
     protected void changeBig() {
         bigness = Size.getRandomSize();
         int imgFile;
+        explosion = BitmapFactory.decodeResource(res, R.drawable.airplane_explosion);
         switch (bigness) {
             case BIG:
                 imgFile = R.drawable.big_airplane;
-                scaleSize = (int)(screenWidth * .12);
+                scaleSize = (int)(screenWidth * Constants.BIG_SCALE);
                 break;
             case MED:
                 imgFile = (direction == Direction.LEFT_FACING) ? R.drawable.medium_airplane:R.drawable.medium_airplane_flip;
-                scaleSize = (int)(screenWidth * .08);
+                scaleSize = (int)(screenWidth * Constants.MED_SCALE);
                 break;
             case SML:
                 imgFile = (direction == Direction.LEFT_FACING) ? R.drawable.little_airplane:R.drawable.little_airplane_flip;
-                scaleSize = (int)(screenWidth * .04);
+                scaleSize = (int)(screenWidth * Constants.SML_SCALE);
                 break;
             default:
                 imgFile = 0;
         }
         img = BitmapFactory.decodeResource(res, imgFile);
         img = Bitmap.createScaledBitmap(img, scaleSize, scaleSize, true);
+        explosion = Bitmap.createScaledBitmap(explosion, scaleSize, scaleSize, true);
+        bounds.set(0, 0, scaleSize, scaleSize);
     }
 }
