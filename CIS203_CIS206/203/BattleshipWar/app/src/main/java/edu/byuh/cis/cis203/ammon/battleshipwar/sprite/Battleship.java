@@ -14,13 +14,13 @@ import edu.byuh.cis.cis203.ammon.battleshipwar.R;
  */
 public class Battleship extends Sprite {
 
-    public Battleship(Resources res, float screenWidth, float screenHeight) {
-        super();
-        velocity.set(0, 0);
-        var shipSize = (int)(screenWidth * .4);
-        img = BitmapFactory.decodeResource(res, R.drawable.battleship);
-        img = Bitmap.createScaledBitmap(img, shipSize, shipSize, true);
-        bounds = new RectF(0, 0, shipSize, shipSize);
-        bounds.offsetTo((screenWidth/2)-(shipSize/2), (screenHeight/2)-(shipSize/2));
-    }
+  public Battleship(Resources res, float screenWidth, float screenHeight) {
+    super();
+    velocity.set(0, 0);
+    var shipSize = (int)(screenWidth * .4);
+    img = BitmapFactory.decodeResource(res, R.drawable.battleship);
+    img = Bitmap.createScaledBitmap(img, shipSize, shipSize, true);
+    bounds = new RectF(0, 0, shipSize, shipSize);
+    bounds.offsetTo((screenWidth/2)-(shipSize/2), (screenHeight/2)-(shipSize/2));
+  }
 }
