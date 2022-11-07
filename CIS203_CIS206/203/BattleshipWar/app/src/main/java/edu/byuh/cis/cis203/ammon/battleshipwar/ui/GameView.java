@@ -51,7 +51,7 @@ public class GameView extends View implements TickListener {
   private boolean initialized;
   private boolean gameOver;
   private Timer timer;
-  private int score = 0;
+  private int score;
   private int timeLeft;
   private int timeCounter;
 
@@ -78,6 +78,7 @@ public class GameView extends View implements TickListener {
     missiles = new ArrayList<>();
     timeCounter = 0;
     timeLeft = Constants.GAME_TIME;
+    score = 0;
     gameOver = false;
     initialized = false;
   }
@@ -177,7 +178,7 @@ public class GameView extends View implements TickListener {
         alert.setTitle("TIME'S UP!")
             .setMessage(message)
             .setCancelable(false)
-            .setPositiveButton("Play Again?", (i, j) -> newGame())
+            .setPositiveButton("Play Again?", (d, i) -> newGame())
             .setNegativeButton("Exit", new DialogInterface.OnClickListener() {
               @Override
               public void onClick(DialogInterface dialogInterface, int i) {

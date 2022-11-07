@@ -27,7 +27,7 @@ public class Constants {
   public static final int TICK_SPEED = 50;
 
   // Base Game Time
-  public static final int GAME_TIME = 10;
+  public static final int GAME_TIME = 15;
 
   // High Score File Name
   public static final String HIGH_SCORE = "highScore.txt";
