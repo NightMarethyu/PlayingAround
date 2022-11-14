@@ -17,6 +17,7 @@ public class Missile extends Sprite {
   protected Bitmap fireMissile;
   protected Paint paint;
   protected Timer timer;
+  private boolean isOutside;
 
   /**
    * Missile creates a new missile object.
@@ -48,6 +49,7 @@ public class Missile extends Sprite {
     }
     fireBallBounds = new RectF(bounds);
     fireBallBounds.offset(-fireMissile.getWidth()/2f, -fireMissile.getWidth()/2f);
+    isOutside = false;
     timer = t;
     timer.addListener(this);
   }
@@ -61,7 +63,17 @@ public class Missile extends Sprite {
     super.move();
     if (bounds.bottom < 0) {
       timer.removeListener(this);
+      isOutside = true;
     }
+  }
+
+  /**
+   * Will tell if the object is outside the screen.
+   *
+   * @return  value of the isOutside variable
+   */
+  public boolean getOutside() {
+    return isOutside;
   }
 
   /**

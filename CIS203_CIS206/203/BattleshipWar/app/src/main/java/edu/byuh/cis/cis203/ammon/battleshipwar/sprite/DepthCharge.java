@@ -6,11 +6,12 @@ import android.graphics.BitmapFactory;
 import android.graphics.RectF;
 
 import edu.byuh.cis.cis203.ammon.battleshipwar.R;
-import edu.byuh.cis.cis203.ammon.battleshipwar.constants.Constants;
+import edu.byuh.cis.cis203.ammon.battleshipwar.resources.Constants;
 
 public class DepthCharge extends Sprite {
   protected float height;
   protected Timer timer;
+  private boolean isOutside;
 
   /**
    * The DepthCharge class is used to draw the depth charges attacks in the game. The constructor
@@ -31,6 +32,7 @@ public class DepthCharge extends Sprite {
     bounds.offsetTo((w/2)-(scale/2f), (h/2)-(scale/2f)+img.getHeight());
     timer = t;
     timer.addListener(this);
+    isOutside = false;
   }
 
   /**
@@ -41,7 +43,10 @@ public class DepthCharge extends Sprite {
   public void move() {
     super.move();
     if (bounds.top > height) {
+      isOutside = true;
       timer.removeListener(this);
     }
   }
+
+  public boolean getOutside() { return isOutside; }
 }

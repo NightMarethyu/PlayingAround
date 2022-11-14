@@ -4,12 +4,12 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.media.MediaPlayer;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -20,7 +20,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import edu.byuh.cis.cis203.ammon.battleshipwar.R;
-import edu.byuh.cis.cis203.ammon.battleshipwar.constants.Constants;
+import edu.byuh.cis.cis203.ammon.battleshipwar.resources.Constants;
 import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.Airplane;
 import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.Battleship;
 import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.DepthCharge;
@@ -54,6 +54,13 @@ public class GameView extends View implements TickListener {
   private int score;
   private int timeLeft;
   private int timeCounter;
+  private final int planeCount;
+  private final int subCount;
+  private MediaPlayer planeExplode;
+  private MediaPlayer subExplode;
+  private MediaPlayer missileLaunch;
+  private MediaPlayer depthChargeBeep;
+  private MediaPlayer depthCharge;
 
   /**
    * The Constructor of the GameView class.
@@ -79,6 +86,9 @@ public class GameView extends View implements TickListener {
     timeCounter = 0;
     timeLeft = Constants.GAME_TIME;
     score = 0;
+    createMediaPlayers();
+    planeCount = Prefs.planeCount(c);
+    subCount = Prefs.subCount(c);
     gameOver = false;
     initialized = false;
   }
@@ -98,15 +108,18 @@ public class GameView extends View implements TickListener {
     var screenWidth = getWidth();
     var screenHeight = getHeight();
     if (!initialized) {
+      Context con = getContext();
       timer = new Timer();
       timer.addListener(this);
       water = Bitmap.createScaledBitmap(water, (screenWidth/20), (screenWidth/20), true);
       fireMissile = Bitmap.createScaledBitmap(fireMissile, (screenWidth/20), (screenWidth/20), true);
       var res = getResources();
       ship = new Battleship(res, screenWidth, screenHeight);
-      for (int i=0; i<Constants.ENEMY_COUNT; i++) {
-        planes.add(new Airplane(res, screenWidth, screenHeight, timer));
-        subs.add(new Submarine(res, screenWidth, screenHeight, timer));
+      for (int i=0; i<planeCount; i++) {
+        planes.add(new Airplane(res, screenWidth, screenHeight, timer, Prefs.planeSpeed(con), Prefs.planeDirection(con)));
+      }
+      for (int i=0; i<subCount; i++) {
+        subs.add(new Submarine(res, screenWidth, screenHeight, timer, Prefs.subSpeed(con), Prefs.subDirection(con)));
       }
       initialized = true;
     }
@@ -150,14 +163,27 @@ public class GameView extends View implements TickListener {
     float y = m.getY();
     float height = getHeight();
     float width = getWidth();
+    var c = getContext();
 
     if (m.getAction() == MotionEvent.ACTION_DOWN) {
       if (y > (height/2)) {
-        charges.add(new DepthCharge(getResources(), width, height, timer));
+        if (Prefs.multiCharges(c)) {
+          launchCharge(width, height, c);
+        } else if (charges.size() == 0) {
+          launchCharge(width, height, c);
+        }
       } else if (x > width/2) {
-        missiles.add(new Missile(Direction.RIGHT_FACING, width, height, paint, fireMissile, timer));
+        if (Prefs.multiMissiles(c)) {
+          launchMissile(Direction.RIGHT_FACING, width, height, c);
+        } else if (missiles.size() == 0) {
+          launchMissile(Direction.RIGHT_FACING, width, height, c);
+        }
       } else {
-        missiles.add(new Missile(Direction.LEFT_FACING, width, height, paint, fireMissile, timer));
+        if (Prefs.multiMissiles(c)) {
+          launchMissile(Direction.LEFT_FACING, width, height, c);
+        } else if (missiles.size() == 0) {
+          launchMissile(Direction.LEFT_FACING, width, height, c);
+        }
       }
       if (gameOver) {
         String message;
@@ -179,17 +205,47 @@ public class GameView extends View implements TickListener {
             .setMessage(message)
             .setCancelable(false)
             .setPositiveButton("Play Again?", (d, i) -> newGame())
-            .setNegativeButton("Exit", new DialogInterface.OnClickListener() {
-              @Override
-              public void onClick(DialogInterface dialogInterface, int i) {
-                ((Activity)getContext()).finish();
-              }
-            });
+            .setNegativeButton("Exit", (dialogInterface, i) -> ((Activity)getContext()).finish());
         AlertDialog show = alert.create();
         show.show();
       }
     }
     return true;
+  }
+
+  /**
+   * Creates a new missile and adds it to the missiles array. Will then play sounds and adjust score
+   * based on the settings the user put in preferences.
+   * @param d       The direction of the missile, based on where the user touched
+   * @param width   The width of the screen
+   * @param height  The height of the screen
+   * @param c       The current context
+   */
+  private void launchMissile(Direction d, float width, float height, Context c) {
+    missiles.add(new Missile(d, width, height, paint, fireMissile, timer));
+    if (Prefs.soundFX(c)) {
+      missileLaunch.start();
+    }
+    if (Prefs.frugality(c)) {
+      score--;
+    }
+  }
+
+  /**
+   * Creates a new depth charge and adds it to the charges array. Will then play sounds and adjust score
+   * based on the settings the user put in preferences.
+   * @param width   Width of the screen
+   * @param height  Height of the screen
+   * @param c       the current context
+   */
+  private void launchCharge(float width, float height, Context c) {
+    charges.add(new DepthCharge(getResources(), width, height, timer));
+    if (Prefs.soundFX(c)) {
+      depthCharge.start();
+    }
+    if (Prefs.frugality(c)) {
+      score--;
+    }
   }
 
   /**
@@ -231,16 +287,30 @@ public class GameView extends View implements TickListener {
     }
   }
 
+  // creates the media players for the different sounds
+  private void createMediaPlayers() {
+    planeExplode = MediaPlayer.create(getContext(), R.raw.plane_explosion);
+    subExplode = MediaPlayer.create(getContext(), R.raw.sub_explosion);
+    missileLaunch = MediaPlayer.create(getContext(), R.raw.missle_launch);
+    depthChargeBeep = MediaPlayer.create(getContext(), R.raw.depth_charge_beep);
+    depthCharge = MediaPlayer.create(getContext(), R.raw.depth_charge_drop);
+  }
+
   /**
    * Called each game tick by the Timer. Calculates the time left in the game,
    * checks for collisions between player attacks and enemies, then redraws the screen.
    */
   @Override
   public void tick() {
+    charges.removeIf(DepthCharge::getOutside);
+    missiles.removeIf(Missile::getOutside);
     timeCounter++;
     if (timeCounter == (1000 / Constants.TICK_SPEED)) {
       timeLeft--;
       timeCounter = 0;
+      if (Prefs.soundFX(getContext()) && charges.size() > 0) {
+        depthChargeBeep.start();
+      }
     }
     if (timeLeft == 0) {
       gameEnd();
@@ -284,11 +354,15 @@ public class GameView extends View implements TickListener {
     var screenWidth = getWidth();
     var screenHeight = getHeight();
     var res = getResources();
+    Context c = getContext();
     timer.addListener(this);
-    for (int i=0; i<Constants.ENEMY_COUNT; i++) {
-      planes.add(new Airplane(res, screenWidth, screenHeight, timer));
-      subs.add(new Submarine(res, screenWidth, screenHeight, timer));
+    for (int i=0; i<planeCount; i++) {
+      planes.add(new Airplane(res, screenWidth, screenHeight, timer, Prefs.planeSpeed(c), Prefs.planeDirection(c)));
     }
+    for (int i=0; i<subCount; i++) {
+      subs.add(new Submarine(res, screenWidth, screenHeight, timer, Prefs.subSpeed(c), Prefs.subDirection(c)));
+    }
+    createMediaPlayers();
     timeLeft = Constants.GAME_TIME;
     timeCounter = 0;
     invalidate();
@@ -310,6 +384,9 @@ public class GameView extends View implements TickListener {
         return false;
       });
       if (a.getIsExploding()) {
+        if (Prefs.soundFX(getContext())) {
+          planeExplode.start();
+        }
         score += a.getPointValue();
       }
     }
@@ -322,6 +399,9 @@ public class GameView extends View implements TickListener {
         return false;
       });
       if (s.getIsExploding()) {
+        if (Prefs.soundFX(getContext())) {
+          subExplode.start();
+        }
         score += s.getPointValue();
       }
     }

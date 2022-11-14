@@ -5,7 +5,7 @@ import android.os.Message;
 
 import java.util.ArrayList;
 
-import edu.byuh.cis.cis203.ammon.battleshipwar.constants.Constants;
+import edu.byuh.cis.cis203.ammon.battleshipwar.resources.Constants;
 
 /**
  * The Timer class will run a delayed loop to allow the sprites to be drawn. It notifies the sprites

@@ -4,7 +4,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 
-import edu.byuh.cis.cis203.ammon.battleshipwar.constants.Constants;
+import edu.byuh.cis.cis203.ammon.battleshipwar.resources.Constants;
 
 /**
  * Enemy is an extension of Sprite and adds functionality necessary for the enemies in the game.
@@ -18,6 +18,8 @@ public abstract class Enemy extends Sprite {
   protected int scaleSize;
   protected Bitmap explosion;
   private boolean isExploded;
+  protected int baseSpeed;
+  protected String allowedDirection;
 
   /**
    * The constructor of the Enemy class calls the default constructor and uses the Size.getRandomSize()
@@ -29,6 +31,7 @@ public abstract class Enemy extends Sprite {
     this.screenWidth = screenWidth;
     this.res = res;
     isExploded = false;
+    allowedDirection = "both";
     reset();
     timer.addListener(this);
   }
@@ -114,7 +117,16 @@ public abstract class Enemy extends Sprite {
    * get a random direction from the Direction enum.
    */
   protected void changeDir() {
-    this.direction = Direction.getRandomDirection();
+    switch (allowedDirection) {
+      case "left-to-right" :
+        this.direction = Direction.RIGHT_FACING;
+        break;
+      case "right-to-left" :
+        this.direction = Direction.LEFT_FACING;
+        break;
+      default:
+        this.direction = Direction.getRandomDirection();
+    }
   }
 
   /**
@@ -130,16 +142,13 @@ public abstract class Enemy extends Sprite {
     return -scaleSize;
   }
 
-  /**
-   * Sets the velocity to a random value between 10 and 20, can be either positive or negative.
-   */
   protected void setVelocity() {
     switch (direction) {
       case RIGHT_FACING:
-        super.setVelocity((int)(Math.random()*Constants.BASE_VELOCITY)+Constants.BASE_VELOCITY, 0);
+        super.setVelocity((int)(Math.random()*baseSpeed)+baseSpeed, 0);
         break;
       case LEFT_FACING:
-        super.setVelocity((int)-(Math.random()*Constants.BASE_VELOCITY)-Constants.BASE_VELOCITY, 0);
+        super.setVelocity((int)-(Math.random()*baseSpeed)-baseSpeed, 0);
         break;
     }
   }

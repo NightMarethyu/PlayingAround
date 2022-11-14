@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import edu.byuh.cis.cis203.ammon.battleshipwar.R;
-import edu.byuh.cis.cis203.ammon.battleshipwar.constants.Constants;
+import edu.byuh.cis.cis203.ammon.battleshipwar.resources.Constants;
 
 /**
  * Submarine uses the Enemy class to add functionality for the game purposes. The constructor will
@@ -14,8 +14,10 @@ import edu.byuh.cis.cis203.ammon.battleshipwar.constants.Constants;
  */
 public class Submarine extends Enemy {
 
-  public Submarine(Resources res, float screenWidth, float screenHeight, Timer timer) {
+  public Submarine(Resources res, float screenWidth, float screenHeight, Timer timer, int speed, String dir) {
     super(res, screenWidth, screenHeight, timer);
+    baseSpeed = speed;
+    allowedDirection = dir;
   }
 
   /**
@@ -78,4 +80,6 @@ public class Submarine extends Enemy {
     explosion = Bitmap.createScaledBitmap(explosion, scaleSize, scaleSize, true);
     bounds.set(0, 0, scaleSize, scaleSize);
   }
+
+
 }
