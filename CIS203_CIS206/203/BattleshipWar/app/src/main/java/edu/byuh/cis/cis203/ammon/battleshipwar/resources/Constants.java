@@ -24,18 +24,10 @@ public class Constants {
   public static final int TICK_SPEED = 50;
 
   // Base Game Time
-  public static final int GAME_TIME = 15;
+  public static final int GAME_TIME = 180;
 
   // High Score File Name
   public static final String HIGH_SCORE = "highScore.txt";
-
-  // About Game Message
-  public static final String ABOUT_GAME = "You are in command of a Battleship.\n" +
-      "You have 3 minutes to destroy as many enemy subs and planes as possible\n\n" +
-      "Point Values:\n" +
-      "Small Sub = " + SML_SUB_SCORE + " \tSmall Plane = " + SML_PLANE_SCORE +
-      "\nMed Sub = " + MED_SUB_SCORE + " \tMed Plane = " + MED_PLANE_SCORE +
-      "\nLarge Sub = " + BIG_SUB_SCORE + " \tLarge Plane = " + BIG_PLANE_SCORE;
 
   // Preference Keys
   public static final String PLAY_SOUNDS = "PLAY_SOUNDS";

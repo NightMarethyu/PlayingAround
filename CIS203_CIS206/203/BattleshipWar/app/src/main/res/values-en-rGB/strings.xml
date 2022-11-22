@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Battleship War</string>
+    <string name="game_end">Well done soldier, ye \'ave survived the invasion.</string>
+    <string name="time_up">Time\'s to the sky!</string>
+    <string name="play_again">Play again?</string>
+    <string name="exit">Exit</string>
+    <string name="score">Yer Points</string>
+    <string name="time">Time</string>
+    <string name="play_sound">Do ye want to \'earrr the sounds?</string>
+    <string name="sound_will_play">Ye will \'earrr all the sound effects</string>
+    <string name="sound_will_not_play">Ye will \'earrr none o\' the sound effects</string>
+    <string name="play_music">Do ye want to \'earrr the music?</string>
+    <string name="music_will_play">Ye will \'earrr the music</string>
+    <string name="music_will_not_play">Ye will not \'earrr the music</string>
+    <string name="rapid_missiles">Do ye want t\' shoot missiles fast?</string>
+    <string name="rapid_missiles_off">Ye can only shoot one missile at a time</string>
+    <string name="rapid_missiles_on">Fast shoot\'n turned on</string>
+    <string name="rapid_charges">Do ye want t\' drop depth charges fast?</string>
+    <string name="rapid_charges_off">Ye can only drop one depth charge at a time</string>
+    <string name="rapid_charges_on">Fast shoot\'n turned on</string>
+    <string name="frugal_mode">Pauper Mode</string>
+    <string name="frugal_mode_off">Nay change t\' score as weapons be fired</string>
+    <string name="frugal_mode_on">Points will be subtracted fer each use o\' weapons</string>
+    <string name="plane_count">How many man-made birds?</string>
+    <string name="plane_count_sum">Number \'o man-made birds :</string>
+    <string name="sub_count">How many diving bells?</string>
+    <string name="sub_count_sum">Number \'o diving bells :</string>
+    <string name="plane_speed">\'Ow fast will the man-made birds go?</string>
+    <string name="plane_speed_sum">Common man-made bird speed :</string>
+    <string name="sub_speed">\'Ow fast will the diving bells move?</string>
+    <string name="sub_speed_sum">Common diving bell speed :</string>
+    <string name="l2r">left-to-right</string>
+    <string name="r2l">right-to-left</string>
+    <string name="r_and_l">both</string>
+    <string name="plane_dir">Man-made bird direction</string>
+    <string name="plane_dir_sum">Man-made bird direction :</string>
+    <string name="sub_dir">Diving bell direction</string>
+    <string name="sub_dir_sum">Diving bell direction :</string>
+    <string name="slow">Turtle</string>
+    <string name="medium">Dolphin</string>
+    <string name="fast">Shark</string>
+    <string name="congrats">Congratulations! new \'igh score. Ye \'ave fended off the aliens better than any before ye!</string>
+    <string name="about_title">Information fer ye</string>
+    <string name="okay">Aye</string>
+    <string name="about_game">Ye be in command o\' a battleship. Ye \'ave 3 minutes to destroy as many enemy subs an\' planes as possible.</string>
+</resources>

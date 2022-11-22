@@ -1,3 +1,61 @@
 <resources>
+    <!--Game View Strings-->
+    <string name="game_end">Well done soldier, You have survived the invasion.</string>
+    <string name="play_again">Play Again?</string>
+    <string name="exit">Exit</string>
+    <string name="score">Score</string>
+    <string name="time">Time:</string>
+
+    <!-- Preferences Strings -->
+    <string name="play_sound">Play Sound Effects?</string>
+    <string name="sound_will_play">Sound effects will play</string>
+    <string name="sound_will_not_play">Sound effects will not play</string>
+
+    <string name="play_music">Play Music</string>
+    <string name="music_will_play">Soundtrack will play</string>
+    <string name="music_will_not_play">Soundtrack will not play</string>
+
+    <string name="rapid_missiles">Allow Rapid Fire Missiles</string>
+    <string name="rapid_missiles_off">Only one missile at a time</string>
+    <string name="rapid_missiles_on">Multi-fire enabled</string>
+
+    <string name="rapid_charges">Allow Rapid Fire Depth Charges</string>
+    <string name="rapid_charges_off">Only one depth charge at a time</string>
+    <string name="rapid_charges_on">Multi-fire enabled</string>
+
+    <string name="frugal_mode">Frugality Mode</string>
+    <string name="frugal_mode_off">No change to score as weapons are fired</string>
+    <string name="frugal_mode_on">Points will be subtracted for each use of weapons</string>
+
+    <string name="plane_count">Plane Count</string>
+    <string name="plane_count_sum">Planes allowed on screen :</string>
+
+    <string name="sub_count">Submarine Count</string>
+    <string name="sub_count_sum">Submarines allowed on screen :</string>
+
+    <string name="plane_speed">Plane Speed</string>
+    <string name="plane_speed_sum">Average plane speed :</string>
+
+    <string name="sub_speed">Submarine Speed</string>
+    <string name="sub_speed_sum">Average submarine speed :</string>
+
+    <string name="slow">Slow</string>
+    <string name="medium">Medium</string>
+    <string name="fast">Fast</string>
+
+    <string name="plane_dir">Plane Direction</string>
+    <string name="plane_dir_sum">Plane Direction :</string>
+
+    <string name="sub_dir">Submarine Direction</string>
+    <string name="sub_dir_sum">Submarine Direction :</string>
+
+    <string name="l2r">left-to-right</string>
+    <string name="r2l">right-to-left</string>
+    <string name="r_and_l">both</string>
+    <string name="congrats">Congratulations! New High Score. You have fended off the aliens better than any before you!</string>
     <string name="app_name">Battleship War</string>
+    <string name="time_up">TIME\'S UP!</string>
+    <string name="about_title">About Battleship War</string>
+    <string name="okay">OK</string>
+    <string name="about_game">You are in command of a Battleship. You have 3 minutes to destroy as many enemy subs and planes as possible.</string>
 </resources>

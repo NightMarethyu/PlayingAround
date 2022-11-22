@@ -140,10 +140,11 @@ public class GameView extends View implements TickListener {
     paint.setTextSize(screenHeight/20f);
     paint.setColor(Color.BLACK);
     float textPos = screenHeight/20f;
-    String printScore = "Score " + score;
+    String printScore = getResources().getString(R.string.score) + " " + score;
     int timeMinutes = timeLeft / 60;
     int timeSecs = timeLeft % 60;
-    String timeLeft = "Time: " + timeMinutes + ":" + String.format(Locale.ENGLISH, "%02d", timeSecs);
+    String timeText = getResources().getString(R.string.time);
+    String timeLeft = timeText + " " + timeMinutes + ":" + String.format(Locale.ENGLISH, "%02d", timeSecs);
     c.drawText(printScore, 10, textPos + 5, paint);
     c.drawText(timeLeft, 10, 2 * textPos + 5, paint);
   }
@@ -165,7 +166,7 @@ public class GameView extends View implements TickListener {
     float width = getWidth();
     var c = getContext();
 
-    if (m.getAction() == MotionEvent.ACTION_DOWN) {
+    if (m.getActionMasked() == MotionEvent.ACTION_DOWN || m.getActionMasked() == MotionEvent.ACTION_POINTER_DOWN) {
       if (y > (height/2)) {
         if (Prefs.multiCharges(c)) {
           launchCharge(width, height, c);
@@ -186,10 +187,10 @@ public class GameView extends View implements TickListener {
         }
       }
       if (gameOver) {
-        String message;
+        int message;
         int hs = checkHighScore();
         if (hs < score) {
-          message = "Congratulations! New High Score. You beat the old high score of " + hs + " by " + (score - hs);
+          message = R.string.congrats;
           try {
             var outStream = getContext().openFileOutput(Constants.HIGH_SCORE, Context.MODE_PRIVATE);
             outStream.write((""+score).getBytes());
@@ -198,14 +199,14 @@ public class GameView extends View implements TickListener {
             e.printStackTrace();
           }
         } else {
-          message = "Well done soldier, You have survived the invasion.";
+          message = R.string.game_end;
         }
         AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
-        alert.setTitle("TIME'S UP!")
+        alert.setTitle(R.string.time_up)
             .setMessage(message)
             .setCancelable(false)
-            .setPositiveButton("Play Again?", (d, i) -> newGame())
-            .setNegativeButton("Exit", (dialogInterface, i) -> ((Activity)getContext()).finish());
+            .setPositiveButton(R.string.play_again, (d, i) -> newGame())
+            .setNegativeButton(R.string.exit, (dialogInterface, i) -> ((Activity)getContext()).finish());
         AlertDialog show = alert.create();
         show.show();
       }
@@ -216,6 +217,7 @@ public class GameView extends View implements TickListener {
   /**
    * Creates a new missile and adds it to the missiles array. Will then play sounds and adjust score
    * based on the settings the user put in preferences.
+   *
    * @param d       The direction of the missile, based on where the user touched
    * @param width   The width of the screen
    * @param height  The height of the screen
@@ -234,6 +236,7 @@ public class GameView extends View implements TickListener {
   /**
    * Creates a new depth charge and adds it to the charges array. Will then play sounds and adjust score
    * based on the settings the user put in preferences.
+   *
    * @param width   Width of the screen
    * @param height  Height of the screen
    * @param c       the current context
@@ -294,6 +297,24 @@ public class GameView extends View implements TickListener {
     missileLaunch = MediaPlayer.create(getContext(), R.raw.missle_launch);
     depthChargeBeep = MediaPlayer.create(getContext(), R.raw.depth_charge_beep);
     depthCharge = MediaPlayer.create(getContext(), R.raw.depth_charge_drop);
+  }
+
+  /**
+   * Sends pause command to timer class.
+   */
+  public void pause() {
+    if (timer != null) {
+      timer.pause();
+    }
+  }
+
+  /**
+   * Sends resume command to timer class.
+   */
+  public void resume() {
+    if (timer != null) {
+      timer.resume();
+    }
   }
 
   /**

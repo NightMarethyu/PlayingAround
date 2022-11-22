@@ -1,0 +1,13 @@
+<resources>
+    <string-array name="speed_labels">
+        <item>Slow</item>
+        <item>Medium</item>
+        <item>Fast</item>
+    </string-array>
+
+    <string-array name="dir_labels">
+        <item>left-to-right</item>
+        <item>right-to-left</item>
+        <item>both</item>
+    </string-array>
+</resources>

@@ -8,7 +8,6 @@ import android.view.MotionEvent;
 import android.widget.ImageView;
 
 import edu.byuh.cis.cis203.ammon.battleshipwar.R;
-import edu.byuh.cis.cis203.ammon.battleshipwar.resources.Constants;
 
 public class WelcomeScreen extends Activity {
 
@@ -36,10 +35,10 @@ public class WelcomeScreen extends Activity {
         startActivity(intent);
       } else if (x < third && y > (h - third)) {
         AlertDialog.Builder about = new AlertDialog.Builder(this);
-        about.setTitle("About Battleship War")
-            .setMessage(Constants.ABOUT_GAME)
+        about.setTitle(R.string.about_title)
+            .setMessage(R.string.about_game)
             .setCancelable(false)
-            .setNeutralButton("OK", null);//(d, i) -> Toast.makeText(this,"Enjoy", Toast.LENGTH_SHORT).show());
+            .setNeutralButton(R.string.okay, null);
         AlertDialog displayAbout = about.create();
         displayAbout.show();
       } else {

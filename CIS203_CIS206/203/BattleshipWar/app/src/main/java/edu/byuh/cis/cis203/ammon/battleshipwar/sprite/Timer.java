@@ -13,6 +13,7 @@ import edu.byuh.cis.cis203.ammon.battleshipwar.resources.Constants;
  */
 public class Timer extends Handler {
   protected ArrayList<TickListener> subscribed;
+  private boolean paused;
 
   /**
    * A new timer contains an empty arraylist of subscribers and will send a delayed message in 50
@@ -21,6 +22,7 @@ public class Timer extends Handler {
   public Timer() {
     subscribed = new ArrayList<>();
     sendMessageDelayed(obtainMessage(), Constants.TICK_SPEED);
+    paused = false;
   }
 
   /**
@@ -42,6 +44,21 @@ public class Timer extends Handler {
   }
 
   /**
+   * Sets the paused boolean to true which will stop the sendMessageDelayed method from being called
+   */
+  public void pause() {
+    paused = true;
+  }
+
+  /**
+   * Sets the paused boolean to false and immediately sends a new delayed message.
+   */
+  public void resume() {
+    paused = false;
+    sendMessageDelayed(obtainMessage(), 0);
+  }
+
+  /**
    * Handle message copies the arraylist of subscribers and iterates through it to notify the
    * listeners.
    *
@@ -53,6 +70,8 @@ public class Timer extends Handler {
     for (TickListener t : tempList) {
       t.tick();
     }
-    sendMessageDelayed(obtainMessage(), Constants.TICK_SPEED);
+    if (!paused) {
+      sendMessageDelayed(obtainMessage(), Constants.TICK_SPEED);
+    }
   }
 }

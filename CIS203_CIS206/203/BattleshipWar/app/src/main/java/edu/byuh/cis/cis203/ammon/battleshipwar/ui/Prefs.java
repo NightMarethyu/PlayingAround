@@ -9,6 +9,7 @@ import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreference;
 
+import edu.byuh.cis.cis203.ammon.battleshipwar.R;
 import edu.byuh.cis.cis203.ammon.battleshipwar.resources.Constants;
 
 public class Prefs extends PreferenceFragmentCompat {
@@ -18,52 +19,50 @@ public class Prefs extends PreferenceFragmentCompat {
     PreferenceScreen screen = getPreferenceManager().createPreferenceScreen(context);
 
     String[] nums = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
-    String[] speed = { "slow", "medium", "fast" };
     String[] speedVals = { "5", "10", "15" };
 
-    // TODO Add preference widgets here
     // switch preferences with booleans
     // Turn sound effects off and on
     var soundPref = new SwitchPreference(context);
-    soundPref.setTitle("Play Sound Effects?");
-    soundPref.setSummaryOff("Sound effects will not play");
-    soundPref.setSummaryOn("Sound effects will play");
+    soundPref.setTitle(R.string.play_sound);
+    soundPref.setSummaryOff(R.string.sound_will_not_play);
+    soundPref.setSummaryOn(R.string.sound_will_play);
     soundPref.setKey(Constants.PLAY_SOUNDS);
 
     // Turn music on and off
     var soundtrack = new SwitchPreference(context);
     soundtrack.setKey(Constants.PLAY_MUSIC);
-    soundtrack.setTitle("Play Music");
-    soundtrack.setSummaryOff("Soundtrack will not play");
-    soundtrack.setSummaryOn("Soundtrack will play");
+    soundtrack.setTitle(R.string.play_music);
+    soundtrack.setSummaryOff(R.string.music_will_not_play);
+    soundtrack.setSummaryOn(R.string.music_will_play);
 
     // allow rapid fire missiles
     var rapidMissiles = new SwitchPreference(context);
     rapidMissiles.setKey(Constants.RAPID_FIRE_MISSILES);
-    rapidMissiles.setTitle("Allow Rapid Fire Missiles");
-    rapidMissiles.setSummaryOff("Only one missile at a time");
-    rapidMissiles.setSummaryOn("Multi-fire enabled");
+    rapidMissiles.setTitle(R.string.rapid_missiles);
+    rapidMissiles.setSummaryOff(R.string.rapid_missiles_off);
+    rapidMissiles.setSummaryOn(R.string.rapid_missiles_on);
 
     // allow rapid fire depth charges
     var rapidCharges = new SwitchPreference(context);
     rapidCharges.setKey(Constants.RAPID_FIRE_CHARGES);
-    rapidCharges.setTitle("Allow Rapid Fire Depth Charges");
-    rapidCharges.setSummaryOff("Only one depth charge at a time");
-    rapidCharges.setSummaryOn("Multi-fire enabled");
+    rapidCharges.setTitle(R.string.rapid_charges);
+    rapidCharges.setSummaryOff(R.string.rapid_charges_off);
+    rapidCharges.setSummaryOn(R.string.rapid_charges_on);
 
     // frugality mode
     var frugal = new SwitchPreference(context);
     frugal.setKey(Constants.FRUGALITY);
-    frugal.setTitle("Frugality Mode");
-    frugal.setSummaryOn("Points will be subtracted for each use of weapons");
-    frugal.setSummaryOff("No change to score as weapons are fired");
+    frugal.setTitle(R.string.frugal_mode);
+    frugal.setSummaryOn(R.string.frugal_mode_on);
+    frugal.setSummaryOff(R.string.frugal_mode_off);
 
     // List Preferences with multiple values
     // Number of planes allowed
     var planeCount = new ListPreference(context);
     planeCount.setKey(Constants.PLANE_COUNT);
-    planeCount.setTitle("Plane Count");
-    planeCount.setSummaryProvider(preference -> "Planes allowed on screen : " +
+    planeCount.setTitle(R.string.plane_count);
+    planeCount.setSummaryProvider(preference -> getResources().getString(R.string.plane_count_sum) + " " +
         PreferenceManager.getDefaultSharedPreferences(context).getString(Constants.PLANE_COUNT, "3"));
     planeCount.setEntries(nums);
     planeCount.setEntryValues(nums);
@@ -71,8 +70,8 @@ public class Prefs extends PreferenceFragmentCompat {
     // Number of subs allowed
     var subCount = new ListPreference(context);
     subCount.setKey(Constants.SUB_COUNT);
-    subCount.setTitle("Submarine Count");
-    subCount.setSummaryProvider(preference -> "Submarines allowed on screen : " +
+    subCount.setTitle(R.string.sub_count);
+    subCount.setSummaryProvider(preference -> getResources().getString(R.string.sub_count_sum) + " " +
         PreferenceManager.getDefaultSharedPreferences(context).getString(Constants.SUB_COUNT, "3"));
     subCount.setEntries(nums);
     subCount.setEntryValues(nums);
@@ -80,69 +79,91 @@ public class Prefs extends PreferenceFragmentCompat {
     // Plane Speed settings
     var planeSpeed = new ListPreference(context);
     planeSpeed.setKey(Constants.PLANE_SPEED);
-    planeSpeed.setTitle("Plane Speed");
+    planeSpeed.setTitle(R.string.plane_speed);
     planeSpeed.setSummaryProvider(preference -> {
-      String val = "Average plane speed : ";
+      String val = getResources().getString(R.string.plane_speed_sum) + " ";
       String set = PreferenceManager.getDefaultSharedPreferences(context).getString(Constants.PLANE_SPEED, "medium");
       switch (set) {
         case "5":
-          val = val + "Slow";
+          val = val + getResources().getString(R.string.slow);
           break;
         case "15":
-          val = val + "Fast";
+          val = val + getResources().getString(R.string.fast);
           break;
         default:
-          val = val + "Medium";
+          val = val + getResources().getString(R.string.medium);
       }
       return val;
     });
-    planeSpeed.setEntries(speed);
+    planeSpeed.setEntries(R.array.speed_labels);
     planeSpeed.setEntryValues(speedVals);
 
     // Submarine Speed Settings
     var subSpeed = new ListPreference(context);
     subSpeed.setKey(Constants.SUB_SPEED);
-    subSpeed.setTitle("Submarine Speed");
+    subSpeed.setTitle(R.string.sub_speed);
     subSpeed.setSummaryProvider(preference -> {
-      String val = "Average submarine speed : ";
+      String val = getResources().getString(R.string.sub_speed_sum)+" ";
       String set = PreferenceManager.getDefaultSharedPreferences(context).getString(Constants.SUB_SPEED, "medium");
       switch (set) {
         case "5":
-          val = val + "Slow";
+          val = val + getResources().getString(R.string.slow);
           break;
         case "15":
-          val = val + "Fast";
+          val = val + getResources().getString(R.string.fast);
           break;
         default:
-          val = val + "Medium";
+          val = val + getResources().getString(R.string.medium);
       }
       return val;
     });
-    subSpeed.setEntries(speed);
+    subSpeed.setEntries(R.array.speed_labels);
     subSpeed.setEntryValues(speedVals);
 
     // Plane direction
     var planeDirection = new ListPreference(context);
     planeDirection.setKey(Constants.PLANE_DIRECTION);
-    planeDirection.setTitle("Plane Direction");
+    planeDirection.setTitle(R.string.plane_dir);
     planeDirection.setSummaryProvider(preference -> {
-      String val = "Plane direction : ";
+      String val = getResources().getString(R.string.plane_dir_sum) + " ";
       String set = PreferenceManager.getDefaultSharedPreferences(context).getString(Constants.PLANE_DIRECTION, "both");
-      return val + set;
+      String setText;
+      switch (set) {
+        case "left-to-right" :
+          setText = getResources().getString(R.string.l2r);
+          break;
+        case "right-to-left" :
+          setText = getResources().getString(R.string.r2l);
+          break;
+        default:
+          setText = getResources().getString(R.string.r_and_l);
+      }
+      return val + setText;
     });
-    planeDirection.setEntries(Constants.DIRECTIONS);
+    planeDirection.setEntries(R.array.dir_labels);
     planeDirection.setEntryValues(Constants.DIRECTIONS);
 
     // Sub direction
     var subDirection = new ListPreference(context);
     subDirection.setKey(Constants.SUB_DIRECTION);
-    subDirection.setTitle("Submarine Direction");
+    subDirection.setTitle(R.string.sub_dir);
     subDirection.setSummaryProvider(preference -> {
-      String val = "Submarine direction : ";
+      String val = getResources().getString(R.string.sub_dir_sum) + " ";
       String set = PreferenceManager.getDefaultSharedPreferences(context).getString(Constants.SUB_DIRECTION, "both");
-      return val + set;
+      String setText;
+      switch (set) {
+        case "left-to-right" :
+          setText = getResources().getString(R.string.l2r);
+          break;
+        case "right-to-left" :
+          setText = getResources().getString(R.string.r2l);
+          break;
+        default:
+          setText = getResources().getString(R.string.r_and_l);
+      }
+      return val + setText;
     });
-    subDirection.setEntries(Constants.DIRECTIONS);
+    subDirection.setEntries(R.array.dir_labels);
     subDirection.setEntryValues(Constants.DIRECTIONS);
 
     // Add the preference selections to the screen
