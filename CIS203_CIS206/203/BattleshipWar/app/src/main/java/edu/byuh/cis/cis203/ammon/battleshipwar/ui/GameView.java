@@ -40,6 +40,8 @@ import edu.byuh.cis.cis203.ammon.battleshipwar.sprite.Timer;
  */
 public class GameView extends View implements TickListener {
 
+  private static GameView singleton;
+
   private final Paint paint;
   private Battleship ship;
   private final ArrayList<Airplane>  planes;
@@ -72,7 +74,7 @@ public class GameView extends View implements TickListener {
    * @see     Context
    * @since   0.1
    */
-  public GameView(Context c) {
+  private GameView(Context c) {
     super(c);
     paint = new Paint();
     paint.setStrokeWidth(10);
@@ -91,6 +93,20 @@ public class GameView extends View implements TickListener {
     subCount = Prefs.subCount(c);
     gameOver = false;
     initialized = false;
+  }
+
+  /**
+   * The singleton constructor method, this method will return the single instance of this class that
+   * should exist in the program.
+   *
+   * @param c   The context in which the class will be displayed
+   * @return    The only instance of the GameView class
+   */
+  public static GameView getInstance(Context c) {
+    if (singleton == null) {
+      singleton = new GameView(c);
+    }
+    return singleton;
   }
 
   /**
@@ -191,10 +207,8 @@ public class GameView extends View implements TickListener {
         int hs = checkHighScore();
         if (hs < score) {
           message = R.string.congrats;
-          try {
-            var outStream = getContext().openFileOutput(Constants.HIGH_SCORE, Context.MODE_PRIVATE);
-            outStream.write((""+score).getBytes());
-            outStream.close();
+          try (var outStream = getContext().openFileOutput(Constants.HIGH_SCORE, Context.MODE_PRIVATE)) {
+            outStream.write(Integer.parseInt(""+score));
           } catch (IOException e) {
             e.printStackTrace();
           }
@@ -258,13 +272,10 @@ public class GameView extends View implements TickListener {
    * @return  Highest Score recorded in the highScore.txt file
    */
   private int checkHighScore() {
-    try {
-      var inStream = getContext().openFileInput(Constants.HIGH_SCORE);
+    try (var inStream = getContext().openFileInput(Constants.HIGH_SCORE)) {
       Scanner s = new Scanner(inStream);
-      int hs = s.nextInt();
-      s.close();
-      return hs;
-    } catch (FileNotFoundException e) {
+      return s.nextInt();
+    } catch (IOException e) {
       return 0; // New Install
     }
   }

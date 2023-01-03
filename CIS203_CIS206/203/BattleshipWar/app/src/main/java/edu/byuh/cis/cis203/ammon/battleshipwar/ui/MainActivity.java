@@ -10,21 +10,19 @@ import edu.byuh.cis.cis203.ammon.battleshipwar.R;
 public class MainActivity extends AppCompatActivity {
 
   private MediaPlayer soundtrack;
-  private GameView gameDraw;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     soundtrack = MediaPlayer.create(this, R.raw.bw_soundtrack);
     soundtrack.setLooping(true);
-    gameDraw = new GameView(this);
-    setContentView(gameDraw);
+    setContentView(GameView.getInstance(this));
   }
 
   @Override
   protected void onResume() {
     super.onResume();
-    gameDraw.resume();
+    GameView.getInstance(this).resume();
     if (Prefs.soundtrack(this)) {
       soundtrack.start();
     }
@@ -33,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onPause() {
     super.onPause();
-    gameDraw.pause();
+    GameView.getInstance(this).pause();
     if (Prefs.soundtrack(this)) {
       soundtrack.pause();
     }
