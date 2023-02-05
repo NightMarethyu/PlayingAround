@@ -1,0 +1,4 @@
+﻿  MergeSort.cpp
+C:\codeBase\PlayingAround\Winter2023\CIS301\MergeSort\MergeSort\MergeSort\MergeSort.cpp(118,24): warning C4018: '<': signed/unsigned mismatch
+C:\codeBase\PlayingAround\Winter2023\CIS301\MergeSort\MergeSort\MergeSort\MergeSort.cpp(124,24): warning C4018: '<': signed/unsigned mismatch
+  MergeSort.vcxproj -> C:\codeBase\PlayingAround\Winter2023\CIS301\MergeSort\MergeSort\Debug\MergeSort.exe

@@ -1,6 +1,4 @@
 ﻿  BubbleSort.cpp
-C:\codeBase\PlayingAround\Winter2023\CIS301\BubbleSort\Fixed\BubbleSort\BubbleSort\BubbleSort.cpp(73,23): warning C4018: '<': signed/unsigned mismatch
-C:\codeBase\PlayingAround\Winter2023\CIS301\BubbleSort\Fixed\BubbleSort\BubbleSort\BubbleSort.cpp(74,40): warning C4018: '>': signed/unsigned mismatch
-  PersonData.cpp
-  Generating Code...
+C:\codeBase\PlayingAround\Winter2023\CIS301\BubbleSort\Fixed\BubbleSort\BubbleSort\BubbleSort.cpp(74,23): warning C4018: '<': signed/unsigned mismatch
+C:\codeBase\PlayingAround\Winter2023\CIS301\BubbleSort\Fixed\BubbleSort\BubbleSort\BubbleSort.cpp(75,40): warning C4018: '>': signed/unsigned mismatch
   BubbleSort.vcxproj -> C:\codeBase\PlayingAround\Winter2023\CIS301\BubbleSort\Fixed\BubbleSort\Debug\BubbleSort.exe

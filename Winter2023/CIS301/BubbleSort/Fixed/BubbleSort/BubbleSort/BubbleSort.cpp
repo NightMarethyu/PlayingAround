@@ -9,6 +9,7 @@ using namespace std;
 vector<string> parseString(string, char);
 PersonData* newPerson(vector<string>);
 int bubbleSort();
+void printIDs();
 
 // This will store all the people/employee data from the file as PersonData objects
 vector<PersonData*> people;
@@ -55,7 +56,7 @@ int main(int argc, char** argv)
     cout << "It took " << comparisons << " comparisons to sort this list" << endl;
 
     ofstream ofs;
-    ofs.open(path + "test.txt");
+    ofs.open(path + "sorted.txt");
     ofs << people.size() << endl;
 
     for (auto person : people) {
@@ -78,13 +79,19 @@ int bubbleSort() {
                 people.at(j - 1) = people.at(j - 2);
                 people.at(j - 2) = temp;
             }
-            for (auto person : people) {
-                cout << person->getID() << " ";
-            }
-            cout << endl;
+            //printIDs();
         }
     }
     return count;
+}
+
+// This will print the IDs of the array, I broke it out of the bubblesort function because it's easier to comment out and 
+// its easier to point out the big-O with it outside
+void printIDs() {
+    for (auto person : people) {
+        cout << person->getID() << " ";
+    }
+    cout << endl;
 }
 
 // This will separate the string given and return a vector of the string's data

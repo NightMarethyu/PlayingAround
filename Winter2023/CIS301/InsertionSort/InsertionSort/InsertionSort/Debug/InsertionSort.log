@@ -1,0 +1,3 @@
+﻿  InsertionSort.cpp
+C:\codeBase\PlayingAround\Winter2023\CIS301\InsertionSort\InsertionSort\InsertionSort\InsertionSort.cpp(75,23): warning C4018: '<=': signed/unsigned mismatch
+  InsertionSort.vcxproj -> C:\codeBase\PlayingAround\Winter2023\CIS301\InsertionSort\InsertionSort\Debug\InsertionSort.exe
