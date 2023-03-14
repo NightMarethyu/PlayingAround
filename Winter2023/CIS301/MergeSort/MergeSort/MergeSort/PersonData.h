@@ -19,4 +19,5 @@ public:
 	bool lessthen(PersonData*);
 	bool greaterthen(PersonData*);
 	bool lessEqual(PersonData*);
+	bool greaterEqual(PersonData*);
 };

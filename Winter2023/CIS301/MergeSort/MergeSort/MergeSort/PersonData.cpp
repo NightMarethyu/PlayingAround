@@ -42,3 +42,7 @@ bool PersonData::greaterthen(PersonData* other) {
 bool PersonData::lessEqual(PersonData* other) {
 	return id <= other->id;
 }
+
+bool PersonData::greaterEqual(PersonData* other) {
+	return id >= other->id;
+}

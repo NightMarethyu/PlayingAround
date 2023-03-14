@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Binary Search Tree Drawing</title>
+    <style>
+      #canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" height = 1500; width=1500></canvas>
+    <script>
+      // Define the binary tree as an array of nodes
+      const nodes = [87, 52, 27, 20, 8, 76, 25, 48, 1, 12, 66, 85, 5, 69, 7];
+
+      // Create a canvas element
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+
+      // Set up some constants
+      const WIDTH = canvas.width;
+      const HEIGHT = canvas.height;
+      const NODE_RADIUS = 20;
+      const NODE_SPACING = 50;
+
+      // Define the node class
+      class Node {
+        constructor(value, x, y) {
+          this.value = value;
+          this.left = null;
+          this.right = null;
+          this.x = x;
+          this.y = y;
+        }
+
+        // Draw the node on the canvas
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, NODE_RADIUS, 0, Math.PI * 2);
+          ctx.stroke();
+          ctx.fillText(this.value, this.x, this.y + 5);
+        }
+      }
+
+      // Define the binary search tree class
+      class BinarySearchTree {
+        constructor() {
+          this.root = null;
+        }
+
+        // Insert a value into the tree
+        insert(value) {
+          const node = new Node(value, 0, 0);
+          if (!this.root) {
+            this.root = node;
+            return;
+          }
+          let current = this.root;
+          while (true) {
+            if (value < current.value) {
+              if (!current.left) {
+                current.left = node;
+                break;
+              }
+              current = current.left;
+            } else {
+              if (!current.right) {
+                current.right = node;
+                break;
+              }
+              current = current.right;
+            }
+          }
+        }
+
+        // Traverse the tree and draw each node
+        draw() {
+          function traverse(node, depth, x, y) {
+            if (node) {
+              node.x = x;
+              node.y = y;
+              node.draw();
+              if (node.left) {
+                const x2 = x - NODE_SPACING / depth;
+                const y2 = y + NODE_SPACING;
+                ctx.beginPath();
+                ctx.moveTo(x, y + NODE_RADIUS);
+                ctx.lineTo(x2, y2 - NODE_RADIUS);
+                ctx.stroke();
+                traverse(node.left, depth + 1, x2, y2);
+              }
+              if (node.right) {
+                const x2 = x + NODE_SPACING / depth;
+                const y2 = y + NODE_SPACING;
+                ctx.beginPath();
+                ctx.moveTo(x, y + NODE_RADIUS);
+                ctx.lineTo(x2, y2 - NODE_RADIUS);
+                ctx.stroke();
+                traverse(node.right, depth + 1, x2, y2);
+              }
+            }
+          }
+          traverse(this.root, 1, WIDTH / 2, NODE_RADIUS);
+        }
+      }
+
+      // Create the binary search tree and insert the nodes
+      const bst = new BinarySearchTree();
+      for (const value of nodes) {
+        bst.insert(value);
+      }
+
+      // Draw the binary search tree
+      bst.draw();
+    </script>
+  </body>
+</html>

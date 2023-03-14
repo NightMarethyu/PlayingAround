@@ -21,7 +21,7 @@ int main(int argc, char** argv)
 {
 
     // If you are testing my code on a different system you will probably need to change this
-    string path = "C:\\codeBase\\PlayingAround\\Winter2023\\CIS301\\SelectionSort\\";
+    string path = "C:\\codeBase\\PlayingAround\\Winter2023\\CIS301\\MergeSort\\";
 
     // Check if the correct number of arguments are being used
     if (argc != 2) {
@@ -54,7 +54,7 @@ int main(int argc, char** argv)
     }
 
     // Here comes the sorting
-    mergeSort(0, people.size());
+    mergeSort(0, people.size() - 1);
 
     cout << "It took " << comparisons << " comparisons to sort this list" << endl;
 
@@ -77,57 +77,54 @@ void mergeSort(int low, int high) {
         return;
     }
     int mid = (low + high) / 2;
+    // recursive calls to merge sort
     mergeSort(low, mid);
     mergeSort(mid + 1, high);
     merge(low, mid, high);
 }
 
+// the merge function will bring two portions of the array together and ensure that they are organized appropriately
 void merge(int low, int mid, int high) {
     int nl = mid - low + 1;
     int nr = high - mid;
-    vector<PersonData*> L;
-    vector<PersonData*> R;
-
+    vector<PersonData*> left;
+    vector<PersonData*> right;
     for (int i = 0; i < nl; i++) {
-        L.push_back(people.at(low + i));
+        left.push_back(people.at(low + i));
     }
-    for (int i = 0; i < nr; i++) {
-        if (mid + i + 1 == people.size()) {
-            R.push_back(people.at(people.size() - 1));
-        }
-        else {
-            R.push_back(people.at(mid + i + 1));
-        }
+    for (int j = 0; j < nr; j++) {
+        right.push_back(people.at(mid + j + 1));
     }
+
     int i = 0;
     int j = 0;
     int k = low;
 
     while (i < nl && j < nr) {
         comparisons++;
-        if (L.at(i)->lessEqual(R.at(j))) {
-            people.at(k) = L.at(i);
+        if (left.at(i)->lessEqual(right.at(j))) {
+            people.at(k) = left.at(i);
             i++;
         }
         else {
-            people.at(k) = R.at(j);
+            people.at(k) = right.at(j);
             j++;
         }
         k++;
     }
     while (i < nl) {
         comparisons++;
-        people.at(k) = L.at(i);
+        people.at(k) = left.at(i);
         i++;
         k++;
     }
     while (j < nr) {
         comparisons++;
-        people.at(k) = R.at(j);
+        people.at(k) = right.at(j);
         j++;
         k++;
     }
-    printIDs();
+    //printIDs();
 }
 
 // This will print the IDs of the array, I broke it out of the bubblesort function because it's easier to comment out and 
