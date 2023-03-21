@@ -75,15 +75,20 @@ struct Edge {
 
 void DraperMST(Node* start) {
     vector<Edge*> mst_edges;
-    start->visited = true;
     int totalWeight = 0;
-    bucket.insert(bucket.end(), start->edges.begin(), start->edges.end());
+    for (auto e : start->edges) {
+        bucket.push_back(e);
+    }
     Edge* e = getBestEdge();
     while (e) {
         e->one->visited = true;
-        bucket.insert(bucket.end(), e->one->edges.begin(), e->one->edges.end());
+        for (auto t : e->one->edges) {
+            bucket.push_back(t);
+        }
         e->two->visited = true;
-        bucket.insert(bucket.end(), e->two->edges.begin(), e->two->edges.end());
+        for (auto t : e->two->edges) {
+            bucket.push_back(t);
+        }
         totalWeight += e->weight;
         mst_edges.push_back(e);
         e = getBestEdge();
@@ -97,21 +102,17 @@ void DraperMST(Node* start) {
 Edge* getBestEdge() {
     Edge* best = nullptr;
     while (best == nullptr && !bucket.empty()) {
-        for (auto e : bucket) {
-            if (best && best->weight > e->weight) {
+        best = bucket[0];
+        int bestIndex = 0;
+        for (int i = 0; i < bucket.size(); i++) {
+            auto e = bucket[i];
+            if (e->weight < best->weight) {
                 best = e;
-            }
-            else {
-                best = e;
+                bestIndex = i;
             }
         }
         if (best->one->visited && best->two->visited) {
-            for (int i = 0; i < bucket.size(); i++) {
-                auto e = bucket[i];
-                if (e == best) {
-                    bucket.erase(bucket.begin() + i);
-                }
-            }
+            bucket.erase(bucket.begin() + bestIndex);
             best = nullptr;
         }
     }
