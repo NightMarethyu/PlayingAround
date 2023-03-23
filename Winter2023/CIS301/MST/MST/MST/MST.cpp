@@ -22,7 +22,7 @@ int main(int argc, char** argv)
 {
     // Check if the correct number of arguments are being used
     if (argc != 2) {
-        cout << "Usage: \'FileInput.exe [filepath]\'" << endl;
+        cout << "Usage: \'MST.exe [filepath]\'" << endl;
         exit(1);
     }
 
@@ -38,18 +38,19 @@ int main(int argc, char** argv)
 
     string names;
     getline(ifs, names);
-    int later = 0;
 
+    // Create nodes for all the characters in the input string
     for (char let : names) {
         nodes[let] = newNode(let);
-        later++;
     }
 
+    // This is the node that we will start with
     char start = names[0];
 
     getline(ifs, names);
     int c = stoi(names);
 
+    // Create edges with the lines in the file
     for (int i = 0; i < c; i++) {
         getline(ifs, names);
         auto edgeInfo = split(names, ' ');
@@ -57,10 +58,12 @@ int main(int argc, char** argv)
         newEdge(nodes[edgeInfo[0][0]], nodes[edgeInfo[1][0]], w);
     }
 
+    // This function will do the bulk of the work
     DraperMST(nodes[start]);
 
 }
 
+// Here are my node and edge definitions
 struct Node {
     char name;
     vector<Edge*> edges;
@@ -73,22 +76,18 @@ struct Edge {
     int weight;
 };
 
+// This is based on Brother Draper's Pseudocode that he gave us. I found it fairly simple to implement
+// It will loop until it has found all the possible best edges in the Tree
 void DraperMST(Node* start) {
     vector<Edge*> mst_edges;
     int totalWeight = 0;
-    for (auto e : start->edges) {
-        bucket.push_back(e);
-    }
+    bucket.insert(end(bucket), begin(start->edges), end(start->edges));
     Edge* e = getBestEdge();
     while (e) {
         e->one->visited = true;
-        for (auto t : e->one->edges) {
-            bucket.push_back(t);
-        }
+        bucket.insert(end(bucket), begin(e->one->edges), end(e->one->edges));
         e->two->visited = true;
-        for (auto t : e->two->edges) {
-            bucket.push_back(t);
-        }
+        bucket.insert(end(bucket), begin(e->two->edges), end(e->two->edges));
         totalWeight += e->weight;
         mst_edges.push_back(e);
         e = getBestEdge();
@@ -99,6 +98,8 @@ void DraperMST(Node* start) {
     }
 }
 
+// This method will loop through the bucket and return the edge with the lowest weight who's nodes
+// are not both visited. It will return a null pointer if it can't find an edge that fits that definition
 Edge* getBestEdge() {
     Edge* best = nullptr;
     while (best == nullptr && !bucket.empty()) {
@@ -119,6 +120,7 @@ Edge* getBestEdge() {
     return best;
 }
 
+// this is a string spliting function that I've been using all semester
 vector<string> split(string s, char c) {
     vector<string> vals;
     size_t pos = 0;
@@ -132,6 +134,7 @@ vector<string> split(string s, char c) {
     return vals;
 }
 
+// This will generate a node that hasn't been visited with a name based on the input char
 Node* newNode(char n) {
     Node* temp = new Node;
     temp->name = n;
@@ -139,6 +142,7 @@ Node* newNode(char n) {
     return temp;
 }
 
+// This will generate a new edge and place that edge within the vectors of the nodes its connected to
 Edge* newEdge(Node* first, Node* second, int w) {
     Edge* temp = new Edge;
     temp->one = first;
@@ -151,6 +155,7 @@ Edge* newEdge(Node* first, Node* second, int w) {
     return temp;
 }
 
+// this prints out the information about an edge in an easy to read format
 void printEdge(Edge* e) {
     cout << "Edge: " << e->one->name << " " << e->two->name << endl;
 }
