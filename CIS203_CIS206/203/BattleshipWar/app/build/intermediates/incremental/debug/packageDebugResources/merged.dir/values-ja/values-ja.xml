@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_game">あなたは戦艦の司令官です。あなたは、できるだけ多くの敵の潜水艦と飛行機を破壊するために3分を持っています。</string>
+    <string name="about_title">バトルシップ・ウォーについて</string>
+    <string name="app_name">戦艦戦争</string>
+    <string name="congrats">おめでとうございます。新しいハイスコアです。あなたは誰よりも上手にエイリアンを撃退したのです</string>
+    <string name="exit">やめる</string>
+    <string name="fast">速い</string>
+    <string name="frugal_mode">倹約モード</string>
+    <string name="frugal_mode_off">武器が発射されてもスコアに変化はない</string>
+    <string name="frugal_mode_on">武器の使用は1回ごとに減点されます。</string>
+    <string name="game_end">よくやった兵士、君は侵略を生き延びた。</string>
+    <string name="l2r">左から右へ</string>
+    <string name="medium">中</string>
+    <string name="music_will_not_play">サウンドトラックが再生されない</string>
+    <string name="music_will_play">サウンドトラックが再生されます</string>
+    <string name="okay">オケー</string>
+    <string name="plane_count">プレーン数</string>
+    <string name="plane_count_sum">画面上に表示可能な飛行機 :</string>
+    <string name="plane_dir">プレーン方向</string>
+    <string name="plane_dir_sum">プレーン方向:</string>
+    <string name="plane_speed">機体速度</string>
+    <string name="plane_speed_sum">平均機速:</string>
+    <string name="play_again">もう一度プレイしますか？</string>
+    <string name="play_music">音楽を再生</string>
+    <string name="play_sound">効果音を鳴らす？</string>
+    <string name="r2l">右から左へ</string>
+    <string name="r_and_l">左右</string>
+    <string name="rapid_charges">ラピッドファイヤーデプスチャージを可能にする</string>
+    <string name="rapid_charges_off">一度に充電できる深さは1つだけ</string>
+    <string name="rapid_charges_on">マルチファイア対応</string>
+    <string name="rapid_missiles">ラピッドファイア・ミサイルを可能にする</string>
+    <string name="rapid_missiles_off">ミサイルは一度に一発だけ</string>
+    <string name="rapid_missiles_on">マルチファイア対応</string>
+    <string name="score">点数</string>
+    <string name="slow">スロー</string>
+    <string name="sound_will_not_play">サウンドエフェクトが再生されない</string>
+    <string name="sound_will_play">サウンドエフェクトが再生されます</string>
+    <string name="sub_count">潜水艦のカウント</string>
+    <string name="sub_count_sum">潜水艦の画面表示許可 :</string>
+    <string name="sub_dir">潜水艦の方向性</string>
+    <string name="sub_dir_sum">潜水艦の方向性:</string>
+    <string name="sub_speed">潜水艦の速度</string>
+    <string name="sub_speed_sum">潜水艦の平均速度:</string>
+    <string name="time">時間</string>
+    <string name="time_up">時間切れです</string>
+</resources>

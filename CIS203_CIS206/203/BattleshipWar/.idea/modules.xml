@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Battleship_War.iml" filepath="$PROJECT_DIR$/.idea/modules/Battleship_War.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Battleship_War.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Battleship_War.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Battleship_War.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Battleship_War.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Battleship_War.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Battleship_War.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Battleship_War.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Battleship_War.app.unitTest.iml" />
+    </modules>
+  </component>
+</project>

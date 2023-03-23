@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="08cce4b4-b9cd-4247-86b2-533cdd907b16" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../BattleshipWar/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BattleshipWar/app/src/main/java/edu/byuh/cis/cis203/ammon/battleshipwar/sprite/Airplane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BattleshipWar/app/src/main/java/edu/byuh/cis/cis203/ammon/battleshipwar/sprite/Battleship.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BattleshipWar/app/src/main/java/edu/byuh/cis/cis203/ammon/battleshipwar/sprite/Enemy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BattleshipWar/app/src/main/java/edu/byuh/cis/cis203/ammon/battleshipwar/sprite/Size.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BattleshipWar/app/src/main/java/edu/byuh/cis/cis203/ammon/battleshipwar/sprite/Sprite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../BattleshipWar/app/src/main/java/edu/byuh/cis/cis203/ammon/battleshipwar/sprite/Submarine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CurrentConditionsDisplay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DisplayElement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/HeatIndexDisplay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Observer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Subject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/WeatherData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../206/closedFormExample/main/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../206/closedFormExample/main/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../206/closedFormExample/main/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../206/closedFormExample/main/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../206/closedFormExample/main/main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../206/closedFormExample/main/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../CIS202/Assignments/FinalProject/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BattleshipWar/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../BattleshipWar/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BattleshipWar/app/src/main/java/edu/byuh/cis/cis203/ammon/battleshipwar/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BattleshipWar/app/src/main/java/edu/byuh/cis/cis203/ammon/battleshipwar/ui/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BattleshipWar/app/src/main/java/edu/byuh/cis/cis203/ammon/battleshipwar/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BattleshipWar/app/src/main/java/edu/byuh/cis/cis203/ammon/battleshipwar/ui/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BattleshipWar/app/src/main/res/drawable/little_airplane.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../BattleshipWar/app/src/main/res/drawable/little_airplane.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BattleshipWar/app/src/main/res/drawable/little_submarine.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../BattleshipWar/app/src/main/res/drawable/little_submarine.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BattleshipWar/app/src/main/res/drawable/water.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../BattleshipWar/app/src/main/res/drawable/water.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BattleshipWar/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../BattleshipWar/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2FNsnwjS2QCUXcqWtNwuAsmQEva" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="08cce4b4-b9cd-4247-86b2-533cdd907b16" name="Changes" comment="" />
+      <created>1664344047258</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1664344047258</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

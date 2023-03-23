@@ -1,0 +1,198 @@
+[
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-debug-34:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/drawable_little_airplane.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/drawable/little_airplane.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-debug-34:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/raw_sub_explosion.wav.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/raw/sub_explosion.wav"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-debug-34:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-debug-34:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/raw_depth_charge_drop.wav.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/raw/depth_charge_drop.wav"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/drawable_submarine_explosion.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/drawable/submarine_explosion.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/drawable-en-rGB_splash.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/drawable-en-rGB/splash.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/drawable_airplane_explosion.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/drawable/airplane_explosion.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/drawable-v24_splash.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/drawable-v24/splash.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/drawable_little_submarine.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/drawable/little_submarine.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-debug-34:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/drawable_depth_charge.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/drawable/depth_charge.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-debug-34:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-debug-34:/mipmap-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-debug-34:/mipmap-mdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/raw_bw_soundtrack.wav.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/raw/bw_soundtrack.wav"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/drawable_little_submarine_flip.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/drawable/little_submarine_flip.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/layout_activity_main.xml.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/layout/activity_main.xml"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/drawable_big_airplane.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/drawable/big_airplane.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/xml_root_preferences.xml.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/xml/root_preferences.xml"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-debug-34:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-debug-34:/mipmap-hdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-debug-34:/mipmap-xxxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/drawable_star.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/drawable/star.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/xml_data_extraction_rules.xml.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/drawable_big_submarine.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/drawable/big_submarine.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-debug-34:/mipmap-xhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/drawable_medium_submarine_flip.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/drawable/medium_submarine_flip.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-debug-34:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/layout_settings_activity.xml.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/layout/settings_activity.xml"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/raw_depth_charge_beep.wav.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/raw/depth_charge_beep.wav"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/drawable_battleship.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/drawable/battleship.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/raw_plane_explosion.wav.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/raw/plane_explosion.wav"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/drawable_water.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/drawable/water.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/drawable_medium_airplane.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/drawable/medium_airplane.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/drawable_big_submarine_flip.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/drawable/big_submarine_flip.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/drawable_ic_launcher_background.xml.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-debug-34:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-debug-34:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/drawable_medium_airplane_flip.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/drawable/medium_airplane_flip.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/xml_backup_rules.xml.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/drawable_little_airplane_flip.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/drawable/little_airplane_flip.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-debug-34:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/raw_missle_launch.wav.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/raw/missle_launch.wav"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-debug-34:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/drawable_medium_submarine.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/drawable/medium_submarine.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-debug-34:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "edu.byuh.cis.cis203.ammon.battleshipwar.app-merged_res-33:/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "edu.byuh.cis.cis203.ammon.battleshipwar.app-main-35:/drawable-v24/ic_launcher_foreground.xml"
+    }
+]
