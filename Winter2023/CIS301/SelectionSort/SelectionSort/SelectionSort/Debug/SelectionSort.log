@@ -1,0 +1,4 @@
+﻿  SelectionSort.cpp
+C:\codeBase\PlayingAround\Winter2023\CIS301\SelectionSort\SelectionSort\SelectionSort\SelectionSort.cpp(75,23): warning C4018: '<=': signed/unsigned mismatch
+C:\codeBase\PlayingAround\Winter2023\CIS301\SelectionSort\SelectionSort\SelectionSort\SelectionSort.cpp(77,31): warning C4018: '<=': signed/unsigned mismatch
+  SelectionSort.vcxproj -> C:\codeBase\PlayingAround\Winter2023\CIS301\SelectionSort\SelectionSort\Debug\SelectionSort.exe

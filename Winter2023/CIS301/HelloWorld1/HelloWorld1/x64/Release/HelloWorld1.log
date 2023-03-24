@@ -1,0 +1,9 @@
+﻿  HelloWorld1.cpp
+C:\codeBase\PlayingAround\Winter2023\CIS 301\HelloWorld1\HelloWorld1\HelloWorld1.cpp(9,28): warning C4129: ',': unrecognized character escape sequence
+C:\codeBase\PlayingAround\Winter2023\CIS 301\HelloWorld1\HelloWorld1\HelloWorld1.cpp(14,26): warning C4129: ',': unrecognized character escape sequence
+  Generating code
+  1 of 81 functions ( 1.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  HelloWorld1.vcxproj -> C:\codeBase\PlayingAround\Winter2023\CIS 301\HelloWorld1\x64\Release\HelloWorld1.exe
