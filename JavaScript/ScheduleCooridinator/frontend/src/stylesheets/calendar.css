@@ -1,0 +1,30 @@
+.calendar-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 days of the week */
+  gap: 10px;
+}
+
+.day-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.day-header {
+  font-weight: bold;
+  background-color: #3c3c3c;
+  padding: 10px;
+  text-align: center;
+}
+
+.hour-cell {
+  padding: 5px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.no-select {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
