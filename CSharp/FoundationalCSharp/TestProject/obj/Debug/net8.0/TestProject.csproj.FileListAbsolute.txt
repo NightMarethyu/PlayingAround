@@ -1,0 +1,15 @@
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\TestProject\bin\Debug\net8.0\TestProject.exe
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\TestProject\bin\Debug\net8.0\TestProject.deps.json
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\TestProject\bin\Debug\net8.0\TestProject.runtimeconfig.json
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\TestProject\bin\Debug\net8.0\TestProject.dll
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\TestProject\bin\Debug\net8.0\TestProject.pdb
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\TestProject\obj\Debug\net8.0\TestProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\TestProject\obj\Debug\net8.0\TestProject.AssemblyInfoInputs.cache
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\TestProject\obj\Debug\net8.0\TestProject.AssemblyInfo.cs
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\TestProject\obj\Debug\net8.0\TestProject.csproj.CoreCompileInputs.cache
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\TestProject\obj\Debug\net8.0\TestProject.sourcelink.json
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\TestProject\obj\Debug\net8.0\TestProject.dll
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\TestProject\obj\Debug\net8.0\refint\TestProject.dll
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\TestProject\obj\Debug\net8.0\TestProject.pdb
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\TestProject\obj\Debug\net8.0\TestProject.genruntimeconfig.cache
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\TestProject\obj\Debug\net8.0\ref\TestProject.dll
