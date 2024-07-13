@@ -1,0 +1,15 @@
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\booleanLogic\bin\Debug\net8.0\booleanLogic.exe
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\booleanLogic\bin\Debug\net8.0\booleanLogic.deps.json
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\booleanLogic\bin\Debug\net8.0\booleanLogic.runtimeconfig.json
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\booleanLogic\bin\Debug\net8.0\booleanLogic.dll
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\booleanLogic\bin\Debug\net8.0\booleanLogic.pdb
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\booleanLogic\obj\Debug\net8.0\booleanLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\booleanLogic\obj\Debug\net8.0\booleanLogic.AssemblyInfoInputs.cache
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\booleanLogic\obj\Debug\net8.0\booleanLogic.AssemblyInfo.cs
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\booleanLogic\obj\Debug\net8.0\booleanLogic.csproj.CoreCompileInputs.cache
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\booleanLogic\obj\Debug\net8.0\booleanLogic.sourcelink.json
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\booleanLogic\obj\Debug\net8.0\booleanLogic.dll
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\booleanLogic\obj\Debug\net8.0\refint\booleanLogic.dll
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\booleanLogic\obj\Debug\net8.0\booleanLogic.pdb
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\booleanLogic\obj\Debug\net8.0\booleanLogic.genruntimeconfig.cache
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\booleanLogic\obj\Debug\net8.0\ref\booleanLogic.dll
