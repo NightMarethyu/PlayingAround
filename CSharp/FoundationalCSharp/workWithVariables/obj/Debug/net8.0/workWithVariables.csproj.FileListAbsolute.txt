@@ -1,0 +1,15 @@
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\workWithVariables\bin\Debug\net8.0\workWithVariables.exe
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\workWithVariables\bin\Debug\net8.0\workWithVariables.deps.json
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\workWithVariables\bin\Debug\net8.0\workWithVariables.runtimeconfig.json
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\workWithVariables\bin\Debug\net8.0\workWithVariables.dll
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\workWithVariables\bin\Debug\net8.0\workWithVariables.pdb
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\workWithVariables\obj\Debug\net8.0\workWithVariables.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\workWithVariables\obj\Debug\net8.0\workWithVariables.AssemblyInfoInputs.cache
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\workWithVariables\obj\Debug\net8.0\workWithVariables.AssemblyInfo.cs
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\workWithVariables\obj\Debug\net8.0\workWithVariables.csproj.CoreCompileInputs.cache
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\workWithVariables\obj\Debug\net8.0\workWithVariables.sourcelink.json
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\workWithVariables\obj\Debug\net8.0\workWithVariables.dll
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\workWithVariables\obj\Debug\net8.0\refint\workWithVariables.dll
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\workWithVariables\obj\Debug\net8.0\workWithVariables.pdb
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\workWithVariables\obj\Debug\net8.0\workWithVariables.genruntimeconfig.cache
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\workWithVariables\obj\Debug\net8.0\ref\workWithVariables.dll
