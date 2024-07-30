@@ -1,0 +1,15 @@
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\createMethods\bin\Debug\net8.0\createMethods.exe
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\createMethods\bin\Debug\net8.0\createMethods.deps.json
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\createMethods\bin\Debug\net8.0\createMethods.runtimeconfig.json
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\createMethods\bin\Debug\net8.0\createMethods.dll
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\createMethods\bin\Debug\net8.0\createMethods.pdb
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\createMethods\obj\Debug\net8.0\createMethods.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\createMethods\obj\Debug\net8.0\createMethods.AssemblyInfoInputs.cache
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\createMethods\obj\Debug\net8.0\createMethods.AssemblyInfo.cs
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\createMethods\obj\Debug\net8.0\createMethods.csproj.CoreCompileInputs.cache
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\createMethods\obj\Debug\net8.0\createMethods.sourcelink.json
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\createMethods\obj\Debug\net8.0\createMethods.dll
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\createMethods\obj\Debug\net8.0\refint\createMethods.dll
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\createMethods\obj\Debug\net8.0\createMethods.pdb
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\createMethods\obj\Debug\net8.0\createMethods.genruntimeconfig.cache
+C:\Users\recruitment\Documents\AmmonsWork\Testing\Code\PlayingAround\CSharp\FoundationalCSharp\createMethods\obj\Debug\net8.0\ref\createMethods.dll
